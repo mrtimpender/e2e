@@ -1,0 +1,40 @@
+extends ../layout
+block content 
+  #loader-wrapper
+    #loader
+    .loader-section.section-left
+    .loader-section.section-right
+  #login-page.row
+    .col.s12.z-depth-4.card-panel
+      form.login-form
+        .row
+          .input-field.col.s12.center
+            h4 Register
+            p.center Join to our community now !
+        .row.margin
+          .input-field.col.s12
+            i.mdi-social-person-outline.prefix
+            input#username(type='text')
+            label.center-align(for='username') Username
+        .row.margin
+          .input-field.col.s12
+            i.mdi-communication-email.prefix
+            input#email(type='email')
+            label.center-align(for='email') Email
+        .row.margin
+          .input-field.col.s12
+            i.mdi-action-lock-outline.prefix
+            input#password(type='password')
+            label(for='password') Password
+        .row.margin
+          .input-field.col.s12
+            i.mdi-action-lock-outline.prefix
+            input#password-again(type='password')
+            label(for='password-again') Password again
+        .row
+          .input-field.col.s12
+            a.btn.waves-effect.waves-light.col.s12(href='index.html') Register Now
+          .input-field.col.s12
+            p.margin.center.medium-small.sign-up
+              | Already have an account? 
+              a(href='page-login.html') Login
