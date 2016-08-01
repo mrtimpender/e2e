@@ -6,8 +6,8 @@ exports.up = function(knex, Promise) {
     table.string('lastname')
     table.string('e2e_username')
     table.string('e2e_password')
-    table.string('uber_key')
-    table.string('lyft_key')
+    table.string('uber_key', 1000)
+    table.string('lyft_key', 1000)
   })
 };
 

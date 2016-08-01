@@ -1,0 +1,36 @@
+extends ../layout
+block content 
+  #loader-wrapper
+    #loader
+    .loader-section.section-left
+    .loader-section.section-right
+  #login-page.row
+    .col.s12.z-depth-4.card-panel
+      form.login-form(method="post", action="/login/completeRegistration")
+        input(type="hidden", name="lyft_key", value="#{lyft_key}")
+        .row
+          .input-field.col.s12.center
+            h4 You're almost done!
+            p.center enter a username and password for e2e to complete registration.
+        .row.margin
+          .input-field.col.s12
+            i.mdi-social-person-outline.prefix
+            input#username(type='text', name="e2e_username")
+            label.center-align(for='username') Username
+        .row.margin
+          .input-field.col.s12
+            i.mdi-action-lock-outline.prefix
+            input#password(type='password', required, name="e2e_password")
+            label(for='password') Password
+        .row.margin
+          .input-field.col.s12
+            i.mdi-action-lock-outline.prefix
+            input#password-again(type='password', required)
+            label(for='password-again') Password again
+        .row
+          .input-field.col.s12
+            button.btn.waves-effect.waves-light.col.s12(type="submit") Register Now
+          .input-field.col.s12
+            p.margin.center.medium-small.sign-up
+              | Already have an account? 
+              a(href='/login') Login
