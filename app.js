@@ -7,7 +7,8 @@ var bodyParser = require('body-parser');
 require('dotenv').config()
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var login = require('./routes/login')
+var login = require('./routes/login');
+var dashboard = require('./routes/dashboard');
 var app = express();
 var passport = require('passport')
 var passportStrategies = require('./lib/passport_strategies')
@@ -33,7 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/nm', express.static(__dirname + '/node_modules/'));
 app.use('/', routes);
 app.use('/users', users);
-app.use('/login', login)
+app.use('/login', login);
+app.use('/dashboard', dashboard);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
