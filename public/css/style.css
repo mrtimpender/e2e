@@ -17,6 +17,11 @@ body {
   background-color: #f9f9f9;
 }
 
+#map {
+  height: 60vh;
+  width: 60vw;
+}
+
 #main {
   padding-left: 240px;
 }
@@ -556,7 +561,7 @@ input.header-search-input:focus {
     Sidebar
 ====================================================================================*/
 /*----------------------------------------
-    Sidebar Main Menu 
+    Sidebar Main Menu
 ------------------------------------------*/
 nav.top-nav {
   height: 122px;
