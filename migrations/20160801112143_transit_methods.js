@@ -4,6 +4,7 @@ exports.up = function(knex, Promise) {
     table.increments('id').primary()
     table.string('transit_type')
     table.boolean('preferred_method')
+    table.integer('user_id').references('e2e_users.id')
   })
 };
 
