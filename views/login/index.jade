@@ -4,7 +4,6 @@ block content
     #loader
     .loader-section.section-left
     .loader-section.section-right
-  // End Page Loading
   #login-page.row
     .col.s12.z-depth-4.card-panel
       form.login-form
@@ -28,7 +27,13 @@ block content
             label(for='remember-me') Remember me
         .row
           .input-field.col.s12
-            a.btn.waves-effect.waves-light.col.s12(href='index.html') Login
+            a.btn.waves-effect.waves-light.col.s12.green(href='index.html') Login
+        .row
+          .input-field.col.s12
+            a.btn.waves-effect.waves-light.col.s12(href='/auth/lyft') Login with Lyft
+        .row
+          .input-field.col.s12
+            a.btn.waves-effect.waves-light.col.s12.black(href='index.html') Login with Uber
         .row
           .input-field.col.s6.m6.l6
             p.margin.medium-small
