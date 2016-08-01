@@ -23,5 +23,5 @@ router.route('/completeRegistration')
   .post((req, res, next) => {
     userQueries.createUser(req.body).then((resp) => res.redirect('/'))
 
-  })
+  }) 
 module.exports = router;
