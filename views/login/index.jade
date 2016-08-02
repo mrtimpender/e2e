@@ -6,6 +6,8 @@ block content
     .loader-section.section-right
   #login-page.row
     .col.s12.z-depth-4.card-panel
+      if message
+        div #{message}
       form.login-form
         .row
           .input-field.col.s12.center
@@ -37,7 +39,7 @@ block content
         .row
           .input-field.col.s6.m6.l6
             p.margin.medium-small
-              a(href='page-register.html') Register Now!
+              a(href='/login/register') Register Now!
           .input-field.col.s6.m6.l6
             p.margin.right-align.medium-small
-              a(href='page-forgot-password.html') Forgot password ?
+              a(href='/login/forgot_pass') Forgot password ?
