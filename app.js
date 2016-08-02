@@ -14,6 +14,8 @@ var passport = require('passport')
 var passportStrategies = require('./lib/passport_strategies')
 app.use(logger('dev'))
 
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
