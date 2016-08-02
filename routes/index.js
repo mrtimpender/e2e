@@ -13,14 +13,15 @@ router.get('/dashTest', (req, res, next) => {
 router.get('/allUsers', (req, res, next) => {
   userQueries.getAllUsers().then((resp) => res.json(resp))
 })
+
 router.get('/auth/lyft',
   passport.authenticate('lyft', { scope: ['public','profile','rides.read'] }
 ));
- 
+
 router.get('/lyftAuth', passport.authenticate('lyft', { failureRedirect: '/fail' }),
   (req, res) => {
     console.log(req.session);
-    
+
   // create entry in user table with our token
   res.redirect('/login/completeRegistration')
 });

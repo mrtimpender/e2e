@@ -9,3 +9,12 @@ NOTE:
 ------
 PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+.dark-primary-color    { background-color: #512DA8; }
+.primary-color 				{ background-color: #673AB7; }
+.light-primary-color   { background-color: #D1C4E9; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background-color: #00BCD4; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }
