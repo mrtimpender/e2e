@@ -1,4 +1,3 @@
-
 window.onload = function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 11
@@ -34,10 +33,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function initMap() {
   var directionsDisplay = new google.maps.DirectionsRenderer;
   var directionsService = new google.maps.DirectionsService;
+  var trafficLayer = new google.maps.TrafficLayer();
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
   });
   directionsDisplay.setMap(map);
+  trafficLayer.setMap(null);
+
+  $('#showTraffic').click(function() {
+    trafficLayer.getMap() == null ? trafficLayer.setMap(map) : trafficLayer.setMap(null);
+  })
 
   calculateAndDisplayRoute(directionsService, directionsDisplay);
   document.getElementById('mode').addEventListener('change', function() {
@@ -47,16 +52,11 @@ function initMap() {
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   var startPoint = document.getElementById('start-point').value;
-  console.log(startPoint);
   var endPoint = document.getElementById('end-point').value;
-  console.log(endPoint);
   var selectedMode = document.getElementById('mode').value;
   directionsService.route({
-    origin: startPoint,  // Haight.
-    destination: endPoint,  // Ocean Beach.
-    // Note that Javascript allows us to access the constant
-    // using square brackets and a string value as its
-    // "property."
+    origin: startPoint,
+    destination: endPoint,
     travelMode: google.maps.TravelMode[selectedMode]
   }, function(response, status) {
     if (status == 'OK') {
