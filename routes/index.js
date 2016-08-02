@@ -7,6 +7,10 @@ router.get('/', (req, res, next) => {
   res.render('index', { title: 'Express Yeah!' });
 })
 router.get('/dashTest', (req, res, next) => {
+  res.render('dash/index')
+})
+
+router.get('/profileTest', (req, res, next) => {
   res.render('dash/profile')
 })
 

@@ -1,4 +1,6 @@
 window.onload = function initMap() {
+  var trip = {};
+
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 11
   });
@@ -102,10 +104,10 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   geocoder.geocode({ 'address': startPoint }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       var address1 = {
-        
+
       }
       console.log(results[0].formatted_address);
-      console.log(parseFloat(results[0].geometry.location.lat()));
+      trip['origin_lat'] = parseFloat(results[0].geometry.location.lat()));
       console.log(parseFloat(results[0].geometry.location.lng()));
     }
   })

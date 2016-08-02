@@ -4,7 +4,6 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('user_trips', function(table){
         table.increments('id').primary()
         table.integer('user_id').references('e2e_users.id')
-        table.string('origin_destination')
         table.string('trans_mode')
         table.string('origin_formatted_address')
         table.float('origin_lat')
@@ -44,8 +43,8 @@ exports.up = function(knex, Promise) {
         table.string('created_at')
         table.string('updated_at')
       })
-  ])} 
-  
+  ])}
+
 
 exports.down = function(knex, Promise) {
 
