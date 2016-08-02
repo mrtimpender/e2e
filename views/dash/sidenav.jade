@@ -1,0 +1,294 @@
+extends index
+
+block sidenav
+  // START MAIN
+  #main
+    // START WRAPPER
+    .wrapper
+      // START LEFT SIDEBAR NAV
+      aside#left-sidebar-nav
+        ul#slide-out.side-nav.fixed.leftside-navigation
+          li.user-details.cyan.darken-2
+            .row
+              .col.col.s4.m4.l4
+                img.circle.responsive-img.valign.profile-image(src='images/avatar.jpg', alt='')
+              .col.col.s8.m8.l8
+                ul#profile-dropdown.dropdown-content
+                  li
+                    a(href='#')
+                      i.mdi-action-face-unlock
+                      |  Profile
+                  li
+                    a(href='#')
+                      i.mdi-action-settings
+                      |  Settings
+                  li
+                    a(href='#')
+                      i.mdi-communication-live-help
+                      |  Help
+                  li.divider
+                  li
+                    a(href='#')
+                      i.mdi-action-lock-outline
+                      |  Lock
+                  li
+                    a(href='#')
+                      i.mdi-hardware-keyboard-tab
+                      |  Logout
+                a.btn-flat.dropdown-button.waves-effect.waves-light.white-text.profile-btn(href='#', data-activates='profile-dropdown')
+                  | John Doe
+                  i.mdi-navigation-arrow-drop-down.right
+                p.user-roal Administrator
+          li.bold
+            a.waves-effect.waves-cyan(href='index.html')
+              i.mdi-action-dashboard
+              |  Dashboard
+          li.no-padding
+            ul.collapsible.collapsible-accordion
+              li.bold
+                a.collapsible-header.waves-effect.waves-cyan
+                  i.mdi-action-view-carousel
+                  |  Layouts
+                .collapsible-body
+                  ul
+                    li
+                      a(href='layout-fullscreen.html') Full Screen
+                    li
+                      a(href='layout-horizontal-menu.html') Horizontal Menu
+          li.bold
+            a.waves-effect.waves-cyan(href='app-email.html')
+              i.mdi-communication-email
+              |  Mailbox 
+              span.new.badge 4
+          li.bold
+            a.waves-effect.waves-cyan(href='app-calendar.html')
+              i.mdi-editor-insert-invitation
+              |  Calender
+          li.no-padding
+            ul.collapsible.collapsible-accordion
+              li.bold
+                a.collapsible-header.waves-effect.waves-cyan
+                  i.mdi-action-invert-colors
+                  |  CSS
+                .collapsible-body
+                  ul
+                    li
+                      a(href='css-typography.html') Typography
+                    li
+                      a(href='css-icons.html') Icons
+                    li
+                      a(href='css-animations.html') Animations
+                    li
+                      a(href='css-shadow.html') Shadow
+                    li
+                      a(href='css-media.html') Media
+                    li
+                      a(href='css-sass.html') Sass
+              li.bold
+                a.collapsible-header.waves-effect.waves-cyan
+                  i.mdi-image-palette
+                  |  UI Elements
+                .collapsible-body
+                  ul
+                    li
+                      a(href='ui-alerts.html') Alerts
+                    li
+                      a(href='ui-buttons.html') Buttons
+                    li
+                      a(href='ui-badges.html') Badges
+                    li
+                      a(href='ui-breadcrumbs.html') Breadcrumbs
+                    li
+                      a(href='ui-collections.html') Collections
+                    li
+                      a(href='ui-collapsibles.html') Collapsibles
+                    li
+                      a(href='ui-tabs.html') Tabs
+                    li
+                      a(href='ui-navbar.html') Navbar
+                    li
+                      a(href='ui-pagination.html') Pagination
+                    li
+                      a(href='ui-preloader.html') Preloader
+                    li
+                      a(href='ui-toasts.html') Toasts
+                    li
+                      a(href='ui-tooltip.html') Tooltip
+                    li
+                      a(href='ui-waves.html') Waves
+              li.bold
+                a.collapsible-header.waves-effect.waves-cyan.active
+                  i.mdi-av-queue
+                  |  Advanced UI 
+                  span.new.badge
+                .collapsible-body
+                  ul
+                    li
+                      a(href='advanced-ui-chips.html') Chips
+                    li.active
+                      a(href='advanced-ui-cards.html') Cards
+                    li
+                      a(href='advanced-ui-modals.html') Modals
+                    li
+                      a(href='advanced-ui-media.html') Media
+                    li
+                      a(href='advanced-ui-range-slider.html') Range Slider
+                    li
+                      a(href='advanced-ui-sweetalert.html') SweetAlert
+                    li
+                      a(href='advanced-ui-nestable.html') Shortable & Nestable
+                    li
+                      a(href='advanced-ui-translation.html') Language Translation
+                    li
+                      a(href='advanced-ui-highlight.html') Highlight
+              li.bold
+                a.waves-effect.waves-cyan(href='app-widget.html')
+                  i.mdi-device-now-widgets
+                  |  Widgets
+              li.bold
+                a.collapsible-header.waves-effect.waves-cyan
+                  i.mdi-editor-border-all
+                  |  Tables
+                .collapsible-body
+                  ul
+                    li
+                      a(href='table-basic.html') Basic Tables
+                    li
+                      a(href='table-data.html') Data Tables
+                    li
+                      a(href='table-jsgrid.html') jsGrid
+                    li
+                      a(href='table-editable.html') Editable Table
+                    li
+                      a(href='table-floatThead.html') floatThead
+              li.bold
+                a.collapsible-header.waves-effect.waves-cyan
+                  i.mdi-editor-insert-comment
+                  |  Forms 
+                  span.new.badge
+                .collapsible-body
+                  ul
+                    li
+                      a(href='form-elements.html') Form Elements
+                    li
+                      a(href='form-layouts.html') Form Layouts
+                    li
+                      a(href='form-validation.html') Form Validations
+                    li
+                      a(href='form-masks.html') Form Masks
+                    li
+                      a(href='form-file-uploads.html') File Uploads
+              li.bold
+                a.collapsible-header.waves-effect.waves-cyan
+                  i.mdi-social-pages
+                  |  Pages
+                .collapsible-body
+                  ul
+                    li
+                      a(href='page-contact.html') Contact Page
+                    li
+                      a(href='page-todo.html') ToDos
+                    li
+                      a(href='page-blog-1.html') Blog Type 1
+                    li
+                      a(href='page-blog-2.html') Blog Type 2
+                    li
+                      a(href='page-404.html') 404
+                    li
+                      a(href='page-500.html') 500
+                    li
+                      a(href='page-blank.html') Blank
+              li.bold
+                a.collapsible-header.waves-effect.waves-cyan
+                  i.mdi-action-shopping-cart
+                  |  eCommers
+                .collapsible-body
+                  ul
+                    li
+                      a(href='eCommerce-products-page.html') Products Page
+                    li
+                      a(href='eCommerce-pricing.html') Pricing Table
+                    li
+                      a(href='eCommerce-invoice.html') Invoice
+              li.bold
+                a.collapsible-header.waves-effect.waves-cyan
+                  i.mdi-image-image
+                  |  Medias
+                .collapsible-body
+                  ul
+                    li
+                      a(href='media-gallary-page.html') Gallery Page
+                    li
+                      a(href='media-hover-effects.html') Image Hover Effects
+              li.bold
+                a.collapsible-header.waves-effect.waves-cyan
+                  i.mdi-action-account-circle
+                  |  User
+                .collapsible-body
+                  ul
+                    li
+                      a(href='user-profile-page.html') User Profile
+                    li
+                      a(href='user-login.html') Login
+                    li
+                      a(href='user-register.html') Register
+                    li
+                      a(href='user-forgot-password.html') Forgot Password
+                    li
+                      a(href='user-lock-screen.html') Lock Screen
+                    li
+                      a(href='user-session-timeout.html') Session Timeout
+              li.bold
+                a.collapsible-header.waves-effect.waves-cyan
+                  i.mdi-editor-insert-chart
+                  |  Charts
+                .collapsible-body
+                  ul
+                    li
+                      a(href='charts-chartjs.html') Chart JS
+                    li
+                      a(href='charts-chartist.html') Chartist
+                    li
+                      a(href='charts-morris.html') Morris Charts
+                    li
+                      a(href='charts-xcharts.html') xCharts
+                    li
+                      a(href='charts-flotcharts.html') Flot Charts
+                    li
+                      a(href='charts-sparklines.html') Sparkline Charts
+          li.li-hover
+            .divider
+          li.li-hover
+            p.ultra-small.margin.more-text MORE
+          li
+            a(href='angular-ui.html')
+              i.mdi-action-verified-user
+              |  Angular UI  
+              span.new.badge
+          li
+            a(href='css-grid.html')
+              i.mdi-image-grid-on
+              |  Grid
+          li
+            a(href='css-color.html')
+              i.mdi-editor-format-color-fill
+              |  Color
+          li
+            a(href='css-helpers.html')
+              i.mdi-communication-live-help
+              |  Helpers
+          li
+            a(href='changelogs.html')
+              i.mdi-action-swap-vert-circle
+              |  Changelogs
+          li.li-hover
+            .divider
+          li.li-hover
+            p.ultra-small.margin.more-text Daily Sales
+          li.li-hover
+            .row
+              .col.s12.m12.l12
+                .sample-chart-wrapper
+                  #ct2-chart.ct-chart.ct-golden-section
+        a.sidebar-collapse.btn-floating.btn-medium.waves-effect.waves-light.hide-on-large-only.cyan(href='#', data-activates='slide-out')
+          i.mdi-navigation-menu
