@@ -6,7 +6,7 @@ block content
     .loader-section.section-right
   #login-page.row
     .col.s12.z-depth-4.card-panel
-      form.login-form
+      form.login-form(action="/login/register/", method="POST")
         .row
           .input-field.col.s12.center
             h4 Register
@@ -14,17 +14,17 @@ block content
         .row.margin
           .input-field.col.s12
             i.mdi-social-person-outline.prefix
-            input#username(type='text')
+            input#username(name="e2e_username", type='text')
             label.center-align(for='username') Username
         .row.margin
           .input-field.col.s12
             i.mdi-communication-email.prefix
-            input#email(type='email')
+            input#email(name="e2e_email", type='email')
             label.center-align(for='email') Email
         .row.margin
           .input-field.col.s12
             i.mdi-action-lock-outline.prefix
-            input#password(type='password')
+            input#password(name="e2e_password", type='password')
             label(for='password') Password
         .row.margin
           .input-field.col.s12
@@ -33,8 +33,8 @@ block content
             label(for='password-again') Password again
         .row
           .input-field.col.s12
-            a.btn.waves-effect.waves-light.col.s12(href='index.html') Register Now
+            button.btn.waves-effect.waves-light.col.s12(type="submit") Register Now
           .input-field.col.s12
             p.margin.center.medium-small.sign-up
               | Already have an account? 
-              a(href='page-login.html') Login
+              a(href='/login') Login
