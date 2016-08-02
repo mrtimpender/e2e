@@ -15,11 +15,11 @@ router.get('/forgot_pass', (req, res, next) => {
   res.render('login/forgot_pass')
 })
 // register
-router.route('/register') 
+router.route('/register')
   .get((req, res, next) => {
     res.render('login/register')
   })
-  .post((req, res, next) => {    
+  .post((req, res, next) => {
     userTable.findOrCreateByProperty({
       e2e_username: req.body.e2e_username,
       e2e_password: req.body.e2e_passowrd,
@@ -30,15 +30,18 @@ router.route('/register')
       res.render('login/index', {message:"Account created. Please login."})
     }).catch((e) => console.log(e))
   })
+
 // after oauth register
 router.route('/completeRegistration')
   .get((req, res, next) => {
+    console.log(req.session);
+
     res.render('login/additional_info', {
-      lyft_key: req.session.passport.user.accessToken
+      uber_uuid: req.session.passport.user.uuid
     })
   })
   .post((req, res, next) => {
     userQueries.createUser(req.body).then((resp) => res.redirect('/'))
 
-  }) 
+  })
 module.exports = router;

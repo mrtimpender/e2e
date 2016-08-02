@@ -7,7 +7,7 @@ block content
   #login-page.row
     .col.s12.z-depth-4.card-panel
       form.login-form(method="post", action="/login/completeRegistration")
-        input(type="hidden", name="lyft_key", value="#{lyft_key}")
+        input(type="hidden", name="lyft_key", value="#{uber_uuid}")
         .row
           .input-field.col.s12.center
             h4 You're almost done!
@@ -33,4 +33,4 @@ block content
           .input-field.col.s12
             p.margin.center.medium-small.sign-up
               | Already have an account? 
-              a(href='/login') Login
+              a(href='/dashTest') Login
