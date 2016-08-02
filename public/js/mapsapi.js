@@ -1,35 +1,41 @@
-//
-// function initMap() {
-//   var map = new google.maps.Map(document.getElementById('map'), {
-//     zoom: 11
-//   });
-//   var infoWindow = new google.maps.InfoWindow({map: map});
-//   // Try HTML5 geolocation.
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(function(position) {
-//       var pos = {
-//         lat: position.coords.latitude,
-//         lng: position.coords.longitude
-//       };
-//
-//       infoWindow.setPosition(pos);
-//       infoWindow.setContent('Location found.');
-//       map.setCenter(pos);
-//     }, function() {
-//       handleLocationError(true, infoWindow, map.getCenter());
-//     });
-//   } else {
-//     // Browser doesn't support Geolocation
-//     handleLocationError(false, infoWindow, map.getCenter());
-//   }
-// }
-//
-// function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-//   infoWindow.setPosition(pos);
-//   infoWindow.setContent(browserHasGeolocation ?
-//                         'Error: The Geolocation service failed.' :
-//                         'Error: Your browser doesn\'t support geolocation.');
-// }
+
+window.onload = function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 11
+  });
+  var infoWindow = new google.maps.InfoWindow({map: map});
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Location found.');
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+}
+
+function myLocation() {
+  initMap();
+}
+
+
 
 
 
@@ -48,10 +54,14 @@ function initMap() {
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+  var startPoint = document.getElementById('start-point').value;
+  console.log(startPoint);
+  var endPoint = document.getElementById('end-point').value;
+  console.log(endPoint);
   var selectedMode = document.getElementById('mode').value;
   directionsService.route({
-    origin: {lat: 37.77, lng: -122.447},  // Haight.
-    destination: {lat: 37.768, lng: -122.511},  // Ocean Beach.
+    origin: startPoint,  // Haight.
+    destination: endPoint,  // Ocean Beach.
     // Note that Javascript allows us to access the constant
     // using square brackets and a string value as its
     // "property."
@@ -64,3 +74,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     }
   });
 }
+
+$('#getDirections').click(function(){
+  initMap();
+})
