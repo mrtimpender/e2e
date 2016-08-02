@@ -3,7 +3,9 @@ var router = express.Router();
 var userQueries = require('../lib/database/users/userQueries')
 var db = require('../config/db')
 var modelBase = require('bookshelf-modelbase')(db.bookshelf)
-
+var userTable = modelBase.extend({
+    tableName: 'e2e_users'
+});
 // login route
 router.get('/', (req, res, next) => {
   res.render('login/index')
@@ -18,7 +20,7 @@ router.route('/register')
     res.render('login/register')
   })
   .post((req, res, next) => {    
-    modelBase.create({
+    userTable.findOrCreateByProperty({
       e2e_username: req.body.e2e_username,
       e2e_password: req.body.e2e_passowrd,
       e2e_email: req.body.e2e_email
@@ -26,7 +28,7 @@ router.route('/register')
       e2e_username: req.body.e2e_username
     }).then((resp) => {
       res.sendStatus(200)
-    })
+    }).catch((e) => console.log(e))
   })
 // after oauth register
 router.route('/completeRegistration')
