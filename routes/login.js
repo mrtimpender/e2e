@@ -27,7 +27,7 @@ router.route('/register')
     }, {
       e2e_username: req.body.e2e_username
     }).then((resp) => {
-      res.sendStatus(200)
+      res.render('login/index', {message:"Account created. Please login."})
     }).catch((e) => console.log(e))
   })
 // after oauth register

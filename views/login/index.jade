@@ -6,6 +6,8 @@ block content
     .loader-section.section-right
   #login-page.row
     .col.s12.z-depth-4.card-panel
+      if message
+        div #{message}
       form.login-form
         .row
           .input-field.col.s12.center
