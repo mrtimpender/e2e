@@ -4,6 +4,9 @@ window.onload = function initMap() {
   });
   var infoWindow = new google.maps.InfoWindow({map: map});
   // Try HTML5 geolocation.
+  var trafficLayer = new google.maps.TrafficLayer();
+  var transitLayer = new google.maps.TransitLayer();
+  var bikeLayer = new google.maps.BicyclingLayer();
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = {
@@ -11,8 +14,25 @@ window.onload = function initMap() {
         lng: position.coords.longitude
       };
 
+
+      trafficLayer.setMap(null);
+      transitLayer.setMap(null);
+      bikeLayer.setMap(null);
       infoWindow.setPosition(pos);
       infoWindow.setContent('Location found.');
+
+      $('#showTraffic').click(function() {
+        trafficLayer.getMap() == null ? trafficLayer.setMap(map) : trafficLayer.setMap(null);
+      })
+
+      $('#showTransit').click(function() {
+        transitLayer.getMap() == null ? transitLayer.setMap(map) : transitLayer.setMap(null);
+      })
+
+      $('#showBike').click(function() {
+        bikeLayer.getMap() == null ? bikeLayer.setMap(map) : bikeLayer.setMap(null);
+      })
+
       map.setCenter(pos);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -35,12 +55,14 @@ function initMap() {
   var directionsService = new google.maps.DirectionsService;
   var trafficLayer = new google.maps.TrafficLayer();
   var transitLayer = new google.maps.TransitLayer();
+  var bikeLayer = new google.maps.BicyclingLayer();
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
   });
   directionsDisplay.setMap(map);
   trafficLayer.setMap(null);
   transitLayer.setMap(null);
+  bikeLayer.setMap(null);
 
   $('#showTraffic').click(function() {
     trafficLayer.getMap() == null ? trafficLayer.setMap(map) : trafficLayer.setMap(null);
@@ -48,6 +70,10 @@ function initMap() {
 
   $('#showTransit').click(function() {
     transitLayer.getMap() == null ? transitLayer.setMap(map) : transitLayer.setMap(null);
+  })
+
+  $('#showBike').click(function() {
+    bikeLayer.getMap() == null ? bikeLayer.setMap(map) : bikeLayer.setMap(null);
   })
 
   calculateAndDisplayRoute(directionsService, directionsDisplay);
@@ -71,20 +97,27 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       window.alert('Directions request failed due to ' + status);
     }
   })
+
   geocoder = new google.maps.Geocoder();
   geocoder.geocode({ 'address': startPoint }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-        console.log(parseFloat(results[0].geometry.location.lat()));
-        console.log(parseFloat(results[0].geometry.location.lng()));
-      };
-    })
+      var address1 = {
+        
+      }
+      console.log(results[0].formatted_address);
+      console.log(parseFloat(results[0].geometry.location.lat()));
+      console.log(parseFloat(results[0].geometry.location.lng()));
+    }
+  })
+
   geocoder = new google.maps.Geocoder();
   geocoder.geocode({ 'address': endPoint }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-        console.log(parseFloat(results[0].geometry.location.lat()));
-        console.log(parseFloat(results[0].geometry.location.lng()));
-      };
-    })
+      console.log(results[0].formatted_address);
+      console.log(parseFloat(results[0].geometry.location.lat()));
+      console.log(parseFloat(results[0].geometry.location.lng()));
+    }
+  })
 
 }
 
