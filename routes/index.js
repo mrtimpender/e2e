@@ -6,6 +6,9 @@ var userQueries = require('../lib/database/users/userQueries')
 router.get('/', (req, res, next) => {
   res.render('index', { title: 'Express Yeah!' });
 })
+router.get('/dashTest', (req, res, next) => {
+  res.render('dash/profile')
+})
 
 router.get('/allUsers', (req, res, next) => {
   userQueries.getAllUsers().then((resp) => res.json(resp))
