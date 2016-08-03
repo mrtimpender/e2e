@@ -1,4 +1,5 @@
 var trip = {};
+
 window.onload = function initMap() {
 
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -15,7 +16,6 @@ window.onload = function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-
 
       trafficLayer.setMap(null);
       transitLayer.setMap(null);
@@ -103,7 +103,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   geocoder = new google.maps.Geocoder();
   geocoder.geocode({ 'address': startPoint }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-
       trip['origin_formatted_address'] = results[0].formatted_address;
       trip['origin_lat'] = parseFloat(results[0].geometry.location.lat());
       trip['origin_lng'] = parseFloat(results[0].geometry.location.lng());
@@ -120,8 +119,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   })
 }
 
-
-
 $('#getDirections').click(function(){
   initMap();
+  console.log(trip);
+  `INSERT into USER_TRIPS VALUES (default, 999, '${origin.origin_destination}', '${selectedMode}','${origin.origin_formatted_address}' `)
+
 })
