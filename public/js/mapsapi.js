@@ -102,7 +102,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   geocoder.geocode({ 'address': startPoint }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       var address1 = {
-        
+
       }
       console.log(results[0].formatted_address);
       console.log(parseFloat(results[0].geometry.location.lat()));
