@@ -1,0 +1,25 @@
+extends layout
+block content
+  #map
+  #floating-panel
+    b Mode of Travel:
+    select#mode
+      option(value='TRANSIT') Transit
+      option(value='BICYCLING') Bicycling
+      option(value='DRIVING') Driving
+      option(value='WALKING') Walking
+    input#start-point(type='text', placeholder='starting location') 
+    input#end-point(type='text', placeholder='ending location') 
+    button#getDirections get directions
+    button#showTraffic traffic
+    button#showTransit transit
+    button#showBike bike
+    
+    if uber
+      h1= uber
+      
+  script(src="/js/mapsapi.js")
+  script(src='/js/dashboard.js')
+  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9xEAcDm6FwY9iDrdBRVsXhowU9FbDIao")
+
+    
