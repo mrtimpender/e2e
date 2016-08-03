@@ -103,9 +103,10 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   geocoder = new google.maps.Geocoder();
   geocoder.geocode({ 'address': startPoint }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
+
       trip['origin_formatted_address'] = results[0].formatted_address;
       trip['origin_lat'] = parseFloat(results[0].geometry.location.lat());
-      trip['origin_lng'] = (parseFloat(results[0].geometry.location.lng()));
+      trip['origin_lng'] = parseFloat(results[0].geometry.location.lng());
     }
   })
 

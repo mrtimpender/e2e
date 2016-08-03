@@ -11,9 +11,8 @@ var login = require('./routes/login');
 var dashboard = require('./routes/dashboard');
 var app = express();
 var passport = require('passport')
-var passportStrategies = require('./lib/passport_strategies')
+var passportStrategies = require('./lib/auth/passport_strategies')
 app.use(logger('dev'))
-
 
 
 // view engine setup
@@ -29,7 +28,7 @@ app.use(cookieParser());
 app.use(session({
   resave: false,
   saveUninitialized: true,
-  secret: 'bla bla bla' 
+  secret: 'secret' 
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
