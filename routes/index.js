@@ -31,11 +31,11 @@ router.get('/auth/uber/callback',
         res.redirect('/login/completeRegistration');
       }
     })
-  });
+  })
 
 router.get('/auth/lyft',
   passport.authenticate('lyft', { scope: ['public','profile','rides.read'] }
-));
+))
 
 router.get('/lyftAuth', passport.authenticate('lyft', { failureRedirect: '/fail' }),
   (req, res) => {
@@ -43,6 +43,6 @@ router.get('/lyftAuth', passport.authenticate('lyft', { failureRedirect: '/fail'
 
   // create entry in user table with our token
   res.redirect('/login/completeRegistration')
-});
+})
 
 module.exports = router;
