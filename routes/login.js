@@ -13,9 +13,8 @@ router.route('/')
   .get((req, res, next) => {
     res.render('login/index')
   })
-  .post(passport.authenticate('local', {
-    failureRedirect: '/login'
-  }), function(req, res){
+  .post(passport.authenticate('local', { failureRedirect: '/login'}), 
+  (req, res, next) => {
 
     console.log(req.session);
     res.redirect('/dashTest')
