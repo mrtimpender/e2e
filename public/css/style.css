@@ -17,11 +17,6 @@ body {
   background-color: #f9f9f9;
 }
 
-#map {
-  height: 60vh;
-  min-width: 60vw;
-}
-
 #main {
   padding-left: 240px;
 }
