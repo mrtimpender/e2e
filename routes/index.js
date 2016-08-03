@@ -11,9 +11,6 @@ router.get('/dashTest', (req, res, next) => {
   res.render('dash/index')
 })
 
-router.get('/profileTest', (req, res, next) => {
-  res.render('dash/profile')
-})
 
 router.get('/allUsers', (req, res, next) => {
   userQueries.getAllUsers().then((resp) => res.json(resp))
