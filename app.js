@@ -13,7 +13,7 @@ var app = express();
 var passport = require('passport')
 var passportStrategies = require('./lib/auth/passport_strategies')
 app.use(logger('dev'))
-
+var uber = require('./routes/uber')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.use(session({
   resave: false,
   saveUninitialized: true,
-  secret: 'secret' 
+  secret: 'secret'
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
@@ -39,6 +39,8 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/login', login);
 app.use('/dashboard', dashboard);
+app.use('/uber', uber);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
