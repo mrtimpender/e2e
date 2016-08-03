@@ -13,7 +13,7 @@ exports.seed = function(knex, Promise) {
         knex('user_locations').insert({
           id: 501,
           user_id: 1,
-          name: 'Home'
+          name: 'Home',
           formatted_address: '3358 Navajo St, Denver, CO 80211, USA',
           lat: '39.7642529',
           lng: '-105.00383399999998',
