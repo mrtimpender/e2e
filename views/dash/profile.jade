@@ -14,7 +14,7 @@ html(lang='en')
     meta(name='msapplication-tap-highlight', content='no')
     meta(name='description', content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ")
     meta(name='keywords', content='materialize, admin template, dashboard template, flat admin template, responsive admin template,')
-    title Profile Page | Materialize - Material Design Admin Template
+    title Profile | e2e.travel
     // Favicons
     link(rel='icon', href='images/favicon/favicon-32x32.png', sizes='32x32')
     // Favicons
@@ -44,7 +44,7 @@ html(lang='en')
     header#header.page-topbar
       // start header nav
       .navbar-fixed
-        nav.navbar-color
+        nav.primary-color
           .nav-wrapper
             ul.left
               li
@@ -52,73 +52,37 @@ html(lang='en')
                   a.brand-logo.darken-1(href='index.html')
                     img(src='images/materialize-logo.png', alt='materialize logo')
                   span.logo-text Materialize
-            .header-search-wrapper.hide-on-med-and-down
-              i.mdi-action-search
-              input.header-search-input.z-depth-2(type='text', name='Search', placeholder='Explore Materialize')
             ul.right.hide-on-med-and-down
-              li
-                a.waves-effect.waves-block.waves-light.translation-button(href='javascript:void(0);', data-activates='translation-dropdown')
-                  img(src='images/flag-icons/United-States.png', alt='USA')
               li
                 a.waves-effect.waves-block.waves-light.toggle-fullscreen(href='javascript:void(0);')
                   i.mdi-action-settings-overscan
               li
+                a.waves-effect.waves-block.waves-light.toggle-fullscreen(href='dashTest.html')
+                  i.mdi-action-dashboard
+              li
+                a.waves-effect.waves-block.waves-light.toggle-fullscreen(href='profileTest.html')
+                  i.mdi-action-face-unlock              
+              li
                 a.waves-effect.waves-block.waves-light.notification-button(href='javascript:void(0);', data-activates='notifications-dropdown')
-                  i.mdi-social-notifications
-                    small.notification-badge 5
+                  i.mdi-av-timer
               li
                 a.waves-effect.waves-block.waves-light.chat-collapse(href='#', data-activates='chat-out')
-                  i.mdi-communication-chat
-            // translation-button
-            ul#translation-dropdown.dropdown-content
-              li
-                a(href='#!')
-                  img(src='images/flag-icons/United-States.png', alt='English')
-                  span.language-select English
-              li
-                a(href='#!')
-                  img(src='images/flag-icons/France.png', alt='French')
-                  span.language-select French
-              li
-                a(href='#!')
-                  img(src='images/flag-icons/China.png', alt='Chinese')
-                  span.language-select Chinese
-              li
-                a(href='#!')
-                  img(src='images/flag-icons/Germany.png', alt='German')
-                  span.language-select German
+                  i.mdi-hardware-keyboard-tab
+                  // Add Logout Route
             // notifications-dropdown
             ul#notifications-dropdown.dropdown-content
               li
                 h5
-                  | NOTIFICATIONS 
-                  span.new.badge 5
+                  | TRIP TIMES 
               li.divider
               li
                 a(href='#!')
-                  i.mdi-action-add-shopping-cart
-                  |  A new order has been placed!
-                time.media-meta(datetime='2015-06-12T20:50:48+08:00') 2 hours ago
+                  i.mdi-maps-directions-bike
+                  |  Commute to Work - 3min longer than average
               li
                 a(href='#!')
                   i.mdi-action-stars
-                  |  Completed the task
-                time.media-meta(datetime='2015-06-12T20:50:48+08:00') 3 days ago
-              li
-                a(href='#!')
-                  i.mdi-action-settings
-                  |  Settings updated
-                time.media-meta(datetime='2015-06-12T20:50:48+08:00') 4 days ago
-              li
-                a(href='#!')
-                  i.mdi-editor-insert-invitation
-                  |  Director meeting started
-                time.media-meta(datetime='2015-06-12T20:50:48+08:00') 6 days ago
-              li
-                a(href='#!')
-                  i.mdi-action-trending-up
-                  |  Generate monthly report
-                time.media-meta(datetime='2015-06-12T20:50:48+08:00') 1 week ago
+                  |  Commute to Daycare - 5min longer than average
       // end header nav
     // END HEADER
     // ////////////////////////////////////////////////////////////////////////////
@@ -129,7 +93,7 @@ html(lang='en')
         // START LEFT SIDEBAR NAV
         aside#left-sidebar-nav
           ul#slide-out.side-nav.fixed.leftside-navigation
-            li.user-details.cyan.darken-2
+            li.user-details.cyan
               .row
                 .col.col.s4.m4.l4
                   img.circle.responsive-img.valign.profile-image(src='images/avatar.jpg', alt='')
@@ -157,258 +121,21 @@ html(lang='en')
                         i.mdi-hardware-keyboard-tab
                         |  Logout
                   a.btn-flat.dropdown-button.waves-effect.waves-light.white-text.profile-btn(href='#', data-activates='profile-dropdown')
-                    | John Doe
+                    | Tim Pender
                     i.mdi-navigation-arrow-drop-down.right
                   p.user-roal Administrator
             li.bold
-              a.waves-effect.waves-cyan(href='index.html')
+              a.waves-effect.waves-cyan(href='dashboard/index.html')
                 i.mdi-action-dashboard
                 |  Dashboard
-            li.no-padding
-              ul.collapsible.collapsible-accordion
-                li.bold
-                  a.collapsible-header.waves-effect.waves-cyan
-                    i.mdi-action-view-carousel
-                    |  Layouts
-                  .collapsible-body
-                    ul
-                      li
-                        a(href='layout-fullscreen.html') Full Screen
-                      li
-                        a(href='layout-horizontal-menu.html') Horizontal Menu
             li.bold
-              a.waves-effect.waves-cyan(href='app-email.html')
+              a.waves-effect.waves-cyan(href='/profile.html')
+                i.mdi-action-face-unlock
+                |  Profile
+            li.bold
+              a.waves-effect.waves-cyan(href='#')
                 i.mdi-communication-email
-                |  Mailbox 
-                span.new.badge 4
-            li.bold
-              a.waves-effect.waves-cyan(href='app-calendar.html')
-                i.mdi-editor-insert-invitation
-                |  Calender
-            li.no-padding
-              ul.collapsible.collapsible-accordion
-                li.bold
-                  a.collapsible-header.waves-effect.waves-cyan
-                    i.mdi-action-invert-colors
-                    |  CSS
-                  .collapsible-body
-                    ul
-                      li
-                        a(href='css-typography.html') Typography
-                      li
-                        a(href='css-icons.html') Icons
-                      li
-                        a(href='css-animations.html') Animations
-                      li
-                        a(href='css-shadow.html') Shadow
-                      li
-                        a(href='css-media.html') Media
-                      li
-                        a(href='css-sass.html') Sass
-                li.bold
-                  a.collapsible-header.waves-effect.waves-cyan
-                    i.mdi-image-palette
-                    |  UI Elements
-                  .collapsible-body
-                    ul
-                      li
-                        a(href='ui-alerts.html') Alerts
-                      li
-                        a(href='ui-buttons.html') Buttons
-                      li
-                        a(href='ui-badges.html') Badges
-                      li
-                        a(href='ui-breadcrumbs.html') Breadcrumbs
-                      li
-                        a(href='ui-collections.html') Collections
-                      li
-                        a(href='ui-collapsibles.html') Collapsibles
-                      li
-                        a(href='ui-tabs.html') Tabs
-                      li
-                        a(href='ui-navbar.html') Navbar
-                      li
-                        a(href='ui-pagination.html') Pagination
-                      li
-                        a(href='ui-preloader.html') Preloader
-                      li
-                        a(href='ui-toasts.html') Toasts
-                      li
-                        a(href='ui-tooltip.html') Tooltip
-                      li
-                        a(href='ui-waves.html') Waves
-                li.bold
-                  a.collapsible-header.waves-effect.waves-cyan
-                    i.mdi-av-queue
-                    |  Advanced UI 
-                    span.new.badge
-                  .collapsible-body
-                    ul
-                      li
-                        a(href='advanced-ui-chips.html') Chips
-                      li
-                        a(href='advanced-ui-cards.html') Cards
-                      li
-                        a(href='advanced-ui-modals.html') Modals
-                      li
-                        a(href='advanced-ui-media.html') Media
-                      li
-                        a(href='advanced-ui-range-slider.html') Range Slider
-                      li
-                        a(href='advanced-ui-sweetalert.html') SweetAlert
-                      li
-                        a(href='advanced-ui-nestable.html') Shortable & Nestable
-                      li
-                        a(href='advanced-ui-translation.html') Language Translation
-                      li
-                        a(href='advanced-ui-highlight.html') Highlight
-                li.bold
-                  a.waves-effect.waves-cyan(href='app-widget.html')
-                    i.mdi-device-now-widgets
-                    |  Widgets
-                li.bold
-                  a.collapsible-header.waves-effect.waves-cyan
-                    i.mdi-editor-border-all
-                    |  Tables
-                  .collapsible-body
-                    ul
-                      li
-                        a(href='table-basic.html') Basic Tables
-                      li
-                        a(href='table-data.html') Data Tables
-                      li
-                        a(href='table-jsgrid.html') jsGrid
-                      li
-                        a(href='table-editable.html') Editable Table
-                      li
-                        a(href='table-floatThead.html') floatThead
-                li.bold
-                  a.collapsible-header.waves-effect.waves-cyan
-                    i.mdi-editor-insert-comment
-                    |  Forms 
-                    span.new.badge
-                  .collapsible-body
-                    ul
-                      li
-                        a(href='form-elements.html') Form Elements
-                      li
-                        a(href='form-layouts.html') Form Layouts
-                      li
-                        a(href='form-validation.html') Form Validations
-                      li
-                        a(href='form-masks.html') Form Masks
-                      li
-                        a(href='form-file-uploads.html') File Uploads
-                li.bold
-                  a.collapsible-header.waves-effect.waves-cyan
-                    i.mdi-social-pages
-                    |  Pages
-                  .collapsible-body
-                    ul
-                      li
-                        a(href='page-contact.html') Contact Page
-                      li
-                        a(href='page-todo.html') ToDos
-                      li
-                        a(href='page-blog-1.html') Blog Type 1
-                      li
-                        a(href='page-blog-2.html') Blog Type 2
-                      li
-                        a(href='page-404.html') 404
-                      li
-                        a(href='page-500.html') 500
-                      li
-                        a(href='page-blank.html') Blank
-                li.bold
-                  a.collapsible-header.waves-effect.waves-cyan
-                    i.mdi-action-shopping-cart
-                    |  eCommers
-                  .collapsible-body
-                    ul
-                      li
-                        a(href='eCommerce-products-page.html') Products Page
-                      li
-                        a(href='eCommerce-pricing.html') Pricing Table
-                      li
-                        a(href='eCommerce-invoice.html') Invoice
-                li.bold
-                  a.collapsible-header.waves-effect.waves-cyan
-                    i.mdi-image-image
-                    |  Medias
-                  .collapsible-body
-                    ul
-                      li
-                        a(href='media-gallary-page.html') Gallery Page
-                      li
-                        a(href='media-hover-effects.html') Image Hover Effects
-                li.bold
-                  a.collapsible-header.waves-effect.waves-cyan.active
-                    i.mdi-action-account-circle
-                    |  User
-                  .collapsible-body
-                    ul
-                      li.active
-                        a(href='user-profile-page.html') User Profile
-                      li
-                        a(href='user-login.html') Login
-                      li
-                        a(href='user-register.html') Register
-                      li
-                        a(href='user-forgot-password.html') Forgot Password
-                      li
-                        a(href='user-lock-screen.html') Lock Screen
-                li.bold
-                  a.collapsible-header.waves-effect.waves-cyan
-                    i.mdi-editor-insert-chart
-                    |  Charts
-                  .collapsible-body
-                    ul
-                      li
-                        a(href='charts-chartjs.html') Chart JS
-                      li
-                        a(href='charts-chartist.html') Chartist
-                      li
-                        a(href='charts-morris.html') Morris Charts
-                      li
-                        a(href='charts-xcharts.html') xCharts
-                      li
-                        a(href='charts-flotcharts.html') Flot Charts
-                      li
-                        a(href='charts-sparklines.html') Sparkline Charts
-            li.li-hover
-              .divider
-            li.li-hover
-              p.ultra-small.margin.more-text MORE
-            li
-              a(href='angular-ui.html')
-                i.mdi-action-verified-user
-                |  Angular UI  
-                span.new.badge
-            li
-              a(href='css-grid.html')
-                i.mdi-image-grid-on
-                |  Grid
-            li
-              a(href='css-color.html')
-                i.mdi-editor-format-color-fill
-                |  Color
-            li
-              a(href='css-helpers.html')
-                i.mdi-communication-live-help
-                |  Helpers
-            li
-              a(href='changelogs.html')
-                i.mdi-action-swap-vert-circle
-                |  Changelogs
-            li.li-hover
-              .divider
-            li.li-hover
-              p.ultra-small.margin.more-text Daily Sales
-            li.li-hover
-              .row
-                .col.s12.m12.l12
-                  .sample-chart-wrapper
-                    #ct2-chart.ct-chart.ct-golden-section
+                |  Contact Us 
           a.sidebar-collapse.btn-floating.btn-medium.waves-effect.waves-light.hide-on-large-only.cyan(href='#', data-activates='slide-out')
             i.mdi-navigation-menu
         // END LEFT SIDEBAR NAV
@@ -421,59 +148,57 @@ html(lang='en')
               // profile-page-header
               #profile-page-header.card
                 .card-image.waves-effect.waves-block.waves-light
-                  img.activator(src='images/user-profile-bg.jpg', alt='user background')
+                  img.activator(src='images/profile-cover.jpeg', alt='user background')
                 figure.card-profile-image
                   img.circle.z-depth-2.responsive-img.activator(src='images/avatar.jpg', alt='profile image')
                 .card-content
                   .row
-                    .col.s3.offset-s2
-                      h4.card-title.grey-text.text-darken-4 Roger Waters
-                      p.medium-small.grey-text Project Manager
-                    .col.s2.center-align
-                      h4.card-title.grey-text.text-darken-4 10+
-                      p.medium-small.grey-text Work Experience
-                    .col.s2.center-align
-                      h4.card-title.grey-text.text-darken-4 6
-                      p.medium-small.grey-text Completed Projects
-                    .col.s2.center-align
-                      h4.card-title.grey-text.text-darken-4 $ 1,253,000
-                      p.medium-small.grey-text Busness Profit
-                    .col.s1.right-align
-                      a.btn-floating.activator.waves-effect.waves-light.darken-2.right
-                        i.mdi-action-perm-identity
-                .card-reveal
-                  p
-                    span.card-title.grey-text.text-darken-4
-                      | Roger Waters 
-                      i.mdi-navigation-close.right
-                    span
-                      i.mdi-action-perm-identity.cyan-text.text-darken-2
-                      |  Project Manager
-                  p
-                    | I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
-                  p
-                    i.mdi-action-perm-phone-msg.cyan-text.text-darken-2
-                    |  +1 (612) 222 8989
-                  p
-                    i.mdi-communication-email.cyan-text.text-darken-2
-                    |  mail@domain.com
-                  p
-                    i.mdi-social-cake.cyan-text.text-darken-2
-                    |  18th June 1990
-                  p
-                    i.mdi-device-airplanemode-on.cyan-text.text-darken-2
-                    |  BAR - AUS
+                    .col.s4.m6.offset-m3.offset-s5.center-align
+                      h4.card-title.grey-text.text-darken-4 mrtimpender
+                      p.medium-small.grey-text e2e Username
               // / profile-page-header
               // profile-page-content
               #profile-page-content.row
-                // profile-page-sidebar
-                #profile-page-sidebar.col.s12.m4
+                .col.s12.m10.offset-m1.l10.offset-l1
                   // Profile About
-                  .card.light-blue
+                  .card.deep-purple
                     .card-content.white-text
                       span.card-title About Me!
                       p
                         | I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
+                        // task-card
+                  ul#task-card.collection.with-header
+                    li.collection-header.cyan
+                      h4.task-card-title Profile
+                      p.task-card-date Here's you info
+                    li.collection-item
+                      .row
+                        .col.s5.grey-text.darken-1
+                          i.mdi-action-wallet-travel
+                          |  Name
+                        .col.s7.grey-text.text-darken-4.right-align Tim Pender
+                    li.collection-item
+                      .row
+                        .col.s5.grey-text.darken-1
+                          i.mdi-social-poll
+                          |  e2e
+                        .col.s7.grey-text.text-darken-4.right-align mrtimpender
+                    li.collection-item
+                      .row
+                        .col.s5.grey-text.darken-1
+                          i.mdi-social-domain
+                          |  Uber Connection
+                        .col.s7.grey-text.text-darken-4.right-align Yes
+                    li.collection-item
+                      .row
+                        .col.s5.grey-text.darken-1
+                          i.mdi-social-cake
+                          |  Lyft Connection
+                        .col.s7.grey-text.text-darken-4.right-align No 
+                  // task-card
+                  hr
+                  hr
+                  hr
                   // Profile About
                   // Profile About Details
                   ul#profile-page-about-details.collection.z-depth-1
@@ -665,281 +390,6 @@ html(lang='en')
                         p
                           i.mdi-communication-email.cyan-text.text-darken-2
                           |  support@geekslabs.com
-                  // Map Card
-                // profile-page-sidebar
-                // profile-page-wall
-                #profile-page-wall.col.s12.m8
-                  // profile-page-wall-share
-                  #profile-page-wall-share.row
-                    .col.s12
-                      ul.tabs.tab-profile.z-depth-1.light-blue
-                        li.tab.col.s3
-                          a.white-text.waves-effect.waves-light.active(href='#UpdateStatus')
-                            i.mdi-editor-border-color
-                            |  Update Status
-                        li.tab.col.s3
-                          a.white-text.waves-effect.waves-light(href='#AddPhotos')
-                            i.mdi-image-camera-alt
-                            |  Add Photos
-                        li.tab.col.s3
-                          a.white-text.waves-effect.waves-light(href='#CreateAlbum')
-                            i.mdi-image-photo-album
-                            |  Create Album
-                      // UpdateStatus
-                      #UpdateStatus.tab-content.col.s12.grey.lighten-4
-                        .row
-                          .col.s2
-                            img.circle.responsive-img.valign.profile-image-post(src='images/avatar.jpg', alt='')
-                          .input-field.col.s10
-                            textarea#textarea.materialize-textarea(row='2')
-                            label(for='textarea') What's on your mind?
-                        .row
-                          .col.s12.m6.share-icons
-                            a(href='#')
-                              i.mdi-image-camera-alt
-                            a(href='#')
-                              i.mdi-action-account-circle
-                            a(href='#')
-                              i.mdi-hardware-keyboard-alt
-                            a(href='#')
-                              i.mdi-communication-location-on
-                          .col.s12.m6.right-align
-                            // Dropdown Trigger
-                            a.dropdown-button.btn(href='#', data-activates='profliePost')
-                              i.mdi-action-language
-                              |  Public
-                            // Dropdown Structure
-                            ul#profliePost.dropdown-content
-                              li
-                                a(href='#!')
-                                  i.mdi-action-language
-                                  |  Public
-                              li
-                                a(href='#!')
-                                  i.mdi-action-face-unlock
-                                  |  Friends
-                              li
-                                a(href='#!')
-                                  i.mdi-action-lock-outline
-                                  |  Only Me
-                            a.waves-effect.waves-light.btn
-                              i.mdi-maps-rate-review.left
-                              | Post
-                      // AddPhotos
-                      #AddPhotos.tab-content.col.s12.grey.lighten-4
-                        .row
-                          .col.s2
-                            img.circle.responsive-img.valign.profile-image-post(src='images/avatar.jpg', alt='')
-                          .input-field.col.s10
-                            textarea#textarea.materialize-textarea(row='2')
-                            label(for='textarea') Share your favorites photos!
-                        .row
-                          .col.s12.m6.share-icons
-                            a(href='#')
-                              i.mdi-image-camera-alt
-                            a(href='#')
-                              i.mdi-action-account-circle
-                            a(href='#')
-                              i.mdi-hardware-keyboard-alt
-                            a(href='#')
-                              i.mdi-communication-location-on
-                          .col.s12.m6.right-align
-                            // Dropdown Trigger
-                            a.dropdown-button.btn(href='#', data-activates='profliePost2')
-                              i.mdi-action-language
-                              |  Public
-                            // Dropdown Structure
-                            ul#profliePost2.dropdown-content
-                              li
-                                a(href='#!')
-                                  i.mdi-action-language
-                                  |  Public
-                              li
-                                a(href='#!')
-                                  i.mdi-action-face-unlock
-                                  |  Friends
-                              li
-                                a(href='#!')
-                                  i.mdi-action-lock-outline
-                                  |  Only Me
-                            a.waves-effect.waves-light.btn
-                              i.mdi-maps-rate-review.left
-                              | Post
-                      // CreateAlbum
-                      #CreateAlbum.tab-content.col.s12.grey.lighten-4
-                        .row
-                          .col.s2
-                            img.circle.responsive-img.valign.profile-image-post(src='images/avatar.jpg', alt='')
-                          .input-field.col.s10
-                            textarea#textarea.materialize-textarea(row='2')
-                            label(for='textarea') Create awesome album.
-                        .row
-                          .col.s12.m6.share-icons
-                            a(href='#')
-                              i.mdi-image-camera-alt
-                            a(href='#')
-                              i.mdi-action-account-circle
-                            a(href='#')
-                              i.mdi-hardware-keyboard-alt
-                            a(href='#')
-                              i.mdi-communication-location-on
-                          .col.s12.m6.right-align
-                            // Dropdown Trigger
-                            a.dropdown-button.btn(href='#', data-activates='profliePost3')
-                              i.mdi-action-language
-                              |  Public
-                            // Dropdown Structure
-                            ul#profliePost3.dropdown-content
-                              li
-                                a(href='#!')
-                                  i.mdi-action-language
-                                  |  Public
-                              li
-                                a(href='#!')
-                                  i.mdi-action-face-unlock
-                                  |  Friends
-                              li
-                                a(href='#!')
-                                  i.mdi-action-lock-outline
-                                  |  Only Me
-                            a.waves-effect.waves-light.btn
-                              i.mdi-maps-rate-review.left
-                              | Post
-                  // / profile-page-wall-share
-                  // profile-page-wall-posts
-                  #profile-page-wall-posts.row
-                    .col.s12
-                      // medium
-                      #profile-page-wall-post.card
-                        .card-profile-title
-                          .row
-                            .col.s1
-                              img.circle.responsive-img.valign.profile-post-uer-image(src='images/avatar.jpg', alt='')
-                            .col.s10
-                              p.grey-text.text-darken-4.margin John Doe
-                              span.grey-text.text-darken-1.ultra-small Shared publicly  -  26 Jun 2015
-                            .col.s1.right-align
-                              i.mdi-navigation-expand-more
-                          .row
-                            .col.s12
-                              p
-                                | I am a very simple wall post. I am good at containing 
-                                a(href='#') #small
-                                |  bits of 
-                                a(href='#') #information
-                                | .  I require little more information to use effectively.
-                        .card-image.profile-medium
-                          img.responsive-img.profile-post-image.profile-medium(src='images/gallary/2.jpg', alt='sample')
-                          span.card-title Card Title
-                        .card-content
-                          p
-                            | I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
-                        .card-action.row
-                          .col.s4.card-action-share
-                            a(href='#') Like
-                            a(href='#') Share
-                          .input-field.col.s8.margin
-                            input#profile-comments.validate.margin(type='text')
-                            label(for='profile-comments') Comments
-                      // medium video
-                      #profile-page-wall-post.card
-                        .card-profile-title
-                          .row
-                            .col.s1
-                              img.circle.responsive-img.valign.profile-post-uer-image(src='images/avatar.jpg', alt='')
-                            .col.s10
-                              p.grey-text.text-darken-4.margin John Doe
-                              span.grey-text.text-darken-1.ultra-small Shared publicly  -  26 Jun 2015
-                            .col.s1.right-align
-                              i.mdi-navigation-expand-more
-                          .row
-                            .col.s12
-                              p
-                                | I am a very simple wall post. I am good at containing 
-                                a(href='#') #small
-                                |  bits of 
-                                a(href='#') #information
-                                | .  I require little more information to use effectively.
-                        .card-image.profile-medium
-                          .video-container.no-controls
-                            iframe(width='640', height='360', src='https://www.youtube.com/embed/10r9ozshGVE', frameborder='0', allowfullscreen='')
-                          span.card-title Card Title
-                        .card-content
-                          p
-                            | I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
-                        .card-action.row
-                          .col.s4.card-action-share
-                            a(href='#') Like
-                            a(href='#') Share
-                          .input-field.col.s8.margin
-                            input#profile-comments.validate.margin(type='text')
-                            label(for='profile-comments') Comments
-                      // small
-                      #profile-page-wall-post.card
-                        .card-profile-title
-                          .row
-                            .col.s1
-                              img.circle.responsive-img.valign.profile-post-uer-image(src='images/avatar.jpg', alt='')
-                            .col.s10
-                              p.grey-text.text-darken-4.margin John Doe
-                              span.grey-text.text-darken-1.ultra-small Shared publicly  -  26 Jun 2015
-                            .col.s1.right-align
-                              i.mdi-navigation-expand-more
-                          .row
-                            .col.s12
-                              p
-                                | I am a very simple wall post. I am good at containing 
-                                a(href='#') #small
-                                |  bits of 
-                                a(href='#') #information
-                                | .  I require little more information to use effectively.
-                        .card-image.profile-small
-                          img.responsive-img.profile-post-image(src='images/gallary/1.jpg', alt='sample')
-                          span.card-title Card Title
-                        .card-content
-                          p
-                            | I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
-                        .card-action.row
-                          .col.s4.card-action-share
-                            a(href='#') Like
-                            a(href='#') Share
-                          .input-field.col.s8.margin
-                            input#profile-comments.validate(type='text')
-                            label(for='profile-comments') Comments
-                      // small
-                      #profile-page-wall-post.card
-                        .card-profile-title
-                          .row
-                            .col.s1
-                              img.circle.responsive-img.valign.profile-post-uer-image(src='images/avatar.jpg', alt='')
-                            .col.s10
-                              p.grey-text.text-darken-4.margin John Doe
-                              span.grey-text.text-darken-1.ultra-small Shared publicly  -  26 Jun 2015
-                            .col.s1.right-align
-                              i.mdi-navigation-expand-more
-                          .row
-                            .col.s12
-                              p
-                                | I am a very simple wall post. I am good at containing 
-                                a(href='#') #small
-                                |  bits of 
-                                a(href='#') #information
-                                | .  I require little more information to use effectively.
-                        .card-image.profile-large
-                          img.responsive-img.profile-post-image(src='images/gallary/3.jpg', alt='sample')
-                          span.card-title Card Title
-                        .card-content
-                          p
-                            | I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
-                        .card-action.row
-                          .col.s4.card-action-share
-                            a(href='#') Like
-                            a(href='#') Share
-                          .input-field.col.s8.margin
-                            input#profile-comments.validate(type='text')
-                            label(for='profile-comments') Comments
-                  // / profile-page-wall-posts
-                // / profile-page-wall
       // end container
       // END CONTENT
       // ////////////////////////////////////////////////////////////////////////////
@@ -1092,14 +542,14 @@ html(lang='en')
     // Toast Notification
     script(type='text/javascript').
       // Toast Notification
-      $(window).load(function() {
-      setTimeout(function() {
-      Materialize.toast('<span>Hiya! I am a toast.</span>', 1500);
-      }, 1500);
-      setTimeout(function() {
-      Materialize.toast('<span>You can swipe me too!</span>', 3000);
-      }, 5000);
-      setTimeout(function() {
-      Materialize.toast('<span>You have new order.</span><a class="btn-flat yellow-text" href="#">Read<a>', 3000);
-      }, 15000);
+      //- $(window).load(function() {
+      //- setTimeout(function() {
+      //- Materialize.toast('<span>Hiya! I am a toast.</span>', 1500);
+      //- }, 1500);
+      //- setTimeout(function() {
+      //- Materialize.toast('<span>You can swipe me too!</span>', 3000);
+      //- }, 5000);
+      //- setTimeout(function() {
+      //- Materialize.toast('<span>You have new order.</span><a class="btn-flat yellow-text" href="#">Read<a>', 3000);
+      //- }, 15000);
       });
