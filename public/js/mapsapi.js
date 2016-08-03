@@ -107,7 +107,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
       }
       console.log(results[0].formatted_address);
-      trip['origin_lat'] = parseFloat(results[0].geometry.location.lat()));
+      trip['origin_lat'] = parseFloat(results[0].geometry.location.lat());
       console.log(parseFloat(results[0].geometry.location.lng()));
     }
   })

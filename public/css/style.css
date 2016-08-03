@@ -19,7 +19,7 @@ body {
 
 #map {
   height: 60vh;
-  width: 60vw;
+  min-width: 60vw;
 }
 
 #main {
