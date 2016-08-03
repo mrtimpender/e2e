@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
 var dashboard = require('./routes/dashboard');
+var trips = require('./routes/trips');
 var app = express();
 var passport = require('passport')
 var passportStrategies = require('./lib/auth/passport_strategies')
@@ -28,7 +29,7 @@ app.use(cookieParser());
 app.use(session({
   resave: false,
   saveUninitialized: true,
-  secret: 'secret' 
+  secret: 'secret'
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
@@ -39,6 +40,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/login', login);
 app.use('/dashboard', dashboard);
+app.use('/trips', trips);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
