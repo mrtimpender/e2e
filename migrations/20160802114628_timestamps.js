@@ -4,7 +4,6 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('user_trips', function(table){
         table.increments('id').primary()
         table.integer('user_id').references('e2e_users.id')
-        table.string('origin_destination')
         table.string('trans_mode')
         table.string('origin_formatted_address')
         table.float('origin_lat')
@@ -26,6 +25,8 @@ exports.up = function(knex, Promise) {
         table.string('e2e_email')
         table.string('e2e_uber_picture_url')
         table.string('uber_key', 1000)
+        table.string('uber_access_token', 1000)
+        table.string('uber_refresh_token', 1000)
         table.string('uber_rider_id', 1000)
         table.string('uber_uuid', 1000)
         table.string('lyft_key', 1000)
@@ -49,8 +50,8 @@ exports.up = function(knex, Promise) {
         table.string('created_at')
         table.string('updated_at')
       })
-  ])} 
-  
+  ])}
+
 
 exports.down = function(knex, Promise) {
 

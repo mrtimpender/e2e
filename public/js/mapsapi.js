@@ -1,6 +1,7 @@
 var trip = {};
 
 window.onload = function initMap() {
+
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 11
   });
@@ -103,30 +104,27 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   geocoder = new google.maps.Geocoder();
   geocoder.geocode({ 'address': startPoint }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      var origin = {
-        origin_formatted_address: results[0].formatted_address,
-        origin_lat: parseFloat(results[0].geometry.location.lat()),
-        origin_lng: parseFloat(results[0].geometry.location.lng())
-      }
+      trip['origin_formatted_address'] = results[0].formatted_address;
+      trip['origin_lat'] = parseFloat(results[0].geometry.location.lat());
+      trip['origin_lng'] = parseFloat(results[0].geometry.location.lng());
     }
   })
 
   geocoder = new google.maps.Geocoder();
   geocoder.geocode({ 'address': endPoint }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      var destination = {
-        destination_formatted_address: results[0].formatted_address,
-        destination_lat: parseFloat(results[0].geometry.location.lat()),
-        destination_lng: parseFloat(results[0].geometry.location.lng())
-      }
-      trip = destination
+      trip['destination_formatted_address'] = results[0].formatted_address;
+      trip['destination_lat'] = parseFloat(results[0].geometry.location.lat());
+      trip['destination_lng'] = parseFloat(results[0].geometry.location.lng());
     }
   })
 }
+
+
 
 $('#getDirections').click(function(){
   initMap();
   console.log(trip);
   `INSERT into USER_TRIPS VALUES (default, 999, '${origin.origin_destination}', '${selectedMode}','${origin.origin_formatted_address}' `)
-  
+
 })
