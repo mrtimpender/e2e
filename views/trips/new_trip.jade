@@ -134,13 +134,13 @@ html(lang='en')
 									.card-move-up.teal.waves-effect.waves-block.waves-light
 										.move-up
 											h5.margin.white-text Start Location
-											input#pac-input.controls(type='text', name='trip_name', placeholder='starting location for your trip')
+											input#origin-input.controls(type='text', name='trip_name', placeholder='starting location for your trip')
 							.col.s12.m5.l5
 								.card
 									.card-move-up.teal.waves-effect.waves-block.waves-light
 										.move-up
 											h5.margin.white-text Destination Location
-											input#pac-input2.controls(type='text', name='trip_name', placeholder='starting location for your trip')
+											input#destination-input.controls(type='text', name='trip_name', placeholder='starting location for your trip')
 							.col.s12.m2.l2.valign-wrapper
 								a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
 									i.mdi-content-add
@@ -185,7 +185,7 @@ html(lang='en')
 						script(type='text/javascript', src='/js/plugins/sparkline/jquery.sparkline.min.js')
 						script(type='text/javascript', src='/js/plugins/sparkline/sparkline-script.js')
 						// google map api
-						script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAAZnaZBXLqNBRXjd-82km_NO7GUItyKek')
+						//- script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAAZnaZBXLqNBRXjd-82km_NO7GUItyKek')
 						script(type='text/javascript', src='/js/mapsapi.js')
 						//- script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB9xEAcDm6FwY9iDrdBRVsXhowU9FbDIao')
 						// jvectormap
@@ -197,4 +197,5 @@ html(lang='en')
 						// plugins.js - Some Specific JS codes for Plugin Settings
 						script(type='text/javascript', src='/js/plugins.js')
 						script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB9xEAcDm6FwY9iDrdBRVsXhowU9FbDIao&libraries=places&callback=initMap', async='', defer='')
-						script(src="/js/google_maps_api/auto_complete.js")
+						//- script(src="/js/google_maps_api/auto_complete.js")
+						script(src="/js/google_maps_api/auto_complete2.js")

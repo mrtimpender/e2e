@@ -11,6 +11,9 @@ router.get('/dashTest', (req, res, next) => {
   res.render('dash/index')
 })
 
+router.get('/test', (req, res, next) => {
+  res.render('test')
+})
 
 router.get('/allUsers', (req, res, next) => {
   userQueries.getAllUsers().then((resp) => res.json(resp))
@@ -21,7 +24,7 @@ router.get('/auth/uber/callback',
   passport.authenticate('uber', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect to auth completion OR dashboard
-    userQueries.getUserByUuid(req.session.passport.user.uuid).then((resp) => {     
+    userQueries.getUserByUuid(req.session.passport.user.uuid).then((resp) => {
       if(resp[0].e2e_password){
         res.redirect('/dashTest')
       } else {

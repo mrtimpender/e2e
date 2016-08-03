@@ -2,7 +2,7 @@ var trip = {};
 
 function thisInitMap() {
   console.log('in init map');
-  
+
   var directionsDisplay = new google.maps.DirectionsRenderer;
   var directionsService = new google.maps.DirectionsService;
   var trafficLayer = new google.maps.TrafficLayer();
@@ -28,7 +28,7 @@ function thisInitMap() {
   //   bikeLayer.getMap() == null ? bikeLayer.setMap(map) : bikeLayer.setMap(null);
   // })
   console.log('about to run calc and display');
-  
+
   calculateAndDisplayRoute(directionsService, directionsDisplay);
   document.getElementById('mode').addEventListener('change', function() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
@@ -39,7 +39,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   var startPoint = document.getElementById('pac-input').innerHTML;
   var endPoint = document.getElementById('pac-input2').innerHTML;
   console.log(startPoint, endPoint);
-  
+
   var selectedMode = document.getElementById('mode').value;
   directionsService.route({
     origin: startPoint,
@@ -74,8 +74,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
 $('#getDirections').click(function(){
   console.log('clicked');
-  
   thisInitMap();
   console.log(trip);
-
 })
