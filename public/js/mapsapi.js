@@ -122,6 +122,4 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 $('#getDirections').click(function(){
   initMap();
   console.log(trip);
-  `INSERT into USER_TRIPS VALUES (default, 999, '${origin.origin_destination}', '${selectedMode}','${origin.origin_formatted_address}' `)
-
 })
