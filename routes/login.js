@@ -3,6 +3,7 @@ var router = express.Router();
 var userQueries = require('../lib/database/users/userQueries')
 var db = require('../config/db')
 var modelBase = require('bookshelf-modelbase')(db.bookshelf)
+var bcrypt = require('bcrypt')
 var userTable = modelBase.extend({
     tableName: 'e2e_users'
 });
@@ -38,13 +39,11 @@ router.route('/completeRegistration')
       uber_uuid: req.session.passport.user.uuid
     })
   })
-  .post((req, res, next) => {
-    console.log(req.body);
-    
+  .post((req, res, next) => {   
     db.knex('e2e_users')
       .where('uber_uuid', req.body.uber_uuid)
       .update({
-        e2e_password: req.body.e2e_password,
+        e2e_password: bcrypt.hashSync(req.body.e2e_password, 10),
         e2e_username: req.body.e2e_username
       }).then((resp) => {
       res.redirect('/dashTest')
