@@ -3,13 +3,13 @@ var router = express.Router();
 var passport = require('passport')
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('test');
-});
-router.get('/test', function(req, res, next) {
-  res.render('test2');
-});
-router.get('/dashdash', function(req, res, next) {
-  res.render('dashdash');
-});
+  res.render('dash/index');
+})
+router.get('/profile', function(req, res, next) {
+  res.render('dash/profile');
+})
+
+
+
 
 module.exports = router;
