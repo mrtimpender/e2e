@@ -34,14 +34,21 @@ router.route('/register')
 // after oauth register
 router.route('/completeRegistration')
   .get((req, res, next) => {
-    console.log(req.session);
-
     res.render('login/additional_info', {
       uber_uuid: req.session.passport.user.uuid
     })
   })
   .post((req, res, next) => {
-    userQueries.createUser(req.body).then((resp) => res.redirect('/'))
+    console.log(req.body);
+    
+    db.knex('e2e_users')
+      .where('uber_uuid', req.body.uber_uuid)
+      .update({
+        e2e_password: req.body.e2e_password,
+        e2e_username: req.body.e2e_username
+      }).then((resp) => {
+      res.redirect('/dashTest')
+    })
 
   })
 module.exports = router;
