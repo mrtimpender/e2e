@@ -17,7 +17,6 @@ window.onload = function initMap() {
         lng: position.coords.longitude
       };
 
-
       trafficLayer.setMap(null);
       transitLayer.setMap(null);
       bikeLayer.setMap(null);
@@ -119,8 +118,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     }
   })
 }
-
-
 
 $('#getDirections').click(function(){
   initMap();
