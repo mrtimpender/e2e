@@ -7,16 +7,20 @@ var bcrypt = require('bcrypt')
 var passport = require('passport')
 var userTable = modelBase.extend({
     tableName: 'e2e_users'
-});
+})
 // login route
 router.route('/')
   .get((req, res, next) => {
     res.render('login/index')
   })
-  .post(passport.authenticate('local', { failureRedirect: '/fail' }),
-    (req, res, next) => {
-      res.redirect('/dashTest')
-    })
+  .post(passport.authenticate('local', {
+    failureRedirect: '/login'
+  }), function(req, res){
+
+    console.log(req.session);
+    res.redirect('/dashTest')
+    
+  })
 // forgot password
 router.get('/forgot_pass', (req, res, next) => {
   res.render('login/forgot_pass')
