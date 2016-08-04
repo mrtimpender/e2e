@@ -13,12 +13,12 @@ router.route('/')
   .get((req, res, next) => {
     res.render('login/index')
   })
-  .post(passport.authenticate('local', { failureRedirect: '/login'}), 
+  .post(passport.authenticate('local', { failureRedirect: '/login'}),
   (req, res, next) => {
 
     console.log(req.session);
-    res.redirect('/dashTest')
-    
+    res.redirect('/dashboard')
+
   })
 // forgot password
 router.get('/forgot_pass', (req, res, next) => {
@@ -47,12 +47,12 @@ router.route('/completeRegistration')
       uber_uuid: req.session.passport.user.uuid
     })
   })
-  .post((req, res, next) => {   
+  .post((req, res, next) => {
    userQueries.additionalLoginInfo(req.body.uber_uuid, {
      e2e_password: req.body.e2e_password,
      e2e_username: req.body.e2e_username
    }).then((resp) => {
-      res.redirect('/dashTest')
+      res.redirect('/dashboard')
     })
 
   })
