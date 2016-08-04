@@ -14,6 +14,15 @@ router.route('/')
     // create new trip route
   })
 
+router.route('/jon-test')
+  .get((req, res, next) => {
+    // load new trip tempate
+    res.render('trips/new_trip_jon')
+  })
+  .post((req, res, next) => {
+    // create new trip route
+  })
+
 router.get('/geocodeTest', function(req, res, next) {
     googleMaps.geocodeDirtyAddress('1341 niagara st denver').then((resp) => res.json(resp))
   // res.redirect('/dashboard/dashdash');
