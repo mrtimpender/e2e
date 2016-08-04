@@ -5,7 +5,6 @@ var userQueries = require('../lib/database/users/userQueries');
 var db = require('../config/db');
 
 router.get('/', function(req, res, next) {
-  console.log(req.session);
   res.render('locations/userlocations', {title: 'e2e | Locations'});
 })
 

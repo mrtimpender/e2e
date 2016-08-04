@@ -44,6 +44,42 @@ block content
                   .row
                     .input-field.col.s12
                       button.btn.cyan.waves-effect.waves-light.right(type='submit', name='submit') Save Location!
+                
+                      
+          .row
+            #floating-panel
+              strong Start:
+              select#start
+                option(value='chicago, il') Chicago
+                option(value='st louis, mo') St Louis
+                option(value='joplin, mo') Joplin, MO
+                option(value='oklahoma city, ok') Oklahoma City
+                option(value='amarillo, tx') Amarillo
+                option(value='gallup, nm') Gallup, NM
+                option(value='flagstaff, az') Flagstaff, AZ
+                option(value='winona, az') Winona
+                option(value='kingman, az') Kingman
+                option(value='barstow, ca') Barstow
+                option(value='san bernardino, ca') San Bernardino
+                option(value='los angeles, ca') Los Angeles
+              br
+              strong End:
+              select#end
+                option(value='chicago, il') Chicago
+                option(value='st louis, mo') St Louis
+                option(value='joplin, mo') Joplin, MO
+                option(value='oklahoma city, ok') Oklahoma City
+                option(value='amarillo, tx') Amarillo
+                option(value='gallup, nm') Gallup, NM
+                option(value='flagstaff, az') Flagstaff, AZ
+                option(value='winona, az') Winona
+                option(value='kingman, az') Kingman
+                option(value='barstow, ca') Barstow
+                option(value='san bernardino, ca') San Bernardino
+                option(value='los angeles, ca') Los Angeles
+            #map
+            #right-panel
+
           
                       
         include ../../public/includes/footer.jade
