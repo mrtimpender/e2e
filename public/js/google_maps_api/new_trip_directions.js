@@ -1,7 +1,7 @@
 function initMap() {
        var origin_place_id = -33.8688;
        var destination_place_id = 151.2195;
-       var travel_mode = 'WALKING';
+       var travel_mode = 'DRIVING';
        // Add Adjustment to hit the select box
        var map = new google.maps.Map(document.getElementById('jon_map'), {
          mapTypeControl: false,
@@ -26,17 +26,22 @@ function initMap() {
            new google.maps.places.Autocomplete(destination_input);
        destination_autocomplete.bindTo('bounds', map);
 
-       // Sets a listener on a radio button to change the filter type on Places
-       // Autocomplete.
-      //  function setupClickListener(id, mode) {
-      //    var radioButton = document.getElementById(id);
-      //    radioButton.addEventListener('click', function() {
+       // Sets a listener on a radio button to change the filter type on Places.  Not yet functioning.  Defaulted to Driving
+      //  Autocomplete.
+      // function setupClickListener(id, mode) {
+      //    var select = document.getElementById(id);
+      //    select.addEventListener('click', function() {
+      //      console.log(mode);
       //      travel_mode = mode;
       //    });
       //  }
       //  setupClickListener('changemode-walking', 'WALKING');
       //  setupClickListener('changemode-transit', 'TRANSIT');
       //  setupClickListener('changemode-driving', 'DRIVING');
+      //  setupClickListener('changemode-bicycling', 'BICYCLING');
+
+       var select = document.getElementById('mode')
+       var selectedMode = select.options[select.selectedIndex].value;
 
        function expandViewportToFitPlace(map, place) {
          if (place.geometry.viewport) {
