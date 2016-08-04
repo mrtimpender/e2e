@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/nm', express.static(__dirname + '/node_modules/'));
 app.use('/', routes);
 app.use('/users', users);
-app.use('/dashboard/trips', trips);
+app.use('/trips', trips);
 app.use('/login', login);
 app.use('/dashboard', dashboard);
 app.use('/uber', uber);

@@ -3,23 +3,25 @@ aside#left-sidebar-nav
   ul#slide-out.side-nav.fixed.leftside-navigation
     li.user-details.cyan
       .row
-        .col.col.s4.m4.l4
-          img.circle.responsive-img.valign.profile-image(src='/images/avatar.jpg', alt='')
-        .col.col.s8.m8.l8
+        .col.col.s8.offset-s2.m8.offset-m2.l8.offset-l2
         p.avatar-name Tim Pender
         p.user-roal mrtimpender
     li.bold
-      a.waves-effect.waves-cyan(href='/dashboard.html')
+      a.waves-effect.waves-cyan(href='/dashboard')
         i.mdi-action-dashboard
         |  Dashboard
     li.bold
-      a.waves-effect.waves-cyan(href='/profile.html')
+      a.waves-effect.waves-cyan(href='/profile')
         i.mdi-action-face-unlock
         |  Profile
     li.bold
-      a.waves-effect.waves-cyan(href='#')
-        i.mdi-communication-email
-        |  Contact Us 
+      a.waves-effect.waves-cyan(href='/locations')
+        i.mdi-communication-location-on
+        |  My Locations
+    li.bold
+      a.waves-effect.waves-cyan(href='/trips')
+        i.mdi-av-timer
+        |  My Trips
   a.sidebar-collapse.btn-floating.btn-medium.waves-effect.waves-light.hide-on-large-only.cyan(href='#', data-activates='slide-out')
     i.mdi-navigation-menu
  
