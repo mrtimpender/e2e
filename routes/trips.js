@@ -8,7 +8,7 @@ var googleMaps = require('../lib/google_maps_api/google_maps_api');
 router.route('/')
   .get((req, res, next) => {
     // load new trip tempate
-    res.render('trips/new_trip')
+    res.render('trips/new_trip', {title: 'e2e | Trips'})
   })
   .post((req, res, next) => {
     // create new trip route
