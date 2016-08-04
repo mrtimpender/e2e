@@ -129,22 +129,32 @@ html(lang='en')
 					// start container
 					.container
 						.row.center-align
-							.col.s12.m5.l5
+							.col.s12.m6.l6
 								.card
 									.card-move-up.teal.waves-effect.waves-block.waves-light
 										.move-up
 											h5.margin.white-text Start Location
 											input#origin-input.controls(type='text', name='trip_name', placeholder='starting location for your trip')
-							.col.s12.m5.l5
+							.col.s12.m6.l6
 								.card
 									.card-move-up.teal.waves-effect.waves-block.waves-light
 										.move-up
 											h5.margin.white-text Destination Location
 											input#destination-input.controls(type='text', name='trip_name', placeholder='starting location for your trip')
-							.col.s12.m2.l2.valign-wrapper
+											.input-field.col.s12
+
+							.input-field.col.s12.m6.l6
+								select#mode
+									option(value='', disabled='', selected='') Select Your Mode
+									option(value='TRANSIT', id='changemode-transit') Transit
+									option(value='DRIVING', id='changemode-driving') Driving
+									option(value='BICYCLING', id='changemode-bicycling') Bicycling
+									option(value='WALKING', id='changemode-walking') Walking
+								label 
+							.col.s6.m6.l6.valign-wrapper
 								a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
-									i.mdi-content-add
-					
+									i.mdi-maps-directions
+						.row			
 							#map(style="display:none")
 							#jon_map
 							#floating-panel
@@ -198,4 +208,4 @@ html(lang='en')
 						script(type='text/javascript', src='/js/plugins.js')
 						script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB9xEAcDm6FwY9iDrdBRVsXhowU9FbDIao&libraries=places&callback=initMap', async='', defer='')
 						//- script(src="/js/google_maps_api/auto_complete.js")
-						script(src="/js/google_maps_api/auto_complete2.js")
+						script(src="/js/google_maps_api/new_trip_directions.js")
