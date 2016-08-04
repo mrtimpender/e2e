@@ -51,6 +51,23 @@ exports.up = function(knex, Promise) {
         table.string('lng')
         table.string('created_at')
         table.string('updated_at')
+      }),
+      knex.schema.createTable('trip_directions', function(table){
+        table.increments('id').primary()
+        table.integer('trip_id').references('user_trips.id')
+        table.json('directions_object')
+        table.string('directions_distance_val')
+        table.string('directions_distance_text')
+        table.string('directions_duration_val')
+        table.string('directions_duration_text')
+        table.string('directions_start_addr_location_lat')
+        table.string('directions_start_addr_location_lng')
+        table.string('directions_start_addr')
+        table.string('directions_end_addr_location_lat')
+        table.string('directions_end_addr_location_lng')
+        table.string('directions_end_addr')
+        table.string('created_at')
+        table.string('updated_at')
       })
   ])}
 

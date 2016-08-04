@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "bcrypt": "^0.8.7",
+    "better-console": "^0.2.4",
     "bluebird": "^3.4.1",
     "body-parser": "~1.15.1",
     "bookshelf": "^0.10.0",
