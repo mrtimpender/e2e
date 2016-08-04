@@ -1,14 +1,12 @@
 var trip = {};
 
-function thisInitMap() {
-  console.log('in init map');
-
+function reInitMap() {
   var directionsDisplay = new google.maps.DirectionsRenderer;
   var directionsService = new google.maps.DirectionsService;
   var trafficLayer = new google.maps.TrafficLayer();
   var transitLayer = new google.maps.TransitLayer();
   var bikeLayer = new google.maps.BicyclingLayer();
-  var map = new google.maps.Map(document.getElementById('map'), {
+  var map = new google.maps.Map(document.getElementById('jon_map'), {
     zoom: 14,
   });
   directionsDisplay.setMap(map);
@@ -27,8 +25,6 @@ function thisInitMap() {
   // $('#showBike').click(function() {
   //   bikeLayer.getMap() == null ? bikeLayer.setMap(map) : bikeLayer.setMap(null);
   // })
-  console.log('about to run calc and display');
-
   calculateAndDisplayRoute(directionsService, directionsDisplay);
   document.getElementById('mode').addEventListener('change', function() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
@@ -36,11 +32,13 @@ function thisInitMap() {
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-  var startPoint = document.getElementById('pac-input').innerHTML;
-  var endPoint = document.getElementById('pac-input2').innerHTML;
-  console.log(startPoint, endPoint);
+  var startPoint = document.getElementById('origin-input').value;
+  var endPoint = document.getElementById('destination-input').value;
+  console.log('start: ', startPoint, 'end: ',  endPoint);
 
-  var selectedMode = document.getElementById('mode').value;
+  var select = document.getElementById('mode')
+  var selectedMode = select.options[select.selectedIndex].value;
+  console.log(selectedMode);
   directionsService.route({
     origin: startPoint,
     destination: endPoint,
@@ -74,6 +72,5 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
 $('#getDirections').click(function(){
   console.log('clicked');
-  thisInitMap();
-  console.log(trip);
+  reInitMap();
 })
