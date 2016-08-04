@@ -60,6 +60,8 @@ function initMap() {
        var bikeLayer = new google.maps.BicyclingLayer();
 
        var travel_mode = 'WALKING';
+
+       var travel_mode = 'DRIVING';
        // Add Adjustment to hit the select box
        var map = new google.maps.Map(document.getElementById('jon_map'), {
          mapTypeControl: false,
@@ -99,17 +101,22 @@ function initMap() {
            new google.maps.places.Autocomplete(destination_input);
        destination_autocomplete.bindTo('bounds', map);
 
-       // Sets a listener on a radio button to change the filter type on Places
-       // Autocomplete.
-      //  function setupClickListener(id, mode) {
-      //    var radioButton = document.getElementById(id);
-      //    radioButton.addEventListener('click', function() {
+       // Sets a listener on a radio button to change the filter type on Places.  Not yet functioning.  Defaulted to Driving
+      //  Autocomplete.
+      // function setupClickListener(id, mode) {
+      //    var select = document.getElementById(id);
+      //    select.addEventListener('click', function() {
+      //      console.log(mode);
       //      travel_mode = mode;
       //    });
       //  }
       //  setupClickListener('changemode-walking', 'WALKING');
       //  setupClickListener('changemode-transit', 'TRANSIT');
       //  setupClickListener('changemode-driving', 'DRIVING');
+      //  setupClickListener('changemode-bicycling', 'BICYCLING');
+
+       var select = document.getElementById('mode')
+       var selectedMode = select.options[select.selectedIndex].value;
 
        function expandViewportToFitPlace(map, place) {
          if (place.geometry.viewport) {
@@ -168,3 +175,40 @@ function initMap() {
          });
        }
      }
+
+     function initMap() {
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: {lat: 41.85, lng: -87.65}
+        });
+        directionsDisplay.setMap(map);
+        directionsDisplay.setPanel(document.getElementById('right-panel'));
+
+        var control = document.getElementById('floating-panel');
+        control.style.display = 'block';
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
+
+        var onChangeHandler = function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+        document.getElementById('start').addEventListener('change', onChangeHandler);
+        document.getElementById('end').addEventListener('change', onChangeHandler);
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var start = document.getElementById('start').value;
+        var end = document.getElementById('end').value;
+        directionsService.route({
+          origin: start,
+          destination: end,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
