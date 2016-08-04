@@ -59,10 +59,7 @@ header {
 }
 
 .pac-container {
-  z-index: 1000 !important;
-  position: fixed;
-  display: inline-block;
-  float: left;
+  z-index: 10000 !important;
 }
 
 .modal{
@@ -72,3 +69,6 @@ header {
 .modal-content{
   z-index: 10;
 }​
+.footer-logo {
+  height: 50px;
+}
