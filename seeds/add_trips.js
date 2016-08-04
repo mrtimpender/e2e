@@ -15,7 +15,31 @@ exports.seed = function(knex, Promise) {
           destination_lat: '39.7577737',
           destination_lng: '-105.00713239999999',
           destination_loc_id: 500
-        })
+        }),
+        knex('user_trips').insert({
+          id: 501,
+          user_id: 1,
+          trip_name: 'Breck PO to Galvanize',
+          trans_mode: 'driving',
+          origin_formatted_address: '305 S Ridge St, Breckenridge, CO 80424',
+          origin_loc_id: 502,
+          destination_formatted_address: '1644 Platte St, Denver, CO 80202, USA',
+          destination_lat: '39.7577737',
+          destination_lng: '-105.00713239999999',
+          destination_loc_id: 500
+        }),
+        knex('user_trips').insert({
+          id: 502,
+          user_id: 1,
+          trip_name: 'ABQ PO to Galvanize mode: transit',
+          trans_mode: 'driving',
+          origin_formatted_address: '2505 Graceland Dr NE, Albuquerque, NM 87110',
+          origin_loc_id: 502,
+          destination_formatted_address: '1644 Platte St, Denver, CO 80202, USA',
+          destination_lat: '39.7577737',
+          destination_lng: '-105.00713239999999',
+          destination_loc_id: 500
+        }),
       ]);
     });
 };

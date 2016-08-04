@@ -15,7 +15,9 @@ var passport = require('passport')
 var passportStrategies = require('./lib/auth/passport_strategies')
 app.use(logger('dev'))
 var uber = require('./routes/uber')
-
+var directionsScheduleController = require('./lib/schedule/directionsScheduleController')
+// reload all trips and get directions
+directionsScheduleController.runAll('*/1 * * * *')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
