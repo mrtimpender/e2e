@@ -26,6 +26,8 @@ exports.up = function(knex, Promise) {
         table.string('e2e_email')
         table.string('e2e_uber_picture_url')
         table.string('uber_key', 1000)
+        table.string('uber_code', 1000)
+        table.string('uber_state', 1000)
         table.string('uber_access_token', 1000)
         table.string('uber_refresh_token', 1000)
         table.string('uber_rider_id', 1000)

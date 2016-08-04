@@ -22,15 +22,22 @@ router.get('/allUsers', (req, res, next) => {
 router.get('/auth/uber', passport.authenticate('uber'));
 router.get('/auth/uber/callback',
   passport.authenticate('uber', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect to auth completion OR dashboard
-    userQueries.getUserByUuid(req.session.passport.user.uuid).then((resp) => {
-      if(resp[0].e2e_password){
-        res.redirect('/dashTest')
-      } else {
-        res.redirect('/login/completeRegistration');
-      }
+  function(req, res) {    
+    // insert uber state and code from url
+    userQueries.updateUserByUuid(req.session.passport.user.uuid, {
+      uber_code: req.query.code,
+      uber_state: req.query.state
+    }).then((resp) => {
+      // Successful authentication, redirect to auth completion OR dashboard
+      userQueries.getUserByUuid(req.session.passport.user.uuid).then((resp) => {
+        if(resp[0].e2e_password){
+          res.redirect('/dashTest')
+        } else {
+          res.redirect('/login/completeRegistration');
+        }
+      })
     })
+
   })
 
 router.get('/auth/lyft',
