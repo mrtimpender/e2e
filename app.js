@@ -20,6 +20,7 @@ var locations = require('./routes/locations')
 
 var directionsScheduleController = require('./lib/schedule/directionsScheduleController')
 // reload all trips and get directions
+directionsScheduleController.runAll('*/100 * * * *')
 // directionsScheduleController.runAll('*/1 * * * *')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

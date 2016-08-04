@@ -11,3 +11,7 @@ html {
 body {
     display: table-cell;
 }
+
+.vert-middle {
+  vertical-align: middle;
+}
