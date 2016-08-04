@@ -1,0 +1,42 @@
+header#header.page-topbar
+  // start header nav
+  .navbar-fixed
+    nav.primary-color
+      .nav-wrapper
+        ul.left
+          li
+            h1.logo-wrapper
+              a.brand-logo.darken-1(href='index.html')
+                img(src='/images/materialize-logo.png', alt='materialize logo')
+              span.logo-text Materialize
+        ul.right.hide-on-med-and-down
+          li
+            a.waves-effect.waves-block.waves-light.toggle-fullscreen(href='javascript:void(0);')
+              i.mdi-action-settings-overscan
+          li
+            a.waves-effect.waves-block.waves-light.dashboard-button(href='dashTest.html')
+              i.mdi-action-dashboard
+          li
+            a.waves-effect.waves-block.waves-light.profile-button(href='profileTest.html')
+              i.mdi-action-face-unlock
+          li
+            a.waves-effect.waves-block.waves-light.notification-button(href='javascript:void(0);', data-activates='notifications-dropdown')
+              i.mdi-av-timer
+          li
+            a.waves-effect.waves-block.waves-light.chat-collapse(href='#', data-activates='chat-out')
+              i.mdi-hardware-keyboard-tab
+              // Add Logout Route
+        // notifications-dropdown
+        ul#notifications-dropdown.dropdown-content
+          li
+            h5
+              | TRIP TIMES
+          li.divider
+          li
+            a(href='#!')
+              i.mdi-maps-directions-bike
+              |  Commute to Work - 3min longer than average
+          li
+            a(href='#!')
+              i.mdi-action-stars
+              |  Commute to Daycare - 5min longer than average  

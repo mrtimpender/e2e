@@ -29,3 +29,28 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 	height: 40vh;
 	width: 40vw;
 }
+
+header {
+  width: 100vw;
+}
+
+#content {
+    margin-top: 0px;
+}
+
+.no-margin-no-padding {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.avatar-name {
+  color: #fff;
+  font-size: 15px;
+  text-shadow: 1px 1px 1px #444;
+  margin: 0;
+}

@@ -15,6 +15,8 @@ var passport = require('passport')
 var passportStrategies = require('./lib/auth/passport_strategies')
 app.use(logger('dev'))
 var uber = require('./routes/uber')
+var profile = require('./routes/profile')
+
 var directionsScheduleController = require('./lib/schedule/directionsScheduleController')
 // reload all trips and get directions
 directionsScheduleController.runAll('*/10 * * * *')
@@ -44,6 +46,7 @@ app.use('/dashboard/trips', trips);
 app.use('/login', login);
 app.use('/dashboard', dashboard);
 app.use('/uber', uber);
+app.use('/profile', profile);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

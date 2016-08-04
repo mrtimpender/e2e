@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
   res.render('index', { title: 'Express Yeah!' });
 })
 router.get('/dashTest', (req, res, next) => {
-  res.render('dash/index')
+  res.render('dash/index', {title: 'Dashboard | e2e'})
 })
 
 router.get('/test', (req, res, next) => {
