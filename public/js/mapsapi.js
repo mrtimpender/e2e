@@ -12,21 +12,21 @@ function thisInitMap() {
     zoom: 14,
   });
   directionsDisplay.setMap(map);
-  // trafficLayer.setMap(null);
-  // transitLayer.setMap(null);
-  // bikeLayer.setMap(null);
+  trafficLayer.setMap(null);
+  transitLayer.setMap(null);
+  bikeLayer.setMap(null);
 
-  // $('#showTraffic').click(function() {
-  //   trafficLayer.getMap() == null ? trafficLayer.setMap(map) : trafficLayer.setMap(null);
-  // })
+  $('#showTraffic').click(function() {
+    trafficLayer.getMap() == null ? trafficLayer.setMap(map) : trafficLayer.setMap(null);
+  })
 
-  // $('#showTransit').click(function() {
-  //   transitLayer.getMap() == null ? transitLayer.setMap(map) : transitLayer.setMap(null);
-  // })
+  $('#showTransit').click(function() {
+    transitLayer.getMap() == null ? transitLayer.setMap(map) : transitLayer.setMap(null);
+  })
 
-  // $('#showBike').click(function() {
-  //   bikeLayer.getMap() == null ? bikeLayer.setMap(map) : bikeLayer.setMap(null);
-  // })
+  $('#showBike').click(function() {
+    bikeLayer.getMap() == null ? bikeLayer.setMap(map) : bikeLayer.setMap(null);
+  })
   console.log('about to run calc and display');
 
   calculateAndDisplayRoute(directionsService, directionsDisplay);
