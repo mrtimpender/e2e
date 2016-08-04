@@ -10,21 +10,29 @@ function reInitMap() {
     zoom: 14,
   });
   directionsDisplay.setMap(map);
-  // trafficLayer.setMap(null);
-  // transitLayer.setMap(null);
-  // bikeLayer.setMap(null);
+  trafficLayer.setMap(null);
+  transitLayer.setMap(null);
+  bikeLayer.setMap(null);
 
-  // $('#showTraffic').click(function() {
-  //   trafficLayer.getMap() == null ? trafficLayer.setMap(map) : trafficLayer.setMap(null);
-  // })
+  $('#showTraffic').click(function() {
+    trafficLayer.getMap() == null ? trafficLayer.setMap(map) : trafficLayer.setMap(null);
+  })
 
-  // $('#showTransit').click(function() {
-  //   transitLayer.getMap() == null ? transitLayer.setMap(map) : transitLayer.setMap(null);
-  // })
+  $('#showTransit').click(function() {
+    transitLayer.getMap() == null ? transitLayer.setMap(map) : transitLayer.setMap(null);
+  })
 
+<<<<<<< HEAD
+  $('#showBike').click(function() {
+    bikeLayer.getMap() == null ? bikeLayer.setMap(map) : bikeLayer.setMap(null);
+  })
+  console.log('about to run calc and display');
+
+=======
   // $('#showBike').click(function() {
   //   bikeLayer.getMap() == null ? bikeLayer.setMap(map) : bikeLayer.setMap(null);
   // })
+>>>>>>> 195c1794e4567be4425a1e624b9ff9370f6eb6f4
   calculateAndDisplayRoute(directionsService, directionsDisplay);
   document.getElementById('mode').addEventListener('change', function() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
