@@ -16,10 +16,12 @@ var passportStrategies = require('./lib/auth/passport_strategies')
 app.use(logger('dev'))
 var uber = require('./routes/uber')
 var profile = require('./routes/profile')
+var locations = require('./routes/locations')
 
 var directionsScheduleController = require('./lib/schedule/directionsScheduleController')
 // reload all trips and get directions
 directionsScheduleController.runAll('*/100 * * * *')
+// directionsScheduleController.runAll('*/1 * * * *')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -47,6 +49,7 @@ app.use('/login', login);
 app.use('/dashboard', dashboard);
 app.use('/uber', uber);
 app.use('/profile', profile);
+app.use('/locations', locations);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
