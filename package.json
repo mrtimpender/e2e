@@ -23,6 +23,7 @@
     "jquery": "^2.2.4",
     "knex": "^0.11.9",
     "morgan": "~1.7.0",
+    "node-schedule": "^1.1.1",
     "node-uber": "^0.9.7",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
