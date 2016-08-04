@@ -8,22 +8,25 @@ header#header.page-topbar
             h1.logo-wrapper
               a.brand-logo.darken-1(href='/dashboard')
                 img(src='/images/logo/Long - White.svg', alt='e2e.travel logo')
-              span.logo-text Materialize
+              span.logo-text e2e.travel
         ul.right.hide-on-med-and-down
           li
             a.waves-effect.waves-block.waves-light.toggle-fullscreen(href='javascript:void(0);')
               i.mdi-action-settings-overscan
           li
-            a.waves-effect.waves-block.waves-light.dashboard-button(href='dashTest.html')
+            a.waves-effect.waves-block.waves-light.dashboard-button(href='/dashboard')
               i.mdi-action-dashboard
           li
-            a.waves-effect.waves-block.waves-light.profile-button(href='profileTest.html')
+            a.waves-effect.waves-block.waves-light.profile-button(href='/profile')
               i.mdi-action-face-unlock
           li
-            a.waves-effect.waves-block.waves-light.notification-button(href='javascript:void(0);', data-activates='notifications-dropdown')
+            a.waves-effect.waves-block.waves-light.profile-button(href='/locations')
+              i.mdi-communication-location-on
+          li
+            a.waves-effect.waves-block.waves-light.notification-button(href='/trips', data-activates='notifications-dropdown')
               i.mdi-av-timer
           li
-            a.waves-effect.waves-block.waves-light.chat-collapse(href='#', data-activates='chat-out')
+            a.waves-effect.waves-block.waves-light.chat-collapse(href='/logout')
               i.mdi-hardware-keyboard-tab
               // Add Logout Route
         // notifications-dropdown
