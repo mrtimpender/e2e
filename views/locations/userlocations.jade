@@ -1,119 +1,121 @@
 extends ../layout
 block content
-    #main
-      // START WRAPPER
-      .wrapper
-        include ../../public/includes/left_sidebar.jade
-      // START CONTENT
-      section#content
-        // start container
-        .container
-          #profile-page.section
-          
-          .fixed-action-btn(style='bottom: 50px; right: 19px;')
-            a.btn-floating.btn-large
-              i.mdi-action-stars
-            ul
-              li
-                a#modal-fire.btn-floating.red.modal-trigger(href='#modal1')
-                  i.large.mdi-communication-live-help
-              li
-                a.btn-floating.yellow.darken-1(href='app-widget.html')
-                  i.large.mdi-device-now-widgets
-              li
-                a.btn-floating.green(href='app-calendar.html')
-                  i.large.mdi-editor-insert-invitation
-              li
-                a.btn-floating.blue(href='app-email.html')
-                  i.large.mdi-communication-email
-          
-          
-          #modal1.modal
-            .modal-content
-              .col.s12.m12.l6
-                .card-panel
-                  h4.header2 Add a Location
-                .row
-                  form.col(class='s12', method='post' action="/user_locations")
-                    .input-field.col.s12
-                      input#location_name(type='text', name="location_name", placeholder="Name your location")
-                      | Location Name
-                    .input-field.col.s12
-                      input#searchBoxField(type='text', name="address")
-                      | Address
-                  .row
-                    .input-field.col.s12
-                      button.btn.cyan.waves-effect.waves-light.right(type='submit', name='submit') Save Location!
-                
-                      
-          .row
-            #floating-panel
-              strong Start:
-              select#start
-                option(value='chicago, il') Chicago
-                option(value='st louis, mo') St Louis
-                option(value='joplin, mo') Joplin, MO
-                option(value='oklahoma city, ok') Oklahoma City
-                option(value='amarillo, tx') Amarillo
-                option(value='gallup, nm') Gallup, NM
-                option(value='flagstaff, az') Flagstaff, AZ
-                option(value='winona, az') Winona
-                option(value='kingman, az') Kingman
-                option(value='barstow, ca') Barstow
-                option(value='san bernardino, ca') San Bernardino
-                option(value='los angeles, ca') Los Angeles
-              br
-              strong End:
-              select#end
-                option(value='chicago, il') Chicago
-                option(value='st louis, mo') St Louis
-                option(value='joplin, mo') Joplin, MO
-                option(value='oklahoma city, ok') Oklahoma City
-                option(value='amarillo, tx') Amarillo
-                option(value='gallup, nm') Gallup, NM
-                option(value='flagstaff, az') Flagstaff, AZ
-                option(value='winona, az') Winona
-                option(value='kingman, az') Kingman
-                option(value='barstow, ca') Barstow
-                option(value='san bernardino, ca') San Bernardino
-                option(value='los angeles, ca') Los Angeles
-            #map
-            #right-panel
+	#main
+		// START WRAPPER
+		.wrapper
+			include ../../public/includes/left_sidebar.jade
+		// START CONTENT
+		section#content
+			// start container
+			.container
+				#profile-page.section
+					.row
+						#floating-panel
+							strong Start:
+							select#start
+								option(value='chicago, il') Chicago
+								option(value='st louis, mo') St Louis
+								option(value='joplin, mo') Joplin, MO
+								option(value='oklahoma city, ok') Oklahoma City
+								option(value='amarillo, tx') Amarillo
+								option(value='gallup, nm') Gallup, NM
+								option(value='flagstaff, az') Flagstaff, AZ
+								option(value='winona, az') Winona
+								option(value='kingman, az') Kingman
+								option(value='barstow, ca') Barstow
+								option(value='san bernardino, ca') San Bernardino
+								option(value='los angeles, ca') Los Angeles
+							br
+							strong End:
+							select#end
+								option(value='chicago, il') Chicago
+								option(value='st louis, mo') St Louis
+								option(value='joplin, mo') Joplin, MO
+								option(value='oklahoma city, ok') Oklahoma City
+								option(value='amarillo, tx') Amarillo
+								option(value='gallup, nm') Gallup, NM
+								option(value='flagstaff, az') Flagstaff, AZ
+								option(value='winona, az') Winona
+								option(value='kingman, az') Kingman
+								option(value='barstow, ca') Barstow
+								option(value='san bernardino, ca') San Bernardino
+								option(value='los angeles, ca') Los Angeles
+						#right-panel
+						#map
+				.fixed-action-btn(style='bottom: 50px; right: 19px;')
+					a.btn-floating.btn-large
+						i.mdi-action-stars
+					ul
+						li
+							a#modal-fire.btn-floating.red.modal-trigger(href='#modal1')
+								i.large.mdi-communication-live-help
+						li
+							a.btn-floating.yellow.darken-1(href='app-widget.html')
+								i.large.mdi-device-now-widgets
+						li
+							a.btn-floating.green(href='app-calendar.html')
+								i.large.mdi-editor-insert-invitation
+						li
+							a.btn-floating.blue(href='app-email.html')
+								i.large.mdi-communication-email
 
-          
-                      
-        include ../../public/includes/footer.jade
-            
-    // end container
-    // END CONTENT
-    // ////////////////////////////////////////////////////////////////////////////
-    
-    //
-      ================================================
-      Scripts
-      ================================================
-    // jQuery Library
-    script(type='text/javascript', src='/js/plugins/jquery-1.11.2.min.js')
-    // materialize js
-    script(type='text/javascript', src='/js/materialize.js')
-    // prism
-    script(type='text/javascript', src='/js/plugins/prism/prism.js')
-    // scrollbar
-    script(type='text/javascript', src='/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js')
-    // chartist
-    script(type='text/javascript', src='/js/plugins/chartist-js/chartist.min.js')
-    // interactivity
-    script(type='text/javascript', src='/js/interactivity.js')
-    // sparkline
-    script(type='text/javascript', src='/js/plugins/sparkline/jquery.sparkline.min.js')
-    script(type='text/javascript', src='/js/plugins/sparkline/sparkline-script.js')
-    // google map api
-    script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB9xEAcDm6FwY9iDrdBRVsXhowU9FbDIao')    
-    // google map
-    script(type='text/javascript', src='/js/plugins/google-map/google-map-script.js')
-    // plugins.js - Some Specific JS codes for Plugin Settings
-    script(type='text/javascript', src='/js/plugins.js')
-    // custom-script.js - Add your own theme custom JS
-    script(type='text/javascript', src='/js/custom-script.js')
-    // Toast Notification
-    script(type='text/javascript')
+
+
+
+				#modal1.modal
+					.modal-content
+						.col.s12.m12.l6
+							.card-panel
+								h4.header2 Add a Location
+							.row
+								form.col(class='s12', method='post' action="/user_locations")
+									.input-field.col.s12
+										input#location_name(type='text', name="location_name", placeholder="Name your location")
+										| Location Name
+									.input-field.col.s12
+										input#searchBoxField(type='text', name="address")
+										| Address
+								.row
+									.input-field.col.s12
+										button.btn.cyan.waves-effect.waves-light.right(type='submit', name='submit') Save Location!
+
+
+
+
+
+
+			include ../../public/includes/footer.jade
+
+	// end container
+	// END CONTENT
+	// ////////////////////////////////////////////////////////////////////////////
+
+	//
+		================================================
+		Scripts
+		================================================
+	// jQuery Library
+	script(type='text/javascript', src='/js/plugins/jquery-1.11.2.min.js')
+	// materialize js
+	script(type='text/javascript', src='/js/materialize.js')
+	// prism
+	script(type='text/javascript', src='/js/plugins/prism/prism.js')
+	// scrollbar
+	script(type='text/javascript', src='/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js')
+	// chartist
+	script(type='text/javascript', src='/js/plugins/chartist-js/chartist.min.js')
+	// interactivity
+	script(type='text/javascript', src='/js/interactivity.js')
+	// sparkline
+	script(type='text/javascript', src='/js/plugins/sparkline/jquery.sparkline.min.js')
+	script(type='text/javascript', src='/js/plugins/sparkline/sparkline-script.js')
+	// google map api
+	script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB9xEAcDm6FwY9iDrdBRVsXhowU9FbDIao')    
+	// google map
+	script(type='text/javascript', src='/js/plugins/google-map/google-map-script.js')
+	// plugins.js - Some Specific JS codes for Plugin Settings
+	script(type='text/javascript', src='/js/plugins.js')
+	// custom-script.js - Add your own theme custom JS
+	script(type='text/javascript', src='/js/custom-script.js')
+	// Toast Notification
+	script(type='text/javascript')
