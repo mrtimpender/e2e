@@ -7,7 +7,7 @@ var uber = require('../lib/uber_api/uber_api')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('uber', {uber: 'hello'});
+  res.render('uber', {uber: 'UBER TEST'});
 });
 
 module.exports = router;
