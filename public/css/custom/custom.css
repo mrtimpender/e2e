@@ -57,3 +57,18 @@ header {
   text-shadow: 1px 1px 1px #444;
   margin: 0;
 }
+
+.pac-container {
+  z-index: 1000 !important;
+  position: fixed;
+  display: inline-block;
+  float: left;
+}
+
+.modal{
+  z-index: 20;
+}
+
+.modal-content{
+  z-index: 10;
+}​

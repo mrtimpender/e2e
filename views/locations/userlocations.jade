@@ -10,20 +10,41 @@ block content
         .container
           #profile-page.section
           
-          .col.s12.m12.l6
-            .card-panel
-              h4.header2 Add a Location
-              .row
-                form.col(class='s12>', <div='')
-                  .input-field.col.s12
-                    input#location_name(type='text', name="location_name")
-                    | Location Name
-                  .input-field.col.s12
-                    input#adress(type='text', name="address")
-                    | Location Name
+          .fixed-action-btn(style='bottom: 50px; right: 19px;')
+            a.btn-floating.btn-large
+              i.mdi-action-stars
+            ul
+              li
+                a.btn-floating.red.modal-trigger(href='#modal1')
+                  i.large.mdi-communication-live-help
+              li
+                a.btn-floating.yellow.darken-1(href='app-widget.html')
+                  i.large.mdi-device-now-widgets
+              li
+                a.btn-floating.green(href='app-calendar.html')
+                  i.large.mdi-editor-insert-invitation
+              li
+                a.btn-floating.blue(href='app-email.html')
+                  i.large.mdi-communication-email
+          
+          
+          #modal1.modal
+            .modal-content
+              .col.s12.m12.l6
+                .card-panel
+                  h4.header2 Add a Location
+                .row
+                  form.col(class='s12', method='post' action="/user_locations")
+                    .input-field.col.s12
+                      input#location_name(type='text', name="location_name")
+                      | Location Name
+                    .input-field.col.s12
+                      input#searchBoxField(type='text', name="address")
+                      | Location Name
                   .row
                     .input-field.col.s12
                       button.btn.cyan.waves-effect.waves-light.right(type='submit', name='submit') Save Location!
+          
                       
         include ../../public/includes/footer.jade
             
@@ -45,11 +66,13 @@ block content
     script(type='text/javascript', src='/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js')
     // chartist
     script(type='text/javascript', src='/js/plugins/chartist-js/chartist.min.js')
+    // interactivity
+    script(type='text/javascript', src='/js/interactivity.js')
     // sparkline
     script(type='text/javascript', src='/js/plugins/sparkline/jquery.sparkline.min.js')
     script(type='text/javascript', src='/js/plugins/sparkline/sparkline-script.js')
     // google map api
-    script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAAZnaZBXLqNBRXjd-82km_NO7GUItyKek')
+    script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB9xEAcDm6FwY9iDrdBRVsXhowU9FbDIao')    
     // google map
     script(type='text/javascript', src='/js/plugins/google-map/google-map-script.js')
     // plugins.js - Some Specific JS codes for Plugin Settings
