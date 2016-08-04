@@ -15,7 +15,7 @@ block content
               i.mdi-action-stars
             ul
               li
-                a.btn-floating.red.modal-trigger(href='#modal1')
+                a#modal-fire.btn-floating.red.modal-trigger(href='#modal1')
                   i.large.mdi-communication-live-help
               li
                 a.btn-floating.yellow.darken-1(href='app-widget.html')
@@ -36,11 +36,11 @@ block content
                 .row
                   form.col(class='s12', method='post' action="/user_locations")
                     .input-field.col.s12
-                      input#location_name(type='text', name="location_name")
+                      input#location_name(type='text', name="location_name", placeholder="Name your location")
                       | Location Name
                     .input-field.col.s12
                       input#searchBoxField(type='text', name="address")
-                      | Location Name
+                      | Address
                   .row
                     .input-field.col.s12
                       button.btn.cyan.waves-effect.waves-light.right(type='submit', name='submit') Save Location!
