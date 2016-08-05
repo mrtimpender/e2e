@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport')
-var userQueries = require('../lib/database/users/userQueries')
+var userQueries = require('../controllers/database/users/userQueries')
 var db = require('../config/db')
 /* GET home page. */
 router.get('/', (req, res, next) => {

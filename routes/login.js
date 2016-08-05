@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userQueries = require('../lib/database/users/userQueries')
+var userQueries = require('../controllers/database/users/userQueries')
 var db = require('../config/db')
 var modelBase = require('bookshelf-modelbase')(db.bookshelf)
 var bcrypt = require('bcrypt')
