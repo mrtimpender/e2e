@@ -4,6 +4,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport')
 var googleMaps = require('../controllers/google_maps_api/GoogleMaps')
+var tripsController = require('../controllers/trips/tripsController')
 
 router.route('/')
   .get((req, res, next) => {
@@ -22,6 +23,13 @@ router.route('/')
     // create new trip route
   })
 
+  router.route('/my_trips')
+    .get((req, res, next) => {
+    tripsController.returnTripsAndLocaitons().then((trips) => res.render('trips/my_trips', {trips:trips.rows}))
+  })
+
+
+// begin sluff
 router.route('/jon-test')
   .get((req, res, next) => {
     // load new trip tempate

@@ -9,7 +9,6 @@ var bcrypt = require('bcrypt')
 var e2eUserTable = ModelBase.extend({
     tableName: 'e2e_users'
 })
-// uber
 passport.use(new uberStrategy({
     clientID: process.env.uber_api_client_id,
     clientSecret: process.env.uber_api_client_secret,
@@ -46,7 +45,6 @@ passport.use(new uberStrategy({
     })
   }
 ))
-// lyft
 passport.use(new lyftStrategy({
     clientID: process.env.lyft_api_client_id,
     clientSecret: process.env.lyft_api_client_secret,
@@ -66,7 +64,6 @@ passport.use(new lyftStrategy({
     return done(null, user);
   }
 ));
-// passport local Strategy
 passport.use(
   new LocalStrategy({
       usernameField: 'username',
