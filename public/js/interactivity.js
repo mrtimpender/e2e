@@ -1,10 +1,3 @@
-$(document).ready(function(){
-
-  $('#modal-fire').click(function() {
-    console.log("autocomplete initialized!");
-    var places = new google.maps.places.Autocomplete(document.getElementById('searchBoxField'));
-    places.className = 'ui-front';
-  });
 
   function initMap() {
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -14,7 +7,7 @@ $(document).ready(function(){
       center: {lat: 41.85, lng: -87.65}
     });
     directionsDisplay.setMap(map);
-    directionsDisplay.setPanel(document.getElementById('directionsDisplay'));
+    directionsDisplay.setPanel(document.getElementById('showDirections'));
 
     var control = document.getElementById('floating-panel');
     control.style.display = 'block';
@@ -35,6 +28,7 @@ $(document).ready(function(){
       destination: end,
       travelMode: 'DRIVING'
     }, function(response, status) {
+      console.log(response);
       if (status === 'OK') {
         directionsDisplay.setDirections(response);
       } else {
@@ -60,5 +54,3 @@ $(document).ready(function(){
       });
     })
   };
-
-});
