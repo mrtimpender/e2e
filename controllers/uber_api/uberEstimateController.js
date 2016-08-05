@@ -23,7 +23,6 @@ var putUberTripTimeData = (trip, trip_directions) => {
 
 exportMethods = {
   putEstimatesForUberTrip: (trip, trip_directions) => {
-    console.log(trip_directions)
     putProductLocatationData(trip)
       .then(() => putUberTripTimeData(trip, trip_directions))
   }
