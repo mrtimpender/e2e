@@ -23,14 +23,21 @@ var exportMethods = {
         return uber.products.getAllForLocationAsync(lat, lng)
     },
     getTimeEstimateForTrip: (lat, lng, prod_id) => {
-         return uber.estimates.getETAForLocationAsync(lat, lng, prod_id)
+        console.log(lat, lng);
+        
+        // console.log(parseFloat(lat).toFixed(4));
+        // console.log(parseFloat(lat).toFixed(4));
+        
+         return uber.estimates.getETAForLocationAsync(
+             parseFloat(lat).toFixed(4), parseFloat(lng).toFixed(4), prod_id
+             )
     },
     getPriceEstimateForTrip: (trip) => {
         return uber.estimates.getPriceForRouteAsync(
-            trip.origin_lat,
-            trip.origin_long,
-            trip.destination_lat,
-            trip.destination_long
+            parseFloat(trip.origin_lat).toFixed(4),
+            parseFloat(trip.origin_long).toFixed(4),
+            parseFloat(trip.destination_lat).toFixed(4),
+            parseFloat(trip.destination_long).toFixed(4)
         )
     }
 }
