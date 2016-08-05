@@ -7,53 +7,55 @@ block content
 		section#content
 			// start container
 			.container
-				div #{trips}
+				div #{Object.keys(trips[0])}
 
 				// card widgets start
 				#card-widgets
 					.row
-						.col.s12.m6.l4
-							#flight-card.card
-								.card-header.amber.darken-2
-									.card-title
-										h4.flight-card-title Flight
-										p.flight-card-date June 18, Thu 04:50
-								.card-content-bg.white-text
-									.card-content
-										.row.flight-state-wrapper
-											.col.s5.m5.l5.center-align
-												.flight-state
-													h4.margin LDN
-													p.ultra-small London
-											.col.s2.m2.l2.center-align
-												i.mdi-device-airplanemode-on.flight-icon
-											.col.s5.m5.l5.center-align
-												.flight-state
-													h4.margin SFO
-													p.ultra-small San Francisco
-										.row
-											.col.s6.m6.l6.center-align
-												.flight-info
-													p.small
-														span.grey-text.text-lighten-4 Depart:
-														|  04.50
-													p.small
-														span.grey-text.text-lighten-4 Flight:
-														|  IB 5786
-													p.small
-														span.grey-text.text-lighten-4 Terminal:
-														|  B
-											.col.s6.m6.l6.center-align.flight-state-two
-												.flight-info
-													p.small
-														span.grey-text.text-lighten-4 Arrive:
-														|  08.50
-													p.small
-														span.grey-text.text-lighten-4 Flight:
-														|  IB 5786
-													p.small
-														span.grey-text.text-lighten-4 Terminal:
-														|  C
+						each trip in trips
+							.col.s12.m6.l4
+								#flight-card.card
+									.card-header.amber.darken-2
+										.card-title
+											h4.flight-card-title= trip.trip_name
+											p.flight-card-date June 18, Thu 04:50
+									.card-content-bg.white-text
+										.card-content
+											.row.flight-state-wrapper
+												.col.s5.m5.l5.center-align
+													.flight-state
+														h4.margin LDN
+														p.small= trip.origin_name
+												.col.s2.m2.l2.center-align
+													i.mdi-device-airplanemode-on.flight-icon
+												.col.s5.m5.l5.center-align
+													.flight-state
+														h4.margin SFO
+														p.small= trip.destination_name
+											.row
+												.col.s6.m6.l6.center-align
+													.flight-info
+														p.small
+															span.grey-text.text-lighten-4 Depart:
+															|  04.50
+														p.small
+															span.grey-text.text-lighten-4 Flight:
+															|  IB 5786
+														p.small
+															span.grey-text.text-lighten-4 Terminal:
+															|  B
+												.col.s6.m6.l6.center-align.flight-state-two
+													.flight-info
+														p.small
+															span.grey-text.text-lighten-4 Arrive:
+															|  08.50
+														p.small
+															span.grey-text.text-lighten-4 Flight:
+															|  IB 5786
+														p.small
+															span.grey-text.text-lighten-4 Terminal:
+															|  C
+
 					// Floating Action Button
 					// end container
 					// END CONTENT

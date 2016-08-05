@@ -25,7 +25,7 @@ router.route('/')
 
   router.route('/my_trips')
     .get((req, res, next) => {
-    tripsController.returnAllTrips().then((trips) => res.render('trips/my_trips', {trips}))
+    tripsController.returnTripsAndLocaitons().then((trips) => res.render('trips/my_trips', {trips:trips.rows}))
   })
 
 
