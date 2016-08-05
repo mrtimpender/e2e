@@ -3,7 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport')
-var googleMaps = require('../controllers/google_maps_api/google_maps_api');
+var googleMaps = require('../controllers/google_maps_api/GoogleMaps')
 
 router.route('/')
   .get((req, res, next) => {

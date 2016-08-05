@@ -2,7 +2,7 @@ var console = require('better-console');
 
 
 var gmController = require('./lib/google_maps_api/googleMapsController')
-var gm = require('./lib/google_maps_api/google_maps_api')
+var gm = require('./lib/google_maps_api/GoogleMaps')
 
 
 console.log(process.env.uber_api_client_secret);
