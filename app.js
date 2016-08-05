@@ -12,13 +12,13 @@ var dashboard = require('./routes/dashboard');
 var trips = require('./routes/trips');
 var app = express();
 var passport = require('passport')
-var passportStrategies = require('./lib/auth/passport_strategies')
+var passportStrategies = require('./controllers/auth/passport_strategies')
 app.use(logger('dev'))
 var uber = require('./routes/uber')
 var profile = require('./routes/profile')
 var locations = require('./routes/locations')
 
-var directionsScheduleController = require('./lib/schedule/directionsScheduleController')
+var directionsScheduleController = require('./controllers/schedule/directionsScheduleController')
 // reload all trips and get directions
 // directionsScheduleController.runAll('*/100 * * * *')
 directionsScheduleController.runAll('*/1 * * * *')
