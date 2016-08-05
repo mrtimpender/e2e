@@ -1,25 +1,20 @@
 $(document).ready(function(){
 
-  var modalFire = document.getElementById('modal-fire');
-  google.maps.event.addDomListener(modalFire, 'click', function () {
+  $('#modal-fire').click(function() {
     console.log("autocomplete initialized!");
     var places = new google.maps.places.Autocomplete(document.getElementById('searchBoxField'));
     places.className = 'ui-front';
-    google.maps.event.addListener(places, 'place_changed', function () {
-      var place = places.getPlace();
-      var address = place.formatted_address;
-    })
   });
 
-  window.onload = function initMap() {
+  function initMap() {
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var directionsService = new google.maps.DirectionsService;
-    var map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('jon_map'), {
       zoom: 7,
       center: {lat: 41.85, lng: -87.65}
     });
     directionsDisplay.setMap(map);
-    directionsDisplay.setPanel(document.getElementById('right-panel'));
+    directionsDisplay.setPanel(document.getElementById('directionsDisplay'));
 
     var control = document.getElementById('floating-panel');
     control.style.display = 'block';
@@ -30,8 +25,7 @@ $(document).ready(function(){
     };
     document.getElementById('start').addEventListener('change', onChangeHandler);
     document.getElementById('end').addEventListener('change', onChangeHandler);
-  }
-
+  };
 
   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     var start = document.getElementById('start').value;
@@ -46,7 +40,25 @@ $(document).ready(function(){
       } else {
         window.alert('Directions request failed due to ' + status);
       }
-    });
+    })
   }
 
-})
+  $('#modal-fire').click(function() {
+    console.log("autocomplete initialized!");
+    var places = new google.maps.places.Autocomplete(document.getElementById('searchBoxField'));
+    places.className = 'ui-front';
+  });
+
+  function updateDismissable() {
+    $('.lean-overlay').on('click',function() {
+        $('.lean-overlay').remove();
+        $('#modal-share-login').closeModal({
+          dismissible: true,
+          complete: function() {
+            $('.lean-overlay').remove()
+        }
+      });
+    })
+  };
+
+});

@@ -40,8 +40,13 @@ block content
 								option(value='barstow, ca') Barstow
 								option(value='san bernardino, ca') San Bernardino
 								option(value='los angeles, ca') Los Angeles
-						#right-panel
-						#map
+						.col.s12.m5
+							.card-panel.green.accent-4
+								span.white-text(id='directions display')
+						.col.s12.m6.l6
+							#map(style="display:none")
+							#jon_map.mobile-map
+							#floating-panel
 				.fixed-action-btn(style='bottom: 50px; right: 19px;')
 					a.btn-floating.btn-large
 						i.mdi-action-stars
@@ -113,7 +118,7 @@ block content
 	script(type='text/javascript', src='/js/plugins/sparkline/jquery.sparkline.min.js')
 	script(type='text/javascript', src='/js/plugins/sparkline/sparkline-script.js')
 	// google map api
-	script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB9xEAcDm6FwY9iDrdBRVsXhowU9FbDIao')    
+	script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB9xEAcDm6FwY9iDrdBRVsXhowU9FbDIao&callback=initMap', async='', defer='')    
 	// google map
 	script(type='text/javascript', src='/js/plugins/google-map/google-map-script.js')
 	// jvectormap

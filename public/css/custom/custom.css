@@ -89,7 +89,7 @@ header {
         height: 100%;
 }
 
-#floating-panel {
+/*#floating-panel {
   position: absolute;
   top: 10px;
   left: 25%;
@@ -142,7 +142,8 @@ header {
   height: 500px;
   margin: 0;
 }
+
 #right-panel {
 float: none;
 width: auto;
-}
+}*/
