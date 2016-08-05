@@ -5,14 +5,7 @@ var userQueries = require('../controllers/database/users/userQueries')
 var db = require('../config/db')
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Express Yeah!' });
-})
-router.get('/dashTest', (req, res, next) => {
-  res.render('dash/index', {title: 'Dashboard | e2e'})
-})
-
-router.get('/test', (req, res, next) => {
-  res.render('test')
+  res.redirect('/dashboard');
 })
 
 router.get('/allUsers', (req, res, next) => {
@@ -52,12 +45,5 @@ router.get('/lyftAuth', passport.authenticate('lyft', { failureRedirect: '/fail'
   // create entry in user table with our token
   res.redirect('/login/completeRegistration')
 })
-
-// router.get('/logout', (req, res, next) => {
-//   console.log(req.session);
-//   req.session.destroy();
-//   res.redirect('/login');
-// })
-
 
 module.exports = router;

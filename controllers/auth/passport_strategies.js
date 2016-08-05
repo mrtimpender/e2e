@@ -19,8 +19,8 @@ passport.use(new uberStrategy({
   (accessToken, refreshToken, profile, done) => {
     e2eUserTable.findOrCreateByProperty({
       e2e_uber_picture_url: profile.picture,
-      e2e_firstname: profile.first_name,
-      e2e_lastname: profile.last_name,
+      e2e_firstname: profile.firstname,
+      e2e_lastname: profile.lastname,
       uber_uuid: profile.uuid,
       uber_rider_id: profile.rider_id,
       uber_key: accessToken,
