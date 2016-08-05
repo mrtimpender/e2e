@@ -8,27 +8,26 @@ block content
 		section#content
 			// start container
 			.container
-			#profile-page.section
-				.row
-					.col.s12.m6.l6
-						#focusAddress
-							.card.small
-								.card-image
-									img(src='images/sample-1.jpg', alt='sample')
-									span#card-address-title.card-title Card title
-								.card-content
-									p#card-addressFocus.addressInFocus Testing!!!!
-							.row
-								.col.s2.m2.offset-m1.l1.offset-l1
-									a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
-										i.mdi-content-add-circle-outline
-								.col.s2.m2.offset-m1.l1.offset-l1
-									a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
-										i.mdi-content-remove-circle-outline
-								.col.s2.m2.offset-m1.l1.offset-l1
-									a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
-										i.mdi-image-edit
-
+				#profile-page.section
+					.row
+						.col.s12.m6.l6
+							#focusAddress
+								.card.small
+									.card-image
+										img(src='images/sample-1.jpg', alt='sample')
+										span#card-address-title.card-title Card title
+									.card-content
+										p#card-addressFocus.addressInFocus Testing!!!!
+								.row
+									.col.s2.m2.offset-m1.l1.offset-l1
+										a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
+											i.mdi-content-add-circle-outline
+									.col.s2.m2.offset-m1.l1.offset-l1
+										a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
+											i.mdi-content-remove-circle-outline
+									.col.s2.m2.offset-m1.l1.offset-l1
+										a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
+											i.mdi-image-edit
 					.col.s12.m6.l6
 						.col.s12.m6.l6
 							#map(style="display:none")
@@ -57,8 +56,6 @@ block content
 						a.btn-floating.green(href='/trips')
 							i.large.mdi-av-timer
 							// add trip modal
-
-
 				#modal1.modal
 					.modal-content
 						.col.s12.m12.l6
@@ -75,12 +72,7 @@ block content
 									.row
 										.input-field.col.s12
 											button.btn.cyan.waves-effect.waves-light.right(type='submit') Save Location!
-
-
-
-
-
-
+											
 			include ../../public/includes/footer.jade
 
 	// end container
