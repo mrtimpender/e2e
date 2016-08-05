@@ -9,18 +9,18 @@ var bcrypt = require('bcrypt')
 var e2eUserTable = ModelBase.extend({
     tableName: 'e2e_users'
 })
-// uber 
+// uber
 passport.use(new uberStrategy({
     clientID: process.env.uber_api_client_id,
     clientSecret: process.env.uber_api_client_secret,
     callbackURL: "http://localhost:3000/auth/uber/callback",
     state: true
   },
-  (accessToken, refreshToken, profile, done) => {    
+  (accessToken, refreshToken, profile, done) => {
     e2eUserTable.findOrCreateByProperty({
       e2e_uber_picture_url: profile.picture,
       e2e_firstname: profile.first_name,
-      e2e_lastname: profile.last_name, 
+      e2e_lastname: profile.last_name,
       uber_uuid: profile.uuid,
       uber_rider_id: profile.rider_id,
       uber_key: accessToken,
@@ -30,11 +30,13 @@ passport.use(new uberStrategy({
     }, {
       uber_uuid: profile.uuid
     }).then((response) => {
+      console.log(response);
       e2eUserTable.update({
         uber_key: accessToken
       }, {
         id: response.id
-      })      
+      });
+      profile.id = response.id
       return done(null, profile)
     })
   }
@@ -48,15 +50,15 @@ passport.use(new lyftStrategy({
   },
   (accessToken, refreshToken, profile, done) => {
     console.log('inside lift strategy');
-      
+
     var user = profile;
     console.log(profile);
     console.log(accessToken);
     // console.log(userQueries);
-    
-    
+
+
     user.accessToken = accessToken;
-    return done(null, user); 
+    return done(null, user);
   }
 ));
 // passport local Strategy
@@ -72,13 +74,20 @@ passport.use(
             .then((collection) => {
             if(collection.length > 0){
               if(bcrypt.compareSync(password, collection[0].e2e_password)){
-                return done(null, true)
+                return done(null,
+                  { status:true,
+                    id: collection[0].id,
+                    username: collection[0].e2e_username,
+                    firstname: collection[0].e2e_firstname,
+                    lastname: collection[0].e2e_lastname,
+                    email: collection[0].e2e_email
+                  })
               } else {
                 return done(null, false)
               }
             } else {
               return done(null, false)
-            }            
+            }
         })
       })
     }
@@ -91,4 +100,3 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
-

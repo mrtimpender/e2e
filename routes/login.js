@@ -17,6 +17,7 @@ router.route('/')
   (req, res, next) => {
 
     console.log(req.session);
+    console.log('~~~~~~~');
     res.redirect('/dashboard')
 
   })
