@@ -10,10 +10,12 @@ router.get('/', function(req, res, next) {
 })
 
 router.post('/userlocations', function(req, res, next) {
-  geocode.geocodeDirtyAddress(req.body.address).then(function(ll){
-    console.log(ll.results[0].geometry.location);
-    console.log(req.session.id);
-    
+  geocode.geocodeDirtyAddress(req.body.address).then(function(latLong){
+    console.log(latLong.results[0].geometry.location);
+    console.log(req.session.passport.user.id);
+    userQueries.addUserLocation(req.session.passport.user, req.body, latLong.results[0].geometry.location).then(function(){
+      res.redirect('/locations');
+    })
   });
 })
 
