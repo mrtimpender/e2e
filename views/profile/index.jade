@@ -13,251 +13,48 @@ block content
             #profile-page-header.card
               .card-image.waves-effect.waves-block.waves-light
                 img.activator(src='/images/profile-cover.jpeg', alt='user background')
-              figure.card-profile-image
-                img.circle.z-depth-2.responsive-img.activator(src='/images/avatar.jpg', alt='profile image')
               .card-content
                 .row
                   .col.s4.m6.offset-m3.offset-s5.center-align
-                    h4.card-title.grey-text.text-darken-4 mrtimpender
-                    p.medium-small.grey-text e2e Username
+                    h4.card-title.grey-text.text-darken-4 Welcome #{firstname}!
+                    p.medium-small.grey-text e2e Username: #{username}
             // / profile-page-header
             // profile-page-content
             #profile-page-content.row
               .col.s12.m10.offset-m1.l10.offset-l1
-                // Profile About
-                .card.deep-purple
-                  .card-content.white-text
-                    span.card-title About Me!
-                    p
-                      | I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
-                      // task-card
+                // Profile Info
                 ul#task-card.collection.with-header
                   li.collection-header.cyan
                     h4.task-card-title Profile
-                    p.task-card-date Here's you info
+                    p.task-card-date Here's your info
                   li.collection-item
                     .row
                       .col.s5.grey-text.darken-1
-                        i.mdi-action-wallet-travel
+                        i.mdi-action-account-circle
                         |  Name
-                      .col.s7.grey-text.text-darken-4.right-align Tim Pender
+                      .col.s7.grey-text.text-darken-4.right-align #{fullname}
                   li.collection-item
                     .row
                       .col.s5.grey-text.darken-1
-                        i.mdi-social-poll
-                        |  e2e
-                      .col.s7.grey-text.text-darken-4.right-align mrtimpender
+                        i.mdi-action-credit-card
+                        |  e2e username
+                      .col.s7.grey-text.text-darken-4.right-align #{email}
                   li.collection-item
                     .row
                       .col.s5.grey-text.darken-1
-                        i.mdi-social-domain
+                        i.mdi-maps-local-taxi
                         |  Uber Connection
-                      .col.s7.grey-text.text-darken-4.right-align Yes
+                      .col.s7.grey-text.text-darken-4.right-align #{uber}
                   li.collection-item
                     .row
                       .col.s5.grey-text.darken-1
-                        i.mdi-social-cake
+                        i.mdi-maps-local-taxi
                         |  Lyft Connection
                       .col.s7.grey-text.text-darken-4.right-align No 
-                // task-card
-                hr
-                hr
-                hr
-                // Profile About
-                // Profile About Details
-                ul#profile-page-about-details.collection.z-depth-1
-                  li.collection-item
-                    .row
-                      .col.s5.grey-text.darken-1
-                        i.mdi-action-wallet-travel
-                        |  Project
-                      .col.s7.grey-text.text-darken-4.right-align ABC Name
-                  li.collection-item
-                    .row
-                      .col.s5.grey-text.darken-1
-                        i.mdi-social-poll
-                        |  Skills
-                      .col.s7.grey-text.text-darken-4.right-align HTML, CSS
-                  li.collection-item
-                    .row
-                      .col.s5.grey-text.darken-1
-                        i.mdi-social-domain
-                        |  Lives in
-                      .col.s7.grey-text.text-darken-4.right-align NY, USA
-                  li.collection-item
-                    .row
-                      .col.s5.grey-text.darken-1
-                        i.mdi-social-cake
-                        |  Birth date
-                      .col.s7.grey-text.text-darken-4.right-align 18th June, 1991
-                // / Profile About Details
-                // Profile About
-                .card.amber.darken-2
-                  .card-content.white-text.center-align
-                    p.card-title
-                      i.mdi-social-group-add
-                      |  3685
-                    p Followers
-                // Profile About
-                // Profile feed
-                ul#profile-page-about-feed.collection.z-depth-1
-                  li.collection-item.avatar
-                    img.circle(src='/images/avatar.jpg', alt='')
-                    span.title Project Title
-                    p
-                      | Task assigned to new changes.
-                      br
-                      span.ultra-small Second Line
-                    a.secondary-content(href='#!')
-                      i.mdi-action-grade
-                  li.collection-item.avatar
-                    i.mdi-file-folder.circle
-                    span.title New Project
-                    p
-                      | First Line of Project Work 
-                      br
-                      span.ultra-small Second Line
-                    a.secondary-content(href='#!')
-                      i.mdi-social-domain
-                  li.collection-item.avatar
-                    i.mdi-action-assessment.circle.green
-                    span.title New Payment
-                    p
-                      | Last UK Project Payment
-                      br
-                      span.ultra-small $ 3,684.00
-                    a.secondary-content(href='#!')
-                      i.mdi-editor-attach-money
-                  li.collection-item.avatar
-                    i.mdi-av-play-arrow.circle.red
-                    span.title Latest News
-                    p
-                      | company management news
-                      br
-                      span.ultra-small Second Line
-                    a.secondary-content(href='#!')
-                      i.mdi-action-track-changes
-                // Profile feed
-                // task-card
-                ul#task-card.collection.with-header
-                  li.collection-header.cyan
-                    h4.task-card-title My Task
-                    p.task-card-date March 26, 2015
-                  li.collection-item.dismissable
-                    input#task1(type='checkbox')
-                    label(for='task1')
-                      | Create Mobile App UI. 
-                      a.secondary-content(href='#')
-                        span.ultra-small Today
-                    span.task-cat.teal Mobile App
-                  li.collection-item.dismissable
-                    input#task2(type='checkbox')
-                    label(for='task2')
-                      | Check the new API standerds. 
-                      a.secondary-content(href='#')
-                        span.ultra-small Monday
-                    span.task-cat.purple Web API
-                  li.collection-item.dismissable
-                    input#task3(type='checkbox', checked='checked')
-                    label(for='task3')
-                      | Check the new Mockup of ABC. 
-                      a.secondary-content(href='#')
-                        span.ultra-small Wednesday
-                    span.task-cat.pink Mockup
-                  li.collection-item.dismissable
-                    input#task4(type='checkbox', checked='checked', disabled='disabled')
-                    label(for='task4') I did it !
-                    span.task-cat.cyan Mobile App
-                // task-card
-                // Profile Total sell
-                .card.center-align
-                  .card-content.purple.white-text
-                    p.card-stats-title
-                      i.mdi-editor-attach-money
-                      | Your Profit
-                    h4.card-stats-number $8990.63
-                    p.card-stats-compare
-                      i.mdi-hardware-keyboard-arrow-up
-                      |  70% 
-                      span.purple-text.text-lighten-5 last month
-                  .card-action.purple.darken-2
-                    #sales-compositebar
-                // flight-card
-                #flight-card.card
-                  .card-header.amber.darken-2
-                    .card-title
-                      h4.flight-card-title Your Next Flight
-                      p.flight-card-date June 18, Thu 04:50
-                  .card-content-bg.white-text
-                    .card-content
-                      .row.flight-state-wrapper
-                        .col.s5.m5.l5.center-align
-                          .flight-state
-                            h4.margin LDN
-                            p.ultra-small London
-                        .col.s2.m2.l2.center-align
-                          i.mdi-device-airplanemode-on.flight-icon
-                        .col.s5.m5.l5.center-align
-                          .flight-state
-                            h4.margin SFO
-                            p.ultra-small San Francisco
-                      .row
-                        .col.s6.m6.l6.center-align
-                          .flight-info
-                            p.small
-                              span.grey-text.text-lighten-4 Depart:
-                              |  04.50
-                            p.small
-                              span.grey-text.text-lighten-4 Flight:
-                              |  IB 5786
-                            p.small
-                              span.grey-text.text-lighten-4 Terminal:
-                              |  B
-                        .col.s6.m6.l6.center-align.flight-state-two
-                          .flight-info
-                            p.small
-                              span.grey-text.text-lighten-4 Arrive:
-                              |  08.50
-                            p.small
-                              span.grey-text.text-lighten-4 Flight:
-                              |  IB 5786
-                            p.small
-                              span.grey-text.text-lighten-4 Terminal:
-                              |  C
-                // flight-card
-                // Map Card
-                .map-card
-                  .card
-                    .card-image.waves-effect.waves-block.waves-light
-                      #map-canvas(data-lat='40.747688', data-lng='-74.004142')
-                    .card-content
-                      a.btn-floating.activator.btn-move-up.waves-effect.waves-light.darken-2.right
-                        i.mdi-maps-pin-drop
-                      h4.card-title.grey-text.text-darken-4
-                        a.grey-text.text-darken-4(href='#') Company Name LLC
-                      p.blog-post-content Some more information about this company.
-                    .card-reveal
-                      span.card-title.grey-text.text-darken-4
-                        | Company Name LLC 
-                        i.mdi-navigation-close.right
-                      p
-                        | Here is some more information about this company. As a creative studio we believe no client is too big nor too small to work with us to obtain good advantage.By combining the creativity of artists with the precision of engineers we develop custom solutions that achieve results.Some more information about this company.
-                      p
-                        i.mdi-action-perm-identity.cyan-text.text-darken-2
-                        |  Manager Name
-                      p
-                        i.mdi-communication-business.cyan-text.text-darken-2
-                        |  125, ABC Street, New Yourk, USA
-                      p
-                        i.mdi-action-perm-phone-msg.cyan-text.text-darken-2
-                        |  +1 (612) 222 8989
-                      p
-                        i.mdi-communication-email.cyan-text.text-darken-2
-                        |  support@geekslabs.com
+        include ../../public/includes/footer.jade
     // end container
     // END CONTENT
-    // ////////////////////////////////////////////////////////////////////////////
-    include ../../public/includes/footer.jade
+    
     //
       ================================================
       Scripts
@@ -283,17 +80,4 @@ block content
     script(type='text/javascript', src='/js/plugins.js')
     // custom-script.js - Add your own theme custom JS
     script(type='text/javascript', src='/js/custom-script.js')
-    // Toast Notification
-    script(type='text/javascript').
-      // Toast Notification
-      //- $(window).load(function() {
-      //- setTimeout(function() {
-      //- Materialize.toast('<span>Hiya! I am a toast.</span>', 1500);
-      //- }, 1500);
-      //- setTimeout(function() {
-      //- Materialize.toast('<span>You can swipe me too!</span>', 3000);
-      //- }, 5000);
-      //- setTimeout(function() {
-      //- Materialize.toast('<span>You have new order.</span><a class="btn-flat yellow-text" href="#">Read<a>', 3000);
-      //- }, 15000);
-      });
+  
