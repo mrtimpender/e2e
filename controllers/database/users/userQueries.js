@@ -27,5 +27,8 @@ module.exports = {
   },
   addUserLocation: (sesh, location, coords) => {
     return db.knex.raw(`INSERT into user_locations values (DEFAULT, ${sesh.id}, '${location.location_name}', '${location.address}', '${coords.lat}', ${coords.lng})`);
+  },
+  allLocations: (sesh) => {
+    return db.knex.raw(`SELECT * from user_locations WHERE user_id=${sesh.id}`);
   }
 }
