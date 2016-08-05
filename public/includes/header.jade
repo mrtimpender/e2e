@@ -20,15 +20,14 @@ header#header.page-topbar
             a.waves-effect.waves-block.waves-light.profile-button(href='/profile')
               i.mdi-action-face-unlock
           li
-            a.waves-effect.waves-block.waves-light.profile-button(href='/locations')
+            a.waves-effect.waves-block.waves-light.location-button(href='/locations')
               i.mdi-communication-location-on
           li
             a.waves-effect.waves-block.waves-light.notification-button(href='/trips', data-activates='notifications-dropdown')
               i.mdi-av-timer
           li
-            a.waves-effect.waves-block.waves-light.chat-collapse(href='/logout')
+            a.waves-effect.waves-block.waves-light(href='/logout')
               i.mdi-hardware-keyboard-tab
-              // Add Logout Route
         // notifications-dropdown
         ul#notifications-dropdown.dropdown-content
           li
@@ -36,10 +35,10 @@ header#header.page-topbar
               | TRIP TIMES
           li.divider
           li
-            a(href='#!')
+            a
               i.mdi-maps-directions-bike
               |  Commute to Work - 3min longer than average
           li
-            a(href='#!')
+            a
               i.mdi-action-stars
               |  Commute to Daycare - 5min longer than average  

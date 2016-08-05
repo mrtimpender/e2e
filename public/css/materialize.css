@@ -8301,7 +8301,8 @@ button.btn-floating {
 .dropdown-content li {
   clear: both;
   color: rgba(0, 0, 0, 0.87);
-  cursor: pointer;
+  /*cursor: pointer;*/
+  /* will re-add if dynamically create links */
   min-height: 35px;
   line-height: 1.5rem;
   width: 100%;

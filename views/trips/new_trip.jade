@@ -7,7 +7,7 @@ block content
 		section#content
 			// start container
 			.container
-				.row.center-align
+				.row
 					.col.s12.m6.l6
 						.card
 							.card-move-up.teal.waves-effect.waves-block.waves-light
@@ -21,8 +21,8 @@ block content
 									h5.margin.white-text Destination Location
 									input#destination-input.controls(type='text', name='trip_name', placeholder='starting location for your trip')
 									.input-field.col.s12
-
-					.input-field.col.s12.m6.l6
+				.row
+					.input-field.col.s5.m3.l4
 						select#mode
 							option(value='', disabled='', selected='') Select Your Mode
 							option(value='TRANSIT', id='changemode-transit') Transit
@@ -30,22 +30,18 @@ block content
 							option(value='BICYCLING', id='changemode-bicycling') Bicycling
 							option(value='WALKING', id='changemode-walking') Walking
 						label 
-					.col.s6.m6.l6.valign-wrapper
+					.col.s2.m2.offset-m1.l1.offset-l1
 						a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
 							i.mdi-maps-directions
-				.row			
-					#map(style="display:none")
-					#jon_map
-					#floating-panel
-						b Mode of Travel:
-						select#mode
-							option(value='TRANSIT') Transit
-							option(value='BICYCLING') Bicycling
-							option(value='DRIVING') Driving
-							option(value='WALKING') Walking
-						button#showTraffic traffic
-						button#showTransit transit
-						button#showBike bike
+						//- button#showTraffic traffic
+						//- button#showTransit transit
+						//- button#showBike bike
+					.col.s12.m6.l6
+						#map(style="display:none")
+						#jon_map.mobile-map
+						#floating-panel
+					
+					
 			// FOOTER
 			include ../../public/includes/footer.jade
 				//
@@ -56,15 +52,21 @@ block content
 				script(type='text/javascript', src='/js/plugins/jquery-1.11.2.min.js')
 				// materialize js
 				script(type='text/javascript', src='/js/materialize.js')
+				// prism
+				script(type='text/javascript', src='/js/plugins/prism/prism.js')
+				// scrollbar
+				script(type='text/javascript', src='/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js')
 				// chartist
 				script(type='text/javascript', src='/js/plugins/chartist-js/chartist.min.js')
 				// chartjs
 				script(type='text/javascript', src='/js/plugins/chartjs/chart.min.js')
 				script(type='text/javascript', src='/js/plugins/chartjs/chart-script.js')
+				// interactivity
+				script(type='text/javascript', src='/js/interactivity.js')
 				// sparkline
 				script(type='text/javascript', src='/js/plugins/sparkline/jquery.sparkline.min.js')
 				script(type='text/javascript', src='/js/plugins/sparkline/sparkline-script.js')
-				// google map api
+				// google map api - Believe its the templates
 				//- script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAAZnaZBXLqNBRXjd-82km_NO7GUItyKek')
 				script(type='text/javascript', src='/js/mapsapi.js')
 				//- script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB9xEAcDm6FwY9iDrdBRVsXhowU9FbDIao')
