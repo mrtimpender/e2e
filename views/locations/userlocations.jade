@@ -9,80 +9,51 @@ block content
 			// start container
 			.container
 				#profile-page.section
+				if locations
+					h1.location-header My Saved Locations         
+					for location in locations
+						.col.s12.m8.l4
+							.light-blue
+								.card-content.white-text
+									span.card-title.location-name= location.name
+										p.location-address= location.formatted_address
+                    
+.fixed-action-btn(style='bottom: 50px; right: 19px;')
+	a.btn-floating.btn-large
+		i.mdi-action-stars
+	ul
+		li
+			a#modal-fire.btn-floating.red.modal-trigger(href='#modal1')
+				i.large.mdi-communication-live-help
+		li
+			a.btn-floating.yellow.darken-1(href='app-widget.html')
+				i.large.mdi-device-now-widgets
+		li
+			a.btn-floating.green(href='app-calendar.html')
+				i.large.mdi-editor-insert-invitation
+		li
+			a.btn-floating.blue(href='app-email.html')
+				i.large.mdi-communication-email
+
+
+
+
+#modal1.modal
+	.modal-content
+		.col.s12.m12.l6
+			.card-panel
+				h4.header2 Add a Location
+			.row
+				form.col(class='s12', method='post' action="/locations/userlocations")
+					.input-field.col.s12
+						input#location_name(type='text', name="location_name", placeholder="Name your location")
+						| Location Name
+					.input-field.col.s12
+						input#searchBoxField(type='text', name="address")
+						| Address
 					.row
-						button#displayDirections Get Directions
-						#floating-panel
-							strong Start:
-							select#start
-								option(value='chicago, il') Chicago
-								option(value='st louis, mo') St Louis
-								option(value='joplin, mo') Joplin, MO
-								option(value='oklahoma city, ok') Oklahoma City
-								option(value='amarillo, tx') Amarillo
-								option(value='gallup, nm') Gallup, NM
-								option(value='flagstaff, az') Flagstaff, AZ
-								option(value='winona, az') Winona
-								option(value='kingman, az') Kingman
-								option(value='barstow, ca') Barstow
-								option(value='san bernardino, ca') San Bernardino
-								option(value='los angeles, ca') Los Angeles
-							br
-							strong End:
-							select#end
-								option(value='chicago, il') Chicago
-								option(value='st louis, mo') St Louis
-								option(value='joplin, mo') Joplin, MO
-								option(value='oklahoma city, ok') Oklahoma City
-								option(value='amarillo, tx') Amarillo
-								option(value='gallup, nm') Gallup, NM
-								option(value='flagstaff, az') Flagstaff, AZ
-								option(value='winona, az') Winona
-								option(value='kingman, az') Kingman
-								option(value='barstow, ca') Barstow
-								option(value='san bernardino, ca') San Bernardino
-								option(value='los angeles, ca') Los Angeles
-						.col.s12.m5
-							#showDirections.card-panel.green.accent-4
-								//- span.white-text(id='directionsDisplay')
-						.col.s12.m6.l6
-							#map(style="display:none")
-							#jon_map.mobile-map
-				.fixed-action-btn(style='bottom: 50px; right: 19px;')
-					a.btn-floating.btn-large
-						i.mdi-action-stars
-					ul
-						li
-							a#modal-fire.btn-floating.red.modal-trigger(href='#modal1')
-								i.large.mdi-communication-live-help
-						li
-							a.btn-floating.yellow.darken-1(href='app-widget.html')
-								i.large.mdi-device-now-widgets
-						li
-							a.btn-floating.green(href='app-calendar.html')
-								i.large.mdi-editor-insert-invitation
-						li
-							a.btn-floating.blue(href='app-email.html')
-								i.large.mdi-communication-email
-
-
-
-
-				#modal1.modal
-					.modal-content
-						.col.s12.m12.l6
-							.card-panel
-								h4.header2 Add a Location
-							.row
-								form.col(class='s12', method='post' action="/locations/userlocations")
-									.input-field.col.s12
-										input#location_name(type='text', name="location_name", placeholder="Name your location")
-										| Location Name
-									.input-field.col.s12
-										input#searchBoxField(type='text', name="address")
-										| Address
-									.row
-										.input-field.col.s12
-											button.btn.cyan.waves-effect.waves-light.right(type='submit') Save Location!
+						.input-field.col.s12
+							button.btn.cyan.waves-effect.waves-light.right(type='submit') Save Location!
 
 
 
