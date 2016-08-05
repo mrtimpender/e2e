@@ -1,6 +1,6 @@
 var schedule = require('node-schedule')
 var tripQueries = require('../database/trips/tripQueries')
-var gmController = require('../google_maps_api/googleMapsController')
+var googleMapsCtrl = require('../google_maps_api/googleMapsController')
 var GoogleMaps = require('../google_maps_api/GoogleMaps')
 var Promise = require('bluebird')
 var uberEstimateCtrl = require('../uber_api/uberEstimateController')
@@ -16,12 +16,11 @@ var updateAllTrips = () => {
         mode: trip.trans_mode,
         departure_time: new Date()
       }).then((apiRes) => { 
-        console.log("API Response from google maps");
-        gmController.parseDirectionsData(apiRes, trip.id, trip.transit_method_id).then((trip_directions) => {
-          if(parseInt(trip.transit_method_id) === 303){
-            console.log("THIS IS AN UBER TRIP");
-            uberEstimateCtrl.putEstimatesForUberTrip(trip, trip_directions)
-          }
+        googleMapsCtrl.parseDirectionsData(apiRes, trip.id, trip.transit_method_id)
+          .then((trip_directions) => {
+            if(parseInt(trip.transit_method_id) === 303){
+              uberEstimateCtrl.putEstimatesForUberTrip(trip, trip_directions)
+            }
         })
       })
     })
