@@ -8,7 +8,12 @@ exportMethods = {
     .then((uberProductData) => {
       uberProductModel.createLocationProduct(uberProductData, trip.origin_loc_id)
         .then((uberTripFromDb) => {
-          // UberApi.getPriceEstimateForTrip().then(())
+          console.log(trip);
+          
+          // UberApi.getPriceEstimateForTrip(trip).then((tripPriceData) => {
+          //   console.log(tripPriceData);
+            
+          // })
           // console.log(uberProductData)
         })     
     })
