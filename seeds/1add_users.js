@@ -1,7 +1,7 @@
 exports.seed = function(knex, Promise) {
   return Promise.all([
         knex('e2e_users').insert({
-          id: 100,
+          id: 99,
           e2e_username: 'mb123',
           e2e_password: '123',
           e2e_firstname: 'Mary',
