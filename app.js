@@ -19,9 +19,11 @@ var profile = require('./routes/profile')
 var locations = require('./routes/locations')
 
 var directionsScheduleController = require('./controllers/schedule/directionsScheduleController')
+console.log(directionsScheduleController)
 // reload all trips and get directions
 // directionsScheduleController.runAll('*/100 * * * *')
-// directionsScheduleController.runAll('*/1 * * * *')
+// directionsScheduleController.runAllWithSchedule('*/1 * * * *')
+directionsScheduleController.runAll()
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
