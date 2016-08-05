@@ -80,3 +80,44 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"
     async defer></script>
+
+
+    .row
+      button#displayDirections Get Directions
+      #floating-panel
+        strong Start:
+        select#start
+          option(value='chicago, il') Chicago
+          option(value='st louis, mo') St Louis
+          option(value='joplin, mo') Joplin, MO
+          option(value='oklahoma city, ok') Oklahoma City
+          option(value='amarillo, tx') Amarillo
+          option(value='gallup, nm') Gallup, NM
+          option(value='flagstaff, az') Flagstaff, AZ
+          option(value='winona, az') Winona
+          option(value='kingman, az') Kingman
+          option(value='barstow, ca') Barstow
+          option(value='san bernardino, ca') San Bernardino
+          option(value='los angeles, ca') Los Angeles
+        br
+        strong End:
+        select#end
+          option(value='chicago, il') Chicago
+          option(value='st louis, mo') St Louis
+          option(value='joplin, mo') Joplin, MO
+          option(value='oklahoma city, ok') Oklahoma City
+          option(value='amarillo, tx') Amarillo
+          option(value='gallup, nm') Gallup, NM
+          option(value='flagstaff, az') Flagstaff, AZ
+          option(value='winona, az') Winona
+          option(value='kingman, az') Kingman
+          option(value='barstow, ca') Barstow
+          option(value='san bernardino, ca') San Bernardino
+          option(value='los angeles, ca') Los Angeles
+      .col.s12.m5
+        #showDirections.card-panel.green.accent-4
+          for in locations
+          //- span.white-text(id='directionsDisplay')
+      .col.s12.m6.l6
+        #map(style="display:none")
+        #jon_map.mobile-map

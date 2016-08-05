@@ -147,3 +147,7 @@ header {
 float: none;
 width: auto;
 }*/
+
+.location-card-name {
+  font-size: 22px;
+}
