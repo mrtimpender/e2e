@@ -27,9 +27,8 @@ var updateAllTrips = () => {
           
           if(parseInt(trip.transit_method_id) === 303){
             console.log("THIS IS AN UBER TRIP");
-            
+            uberEstimateCtrl.putEstimatesForUberTrip(trip)
           }
-          // uberEstimateCtrl.
         })
       })
     })

@@ -36,6 +36,8 @@ exports.seed = function(knex, Promise) {
           origin_formatted_address: '305 S Ridge St, Breckenridge, CO 80424',
           origin_loc_id: 502,
           destination_formatted_address: '1644 Platte St, Denver, CO 80202, USA',
+          origin_lat: '39.4792145',
+          origin_lng: '-106.0442308',
           destination_lat: '39.7577737',
           destination_lng: '-105.00713239999999',
           destination_loc_id: 500

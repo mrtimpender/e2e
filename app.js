@@ -19,16 +19,14 @@ var profile = require('./routes/profile')
 var locations = require('./routes/locations')
 
 var directionsScheduleController = require('./controllers/schedule/directionsScheduleController')
-console.log(directionsScheduleController)
 // reload all trips and get directions
-// directionsScheduleController.runAll('*/100 * * * *')
 // directionsScheduleController.runAllWithSchedule('*/1 * * * *')
 directionsScheduleController.runAll()
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 var session = require('express-session')
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -41,7 +39,6 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/nm', express.static(__dirname + '/node_modules/'));
 app.use('/', routes);
