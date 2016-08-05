@@ -1,7 +1,5 @@
 exports.seed = function(knex, Promise) {
-  return knex('e2e_users').del()
-    .then(function () {
-      return Promise.all([
+  return Promise.all([
         knex('e2e_users').insert({
           id: 100,
           e2e_username: 'mb123',
@@ -11,5 +9,4 @@ exports.seed = function(knex, Promise) {
           e2e_email: 'mb123@gmail.com'
           })
       ]);
-    });
 };
