@@ -28,22 +28,21 @@ block content
 									.col.s2.m2.offset-m1.l1.offset-l1
 										a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
 											i.mdi-image-edit
-					.col.s12.m6.l6
 						.col.s12.m6.l6
-							#map(style="display:none")
-							#jon_map.mobile-map
-							#floating-panel
+							.col.s12.m6.l6
+								#map(style="display:none")
+								#jon_map.mobile-map
+								#floating-panel
 
-				.col.s12.m8.l4
-					.row
-						if locations
-							h1.location-header My Saved Locations         
-							for location in locations
-								.col.s12.m8.l4
-									.light-blue
-										.card-content.white-text.saved-location-card
-											span.card-title.location-card-name= location.name
-											p.location-address= location.formatted_address
+
+				.row
+					if locations
+						h1.location-header My Saved Locations         
+						for location in locations
+							.col.s12.m8.l4
+								.card-panel.waves-effect.waves-dark.teal.saved-location-card
+									span.card-title.location-card-name= location.name
+									p.location-address= location.formatted_address
 
 			.fixed-action-btn(style='bottom: 50px; right: 19px;')
 				a.btn-floating.btn-large
@@ -72,7 +71,7 @@ block content
 									.row
 										.input-field.col.s12
 											button.btn.cyan.waves-effect.waves-light.right(type='submit') Save Location!
-											
+
 			include ../../public/includes/footer.jade
 
 	// end container
