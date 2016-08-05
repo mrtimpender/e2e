@@ -20,35 +20,18 @@ var exportMethods = {
         return uber.authorizationAsync({authorization_code, refreshToken})
     },
     getAllProductsForLocation: (lat, lng) => {
+        console.log('lat, lng', lat, lng);
+        
         return uber.products.getAllForLocationAsync(lat, lng)
     },
     getTimeEstimateForTrip: (lat, lng, prod_id) => {
          return uber.estimates.getETAForLocationAsync(
              parseFloat(lat).toFixed(4), parseFloat(lng).toFixed(4), prod_id)
     },
-    getPriceEstimateForTrip: (trip) => {
+    getPriceEstimateForTrip: (trip) => {        
         return uber.estimates.getPriceForRouteAsync(
-            parseFloat(trip.origin_lat).toFixed(4),
-            parseFloat(trip.origin_long).toFixed(4),
-            parseFloat(trip.destination_lat).toFixed(4),
-            parseFloat(trip.destination_long).toFixed(4)
+          trip.origin_lat, trip.origin_lng, trip.destination_lat, trip.destination_lng
         )
     }
 }
-
-var trip = {
-    origin_lat: 3.1357,
-    origin_long: 101.6880,
-    destination_lat: 3.0833,
-    destination_long: 101.6500
-}
-exportMethods.getPriceEstimateForTrip(trip).then((resp) => console.log(resp))
-// exportMethods.getPriceEstimateForTrip(trip).then((res) => console.log(res))
-
-// exportMethods.getAllProductsForLocation(39.7577737, -105.00713239999999).then((resp) => {
-//     console.log(resp);
-//     exportMethods.getTimeEstimateForTrip(39.7642529, -105.00383399999998, resp.products[0].product_id)
-//         .then((resp) => console.log(resp))
-    
-// })
 module.exports = exportMethods

@@ -11,4 +11,8 @@ module.exports = {
     return db.knex('user_uber_trips').where('id', id)
       .update(trip).returning("*")
   },
+  updateUberTripByDirecitonsId: (id, trip) => {    
+    return db.knex('user_uber_trips').where('trip_directions_id', id)
+      .update(trip).returning("*")
+  },
 }
