@@ -21,10 +21,18 @@ var putUberTripTimeData = (trip, trip_directions) => {
     })
   }
 
+var putUberTripPriceData = (trip, trip_directions) => {
+  return UberApi.getPriceEstimateForTrip(trip).then((uberPricingData) => {   
+    return uberTripModel.updateUberTripByDirecitonsId(trip_directions[0].id, {
+        uber_pricing_estimates: JSON.stringify(uberPricingData.prices)
+      })
+    }).catch((e) => console.log(e))
+}
 exportMethods = {
   putEstimatesForUberTrip: (trip, trip_directions) => {
     putProductLocatationData(trip)
-      .then(() => putUberTripTimeData(trip, trip_directions))
+    .then(() => putUberTripTimeData(trip, trip_directions))
+    .then(() => putUberTripPriceData(trip, trip_directions))
   }
 }
 module.exports = exportMethods
