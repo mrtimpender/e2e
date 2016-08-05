@@ -26,29 +26,29 @@ block content
                 ul#task-card.collection.with-header
                   li.collection-header.cyan
                     h4.task-card-title Profile
-                    p.task-card-date Here's you info
+                    p.task-card-date Here's your info
                   li.collection-item
                     .row
                       .col.s5.grey-text.darken-1
-                        i.mdi-action-wallet-travel
+                        i.mdi-action-account-circle
                         |  Name
-                      .col.s7.grey-text.text-darken-4.right-align Tim Pender
+                      .col.s7.grey-text.text-darken-4.right-align #{fullname}
                   li.collection-item
                     .row
                       .col.s5.grey-text.darken-1
-                        i.mdi-social-poll
-                        |  e2e
-                      .col.s7.grey-text.text-darken-4.right-align mrtimpender
+                        i.mdi-action-credit-card
+                        |  e2e username
+                      .col.s7.grey-text.text-darken-4.right-align #{email}
                   li.collection-item
                     .row
                       .col.s5.grey-text.darken-1
-                        i.mdi-social-domain
+                        i.mdi-maps-local-taxi
                         |  Uber Connection
-                      .col.s7.grey-text.text-darken-4.right-align Yes
+                      .col.s7.grey-text.text-darken-4.right-align #{uber}
                   li.collection-item
                     .row
                       .col.s5.grey-text.darken-1
-                        i.mdi-social-cake
+                        i.mdi-maps-local-taxi
                         |  Lyft Connection
                       .col.s7.grey-text.text-darken-4.right-align No 
         include ../../public/includes/footer.jade
