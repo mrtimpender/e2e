@@ -21,10 +21,16 @@ var putUberTripTimeData = (trip, trip_directions) => {
     })
   }
 
+var putUberTripPriceData = (trip) => {
+  // return UberApi.getPriceEstimateForTrip(trip)
+  // .catch((e) => console.log(e))
+  // .then((resp) => console.log(resp))
+}
 exportMethods = {
   putEstimatesForUberTrip: (trip, trip_directions) => {
     putProductLocatationData(trip)
       .then(() => putUberTripTimeData(trip, trip_directions))
+      .then(() => putUberTripPriceData(trip))
   }
 }
 module.exports = exportMethods
