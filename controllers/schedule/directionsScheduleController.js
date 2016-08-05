@@ -18,13 +18,6 @@ var updateAllTrips = () => {
       }).then((apiRes) => { 
         console.log("API Response from google maps");
         gmController.parseDirectionsData(apiRes, trip.id, trip.transit_method_id).then(() => {
-          // get uber product data for starting address.
-          // console.log(tripQueries.getTripTransitMethod(trip.transit_method_id));
-          console.log("IS THERE ANYBODY OUT THERE");
-          console.log('Transit Method ID', trip.transit_method_id);
-          
-          console.log('type of id', typeof(trip.transit_method_id));
-          
           if(parseInt(trip.transit_method_id) === 303){
             console.log("THIS IS AN UBER TRIP");
             uberEstimateCtrl.putEstimatesForUberTrip(trip)
