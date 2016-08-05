@@ -7,7 +7,7 @@ module.exports = {
       created_at: Date.now()
     }).returning("*")
   },
-  updateUberTripById: (id, trip) => {
+  updateUberTripById: (id, trip) => {    
     return db.knex('user_uber_trips').where('id', id)
       .update(trip).returning("*")
   },
