@@ -1,5 +1,5 @@
 var console = require('better-console');
-var gm = require('./google_maps_api')
+var gm = require('./GoogleMaps')
 var tripQueries = require('../database/trips/tripQueries')
 var exportMethods = {
   parseDirectionsData: (directions, trip_id, trans_id) => {

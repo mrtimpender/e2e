@@ -1,7 +1,7 @@
 var schedule = require('node-schedule')
 var tripQueries = require('../database/trips/tripQueries')
 var gmController = require('../google_maps_api/googleMapsController')
-var GoogleMaps = require('../google_maps_api/google_maps_api')
+var GoogleMaps = require('../google_maps_api/GoogleMaps')
 var uberEstimateCtrl = require('../uber_api/uberEstimateController')
 var Promise = require('bluebird')
 

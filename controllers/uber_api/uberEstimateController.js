@@ -1,4 +1,4 @@
-var UberApi = require('./uber_api')
+var UberApi = require('./UberApi')
 var tripQueries = require('../database/trips/tripQueries')
 
 exportMethods = {
