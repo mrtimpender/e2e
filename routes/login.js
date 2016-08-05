@@ -15,7 +15,6 @@ router.route('/')
   })
   .post(passport.authenticate('local', { failureRedirect: '/login'}),
   (req, res, next) => {
-
     console.log(req.session);
     console.log('~~~~~~~');
     res.redirect('/dashboard')
