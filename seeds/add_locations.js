@@ -11,6 +11,14 @@ exports.seed = function(knex, Promise) {
           lng: '-105.00713239999999',
         }),
         knex('user_locations').insert({
+          id: 502,
+          user_id: 1,
+          name: 'Galvanize',
+          formatted_address: '305 S Ridge St, Breckenridge, CO 80424',
+          lat: '39.4792145',
+          lng: '-106.0442308',
+        }),
+        knex('user_locations').insert({
           id: 501,
           user_id: 1,
           name: 'Home',

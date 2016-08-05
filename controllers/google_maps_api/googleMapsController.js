@@ -1,6 +1,7 @@
 var console = require('better-console');
 var gm = require('./GoogleMaps')
 var tripQueries = require('../database/trips/tripQueries')
+var Promise = require('bluebird')
 var exportMethods = {
   parseDirectionsData: (directions, trip_id, trans_id) => {
     return new Promise(function(resolve) {

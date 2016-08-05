@@ -58,7 +58,7 @@ exports.up = function(knex, Promise) {
         table.increments('id').primary()
         table.integer('trip_id').references('user_trips.id')
         table.integer('transit_method_id').references('transit_methods.id')
-        table.json('uber_trip_pricing_object')
+        table.json('uber_trip_id')
         table.json('directions_object')
         table.integer('directions_distance_val')
         table.string('directions_distance_text')
@@ -75,10 +75,19 @@ exports.up = function(knex, Promise) {
         table.string('created_at')
         table.string('updated_at')
       }),
-      knex.schema.createTable('uber_location_data', function(table){
+      knex.schema.createTable('uber_location_product_data', function(table){
         table.increments('id').primary()
         table.integer('location_id').references('user_locations.id')
         table.json('products_object')
+        table.string('created_at')
+        table.string('updated_at')
+      }),      
+      knex.schema.createTable('user_uber_trips', function(table){
+        table.increments('id').primary()
+        table.integer('origin_loc_id').references('user_locations.id')
+        table.integer('destination_loc_id').references('user_locations.id')
+        table.json('uber_pricing_estimates')
+        table.json('uber_time_estimates')
         table.string('created_at')
         table.string('updated_at')
       })      

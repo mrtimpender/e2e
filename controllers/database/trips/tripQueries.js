@@ -1,4 +1,5 @@
 var db = require('../../../config/db')
+
 module.exports = {
   createTrip: (trip) => {
     return db.knex('trip_directions').insert(trip).returning('*')
@@ -10,6 +11,6 @@ module.exports = {
     return db.knex('user_trips').where('id', id)
   },
   getTripTransitMethod: (id) => {
-    return knex('transit_methods').select('transit_type').where('id', id)
+    return db.knex('transit_methods').select('transit_type').where('id', id)
   }
 }
