@@ -6,25 +6,25 @@ exports.seed = function(knex, Promise) {
             id: 300,
             transit_type: 'DRIVING',
             preferred_method: true,
-            user_id: 1
+            user_id: 100
           }),
           knex('transit_methods').insert({
             id: 301,
             transit_type: 'WALKING',
             preferred_method: false,
-            user_id: 1
+            user_id: 100
           }),
           knex('transit_methods').insert({
             id: 302,
             transit_type: 'BICYLING',
             preferred_method: false,
-            user_id: 1
+            user_id: 100
           }),
           knex('transit_methods').insert({
             id: 303,
             transit_type: 'UBER',
             preferred_method: false,
-            user_id: 1
+            user_id: 100
           })
       ]);
     });

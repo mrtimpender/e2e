@@ -18,42 +18,42 @@ block content
 									span.card-title.location-name= location.name
 										p.location-address= location.formatted_address
                     
-.fixed-action-btn(style='bottom: 50px; right: 19px;')
-	a.btn-floating.btn-large
-		i.mdi-action-stars
-	ul
-		li
-			a#modal-fire.btn-floating.red.modal-trigger(href='#modal1')
-				i.large.mdi-communication-live-help
-		li
-			a.btn-floating.yellow.darken-1(href='app-widget.html')
-				i.large.mdi-device-now-widgets
-		li
-			a.btn-floating.green(href='app-calendar.html')
-				i.large.mdi-editor-insert-invitation
-		li
-			a.btn-floating.blue(href='app-email.html')
-				i.large.mdi-communication-email
+	.fixed-action-btn(style='bottom: 50px; right: 19px;')
+		a.btn-floating.btn-large
+			i.mdi-action-stars
+		ul
+			li
+				a#modal-fire.btn-floating.red.modal-trigger(href='#modal1')
+					i.large.mdi-communication-live-help
+			li
+				a.btn-floating.yellow.darken-1(href='app-widget.html')
+					i.large.mdi-device-now-widgets
+			li
+				a.btn-floating.green(href='app-calendar.html')
+					i.large.mdi-editor-insert-invitation
+			li
+				a.btn-floating.blue(href='app-email.html')
+					i.large.mdi-communication-email
 
 
 
 
-#modal1.modal
-	.modal-content
-		.col.s12.m12.l6
-			.card-panel
-				h4.header2 Add a Location
-			.row
-				form.col(class='s12', method='post' action="/locations/userlocations")
-					.input-field.col.s12
-						input#location_name(type='text', name="location_name", placeholder="Name your location")
-						| Location Name
-					.input-field.col.s12
-						input#searchBoxField(type='text', name="address")
-						| Address
-					.row
+	#modal1.modal
+		.modal-content
+			.col.s12.m12.l6
+				.card-panel
+					h4.header2 Add a Location
+				.row
+					form.col(class='s12', method='post' action="/locations/userlocations")
 						.input-field.col.s12
-							button.btn.cyan.waves-effect.waves-light.right(type='submit') Save Location!
+							input#location_name(type='text', name="location_name", placeholder="Name your location")
+							| Location Name
+						.input-field.col.s12
+							input#searchBoxField(type='text', name="address")
+							| Address
+						.row
+							.input-field.col.s12
+								button.btn.cyan.waves-effect.waves-light.right(type='submit') Save Location!
 
 
 
