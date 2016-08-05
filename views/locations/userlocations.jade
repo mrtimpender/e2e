@@ -8,52 +8,73 @@ block content
 		section#content
 			// start container
 			.container
-				#profile-page.section
-				if locations
-					h1.location-header My Saved Locations         
-					for location in locations
-						.col.s12.m8.l4
-							.light-blue
-								.card-content.white-text
-									span.card-title.location-name= location.name
-										p.location-address= location.formatted_address
-                    
-.fixed-action-btn(style='bottom: 50px; right: 19px;')
-	a.btn-floating.btn-large
-		i.mdi-action-stars
-	ul
-		li
-			a#modal-fire.btn-floating.red.modal-trigger(href='#modal1')
-				i.large.mdi-communication-live-help
-		li
-			a.btn-floating.yellow.darken-1(href='app-widget.html')
-				i.large.mdi-device-now-widgets
-		li
-			a.btn-floating.green(href='app-calendar.html')
-				i.large.mdi-editor-insert-invitation
-		li
-			a.btn-floating.blue(href='app-email.html')
-				i.large.mdi-communication-email
+			#profile-page.section
+				.row
+					.col.s12.m6.l6
+						#focusAddress
+							.card.small
+								.card-image
+									img(src='images/sample-1.jpg', alt='sample')
+									span#card-address-title.card-title Card title
+								.card-content
+									p#card-addressFocus.addressInFocus Testing!!!!
+							.row
+								.col.s2.m2.offset-m1.l1.offset-l1
+									a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
+										i.mdi-content-add-circle-outline
+								.col.s2.m2.offset-m1.l1.offset-l1
+									a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
+										i.mdi-content-remove-circle-outline
+								.col.s2.m2.offset-m1.l1.offset-l1
+									a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
+										i.mdi-image-edit
 
+					.col.s12.m6.l6
+						.col.s12.m6.l6
+							#map(style="display:none")
+							#jon_map.mobile-map
+							#floating-panel
 
-
-
-#modal1.modal
-	.modal-content
-		.col.s12.m12.l6
-			.card-panel
-				h4.header2 Add a Location
-			.row
-				form.col(class='s12', method='post' action="/locations/userlocations")
-					.input-field.col.s12
-						input#location_name(type='text', name="location_name", placeholder="Name your location")
-						| Location Name
-					.input-field.col.s12
-						input#searchBoxField(type='text', name="address")
-						| Address
+				.col.s12.m8.l4
 					.row
-						.input-field.col.s12
-							button.btn.cyan.waves-effect.waves-light.right(type='submit') Save Location!
+						if locations
+							h1.location-header My Saved Locations         
+							for location in locations
+								.col.s12.m8.l4
+									.light-blue
+										.card-content.white-text.saved-location-card
+											span.card-title.location-card-name= location.name
+											p.location-address= location.formatted_address
+
+			.fixed-action-btn(style='bottom: 50px; right: 19px;')
+				a.btn-floating.btn-large
+					i.mdi-action-stars
+				ul
+					li
+						a#modal-fire.btn-floating.blue.modal-trigger(href='#modal1')
+							i.large.mdi-communication-location-on
+					li
+						a.btn-floating.green(href='/trips')
+							i.large.mdi-av-timer
+							// add trip modal
+
+
+				#modal1.modal
+					.modal-content
+						.col.s12.m12.l6
+							.card-panel
+								h4.header2 Add a Location
+							.row
+								form.col(class='s12', method='post' action="/locations/userlocations")
+									.input-field.col.s12
+										input#location_name(type='text', name="location_name", placeholder="Name your location")
+										| Location Name
+									.input-field.col.s12
+										input#searchBoxField(type='text', name="address")
+										| Address
+									.row
+										.input-field.col.s12
+											button.btn.cyan.waves-effect.waves-light.right(type='submit') Save Location!
 
 
 
@@ -85,6 +106,8 @@ block content
 	script(type='text/javascript', src='/js/plugins/chartjs/chart-script.js')
 	// interactivity
 	script(type='text/javascript', src='/js/interactivity.js')
+	// location logic
+	script(type='text/javascript', src='/js/locations/locations_logic.js')
 	// sparkline
 	script(type='text/javascript', src='/js/plugins/sparkline/jquery.sparkline.min.js')
 	script(type='text/javascript', src='/js/plugins/sparkline/sparkline-script.js')
