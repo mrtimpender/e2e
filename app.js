@@ -17,6 +17,7 @@ app.use(logger('dev'))
 var uber = require('./routes/uber')
 var profile = require('./routes/profile')
 var locations = require('./routes/locations')
+var logout = require('./routes/logout')
 
 var directionsScheduleController = require('./controllers/schedule/directionsScheduleController')
 // reload all trips and get directions
@@ -50,6 +51,7 @@ app.use('/dashboard', dashboard);
 app.use('/uber', uber);
 app.use('/profile', profile);
 app.use('/locations', locations);
+app.use('/logout', logout);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

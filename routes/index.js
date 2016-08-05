@@ -53,11 +53,11 @@ router.get('/lyftAuth', passport.authenticate('lyft', { failureRedirect: '/fail'
   res.redirect('/login/completeRegistration')
 })
 
-router.get('/logout', (req, res, next) => {
-  console.log(req.session);
-  req.session.destroy();
-  res.redirect('/login');
-})
+// router.get('/logout', (req, res, next) => {
+//   console.log(req.session);
+//   req.session.destroy();
+//   res.redirect('/login');
+// })
 
 
 module.exports = router;
