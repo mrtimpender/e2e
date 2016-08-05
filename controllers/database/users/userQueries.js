@@ -29,6 +29,3 @@ module.exports = {
     return knex.raw(`INSERT into user_locations values (DEFAULT, 1, '${location.location_name}', '${location.address}')`)
   }
 }
-
-
-

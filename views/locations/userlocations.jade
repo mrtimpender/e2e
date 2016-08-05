@@ -10,6 +10,7 @@ block content
 			.container
 				#profile-page.section
 					.row
+						button#displayDirections Get Directions
 						#floating-panel
 							strong Start:
 							select#start
@@ -41,12 +42,11 @@ block content
 								option(value='san bernardino, ca') San Bernardino
 								option(value='los angeles, ca') Los Angeles
 						.col.s12.m5
-							.card-panel.green.accent-4
-								span.white-text(id='directions display')
+							#showDirections.card-panel.green.accent-4
+								//- span.white-text(id='directionsDisplay')
 						.col.s12.m6.l6
 							#map(style="display:none")
 							#jon_map.mobile-map
-							#floating-panel
 				.fixed-action-btn(style='bottom: 50px; right: 19px;')
 					a.btn-floating.btn-large
 						i.mdi-action-stars
@@ -73,16 +73,16 @@ block content
 							.card-panel
 								h4.header2 Add a Location
 							.row
-								form.col(class='s12', method='post' action="/user_locations")
+								form.col(class='s12', method='post' action="/locations/userlocations")
 									.input-field.col.s12
 										input#location_name(type='text', name="location_name", placeholder="Name your location")
 										| Location Name
 									.input-field.col.s12
 										input#searchBoxField(type='text', name="address")
 										| Address
-								.row
-									.input-field.col.s12
-										button.btn.cyan.waves-effect.waves-light.right(type='submit', name='submit') Save Location!
+									.row
+										.input-field.col.s12
+											button.btn.cyan.waves-effect.waves-light.right(type='submit') Save Location!
 
 
 
@@ -118,7 +118,7 @@ block content
 	script(type='text/javascript', src='/js/plugins/sparkline/jquery.sparkline.min.js')
 	script(type='text/javascript', src='/js/plugins/sparkline/sparkline-script.js')
 	// google map api
-	script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB9xEAcDm6FwY9iDrdBRVsXhowU9FbDIao&callback=initMap', async='', defer='')    
+	script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB9xEAcDm6FwY9iDrdBRVsXhowU9FbDIao&callback=initMap')    
 	// google map
 	script(type='text/javascript', src='/js/plugins/google-map/google-map-script.js')
 	// jvectormap
