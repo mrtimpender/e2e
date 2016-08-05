@@ -10,19 +10,22 @@ var putProductLocatationData = (trip) => {
     })
 }
 
-var putUberTripTimeData = (trip) => {
+var putUberTripTimeData = (trip, trip_directions) => {
   return UberApi.getTimeEstimateForTrip(trip.destination_lat, trip.destination_lng)
     .then((tripTimeData) => {
       uberTripModel.createUberTrip(trip).then((trip) => {
-        return uberTripModel.updateUberTripById(trip[0].id, { uber_time_estimates: JSON.stringify(tripTimeData.times) })
+        return uberTripModel.updateUberTripById(trip[0].id, 
+          { uber_time_estimates: JSON.stringify(tripTimeData.times),
+            trip_directions_id: trip_directions[0].id })
       })
     })
   }
 
 exportMethods = {
-  putEstimatesForUberTrip: (trip) => {
+  putEstimatesForUberTrip: (trip, trip_directions) => {
+    console.log(trip_directions)
     putProductLocatationData(trip)
-      .then(() => putUberTripTimeData(trip))
+      .then(() => putUberTripTimeData(trip, trip_directions))
   }
 }
 module.exports = exportMethods
