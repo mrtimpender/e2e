@@ -1,6 +1,7 @@
 var UberApi = require('./UberApi')
 var tripQueries = require('../database/trips/tripQueries')
 var uberProductModel = require('../database/uberModels/uberProductModel')
+var uberTripModel = require('../database/uberModels/uberTripModel')
 
 var putProductLocatationData = (trip) => {
   UberApi.getAllProductsForLocation(trip.origin_lat, trip.origin_lng)
@@ -11,11 +12,11 @@ var putProductLocatationData = (trip) => {
 var putUberTripTimeData = (trip) => {
   UberApi.getTimeEstimateForTrip(trip.destination_lat, trip.destination_lng)
     .then((tripTimeData) => {
-      uberProductModel.createUberTrip(trip).then((trip) => {
+      uberTripModel.createUberTrip(trip).then((trip) => {
         console.log('tripid',trip.id);
         console.log('trip TIME DATA',tripTimeData);
         
-        return uberProductModel.updateUberTripById(trip.id, { uber_time_estimates: tripTimeData.time })
+        return uberTripModel.updateUberTripById(trip.id, { uber_time_estimates: tripTimeData.time })
       })
     })
 }
