@@ -25,7 +25,7 @@ var exportMethods = {
       }
       tripQueries.createTrip(directionsData).then((resp) => {
         // attempt at promise resolution
-        resolve(true)                    
+        resolve(resp)                    
 
         tripQueries.getTripById(trip_id).then((trip) => {
           var d = new Date(parseInt(resp[0].created_at))

@@ -17,10 +17,10 @@ var updateAllTrips = () => {
         departure_time: new Date()
       }).then((apiRes) => { 
         console.log("API Response from google maps");
-        gmController.parseDirectionsData(apiRes, trip.id, trip.transit_method_id).then(() => {
+        gmController.parseDirectionsData(apiRes, trip.id, trip.transit_method_id).then((trip_directions) => {
           if(parseInt(trip.transit_method_id) === 303){
             console.log("THIS IS AN UBER TRIP");
-            uberEstimateCtrl.putEstimatesForUberTrip(trip)
+            uberEstimateCtrl.putEstimatesForUberTrip(trip, trip_directions)
           }
         })
       })
