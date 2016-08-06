@@ -9,7 +9,20 @@ block content
 			// start container
 			.container
 				.row
-					p now editing record #{location_id}
+					h4 Create a new location
+					.col.s12.m12.l6
+						.card-panel
+							.row
+								form.col(class='s12', method='post' action="/locations/new")
+									.input-field.col.s12
+										input#location_name(type='text', name="location_name", placeholder="Name your location")
+										| Location Name
+									.input-field.col.s12
+										input#searchBoxField(type='text', name="address")
+										| Address
+									.row
+										.input-field.col.s12
+											button.btn.cyan.waves-effect.waves-light.right(type='submit') Save Location!
 
 			// FOOTER
 			include ../../public/includes/footer.jade

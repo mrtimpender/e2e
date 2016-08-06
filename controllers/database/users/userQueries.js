@@ -26,7 +26,10 @@ module.exports = {
     return db.knex('e2e_users').where('uber_uuid', uuid).update(newData)
   },
   addUserLocation: (sesh, location, coords) => {
-    return db.knex.raw(`INSERT into user_locations values (DEFAULT, ${sesh.id}, '${location.location_name}', '${location.address}', '${coords.lat}', ${coords.lng})`);
+    return db.knex.raw(`INSERT into user_locations values (DEFAULT, ${sesh.id}, '${location.location_name}', '${location.address}', '${coords.lat}', '${coords.lng}')`);
+  },
+  editUserLocation: (sesh, location, coords, id) => {
+    return db.knex.raw(`UPDATE user_locations set name='${location.location_name}', formatted_address='${location.address}', lat='${coords.lat}', lng='${coords.lng}' WHERE id=${id}`);
   },
   allLocations: (sesh) => {
     return db.knex.raw(`SELECT * from user_locations WHERE user_id=${sesh.id}`);

@@ -33,7 +33,13 @@ router.route('/new')
     res.render('locations/newLocation')
   })
   .post((req, res, next) => {
-    res.json(req.body)
+    geocode.geocodeDirtyAddress(req.body.address).then(function(latLong){
+      console.log(latLong.results[0].geometry.location);
+      console.log(req.session.passport.user.id);
+      userQueries.addUserLocation(req.session.passport.user, req.body, latLong.results[0].geometry.location).then(function(){
+        res.redirect('/locations');
+      })
+    });
   })
 
 // edit location
@@ -45,18 +51,13 @@ router.route('/edit/:id')
     })
   })
   .post((req, res, next) => {
-    // edit our existing location
+    geocode.geocodeDirtyAddress(req.body.address).then(function(latLong){
+      console.log(latLong.results[0].geometry.location);
+      console.log(req.session.passport.user.id);
+      userQueries.editUserLocation(req.session.passport.user, req.body, latLong.results[0].geometry.location, req.params.id).then(function(){
+        res.redirect('/locations');
+      })
+    });
   })
-
-
-router.post('/userlocations', function(req, res, next) {
-  geocode.geocodeDirtyAddress(req.body.address).then(function(latLong){
-    console.log(latLong.results[0].geometry.location);
-    console.log(req.session.passport.user.id);
-    userQueries.addUserLocation(req.session.passport.user, req.body, latLong.results[0].geometry.location).then(function(){
-      res.redirect('/locations');
-    })
-  });
-})
 
 module.exports = router;
