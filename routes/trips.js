@@ -1,4 +1,4 @@
-// trips route. Create CRUD routes for our trips. Look at datbase structure for format
+  // trips route. Create CRUD routes for our trips. Look at datbase structure for format
 
 var express = require('express');
 var router = express.Router();
@@ -37,7 +37,7 @@ router.route('/new')
     // create new trip route
   })
 
-router.route('/:id/edit')
+router.route('/edit/:id')
   .get((req, res, next) => {
     tripsController.returnSingleTrip(req.params.id).then((trip) => {
       tripsController.returnTransitMethod(trip[0].transit_method_id).then((trans_method) => {

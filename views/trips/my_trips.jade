@@ -22,8 +22,12 @@ block content
 													p.flight-card-date= trip.created_at
 											.card-content-bg.white-text
 												.card-content
-													a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right(href='/trips/#{trip.id}/edit')
-														i.mdi-content-add.activator
+													a.btn-floating.activator.btn-move-up.waves-effect.waves-light.light-green.right
+														i.mdi-action-info
+													a.btn-floating.btn-move-up.waves-effect.waves-light.cyan.right(href="/trips/edit/#{trip.id}")
+														i.mdi-image-edit
+													a.btn-floating.btn-move-up.waves-effect.waves-light.red.accent-2.right
+														i.mdi-action-favorite
 
 													.row.flight-state-wrapper
 														.col.s5.m5.l5.center-align
@@ -65,8 +69,12 @@ block content
 													p.flight-card-date= trip.created_at
 											.card-content-bg.white-text
 												.card-content
-													a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right(href='/trips/#{trip.id}/edit')
-														i.mdi-content-add.activator
+													a.btn-floating.activator.btn-move-up.waves-effect.waves-light.light-green.right
+														i.mdi-action-info
+													a.btn-floating.btn-move-up.waves-effect.waves-light.cyan.right(href="/trips/edit/#{trip.id}")
+														i.mdi-image-edit
+													a.btn-floating.btn-move-up.waves-effect.waves-light.red.accent-2.right
+														i.mdi-action-favorite
 													.row.flight-state-wrapper
 														.col.s5.m5.l5.center-align
 															.flight-state.center-align
@@ -78,6 +86,96 @@ block content
 																	i.mdi-maps-directions-car.large
 																when '303'
 																	i.mdi-maps-local-taxi.large
+
+														.col.s5.m5.l5.center-align
+															.flight-state
+																h5.margin= trip.destination_name
+																p.small
+													.row
+														.col.s6.m6.l6.center-align
+															.flight-info
+																p.small
+																	span.grey-text.text-lighten-4 Origin:
+																p.small
+																	span.grey-text.text-lighten-4= trip.origin_formatted_address
+
+														.col.s6.m6.l6.center-align.flight-state-two
+															.flight-info
+																p.small
+																	span.grey-text.text-lighten-4 Destination:
+																p.small
+																	span.grey-text.text-lighten-4= trip.destination_formatted_address
+										//-  walking
+										when '301'
+											.card-header.light-green
+												.card-title
+													h4.flight-card-title= trip.trip_name
+													p.flight-card-date= trip.created_at
+											.card-content-bg.white-text
+												.card-content
+													a.btn-floating.activator.btn-move-up.waves-effect.waves-light.light-green.right
+														i.mdi-action-info
+													a.btn-floating.btn-move-up.waves-effect.waves-light.cyan.right(href="/trips/edit/#{trip.id}")
+														i.mdi-image-edit
+													a.btn-floating.btn-move-up.waves-effect.waves-light.red.accent-2.right
+														i.mdi-action-favorite
+													.row.flight-state-wrapper
+														.col.s5.m5.l5.center-align
+															.flight-state.center-align
+																h5.margin= trip.origin_name
+																p.small
+														.col.s2.m2.l2.center-align
+															case trip.transit_method_id
+																when '300'
+																	i.mdi-maps-directions-car.large
+																when '303'
+																	i.mdi-maps-local-taxi.large
+
+														.col.s5.m5.l5.center-align
+															.flight-state
+																h5.margin= trip.destination_name
+																p.small
+													.row
+														.col.s6.m6.l6.center-align
+															.flight-info
+																p.small
+																	span.grey-text.text-lighten-4 Origin:
+																p.small
+																	span.grey-text.text-lighten-4= trip.origin_formatted_address
+
+														.col.s6.m6.l6.center-align.flight-state-two
+															.flight-info
+																p.small
+																	span.grey-text.text-lighten-4 Destination:
+																p.small
+																	span.grey-text.text-lighten-4= trip.destination_formatted_address
+										//- Bicycling
+										when '302'
+											.card-header.red
+												.card-title
+													h4.flight-card-title= trip.trip_name
+													p.flight-card-date= trip.created_at
+											.card-content-bg.white-text
+												.card-content
+													a.btn-floating.activator.btn-move-up.waves-effect.waves-light.light-green.right
+														i.mdi-action-info
+													a.btn-floating.btn-move-up.waves-effect.waves-light.cyan.right(href="/trips/edit/#{trip.id}")
+														i.mdi-image-edit
+													a.btn-floating.btn-move-up.waves-effect.waves-light.red.accent-2.right
+														i.mdi-action-favorite
+													.row.flight-state-wrapper
+														.col.s5.m5.l5.center-align
+															.flight-state.center-align
+																h5.margin= trip.origin_name
+																p.small
+														.col.s2.m2.l2.center-align
+															case trip.transit_method_id
+																when '300'
+																	i.mdi-maps-directions-car.large
+																when '303'
+																	i.mdi-maps-local-taxi.large
+																when '302'
+																	i.mdi-maps-local-bike.large
 
 														.col.s5.m5.l5.center-align
 															.flight-state
