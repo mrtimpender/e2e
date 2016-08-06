@@ -13,7 +13,6 @@ var app = express();
 var passport = require('passport')
 var passportStrategies = require('./controllers/auth/passport_strategies')
 app.use(logger('dev'))
-var uber = require('./routes/uber')
 var profile = require('./routes/profile')
 var locations = require('./routes/locations')
 var logout = require('./routes/logout')
@@ -45,7 +44,6 @@ app.use('/', routes);
 app.use('/trips', trips);
 app.use('/login', login);
 app.use('/dashboard', dashboard);
-app.use('/uber', uber);
 app.use('/profile', profile);
 app.use('/locations', locations);
 app.use('/logout', logout);
