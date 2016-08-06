@@ -6,7 +6,6 @@ var Promise = require('bluebird')
 var uberEstimateCtrl = require('../uber_api/uberEstimateController')
 var Promise = require('bluebird')
 
- 
 var updateAllTrips = () => {
   tripQueries.getAllTrips().then((trips) => {
     trips.forEach((trip, key) => {
