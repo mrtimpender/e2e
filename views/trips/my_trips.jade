@@ -13,7 +13,7 @@ block content
 						each trip in trips
 							.col.s12.m6.l4
 								#flight-card.card
-								
+
 									case trip.transit_method_id
 										when '303'
 											.card-header.black
@@ -59,9 +59,33 @@ block content
 																	span.grey-text.text-lighten-4 Destination:
 																p.small
 																	span.grey-text.text-lighten-4= trip.destination_formatted_address												
-												
-												
-											
+												// begin time chart
+												.card-content.black
+													a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right
+														i.mdi-content-add.activator
+													.line-chart-wrapper
+														p.margin.white-text Revenue by country
+														canvas(id="trip-#{trip.id}-time-line-chart", height='114')
+												.card-reveal
+													span.card-title.grey-text.text-darken-4
+														| Revenue by country 
+														i.mdi-navigation-close.right
+													table.responsive-table
+														thead
+															tr
+																th(data-field='country-name') Country Name
+																th(data-field='item-sold') Item Sold
+																th(data-field='total-profit') Total Profit
+														tbody
+															tr
+																td USA
+																td 65
+																td $452.55
+															tr
+																td UK
+																td 76
+																td $452.55
+
 										when '300'
 											.card-header.light-green
 												.card-title
@@ -196,11 +220,7 @@ block content
 																p.small
 																	span.grey-text.text-lighten-4= trip.destination_formatted_address
 
-							// Floating Action Button
-							// end container
-							// END CONTENT
 			// FOOTER
 			include ../../public/includes/footer.jade
 			// JS Scripts
 			include ../../public/includes/scripts.jade
-										

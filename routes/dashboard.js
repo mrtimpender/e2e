@@ -16,5 +16,8 @@ router.get('/', function(req, res, next) {
     email: req.session.passport.user.email
     });
 })
+router.get('/chartTest', (req, res, next) => {
+  res.render('dash/chartDash')
+})
 
 module.exports = router;
