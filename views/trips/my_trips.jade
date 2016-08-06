@@ -64,11 +64,11 @@ block content
 													a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right
 														i.mdi-content-add.activator
 													.line-chart-wrapper
-														p.margin.white-text Revenue by country
-														canvas(id="trip-#{trip.id}-time-line-chart", height='114')
+														p.margin.white-text Trip Duration History (with traffic)
+														canvas.maps_time_estimate_line_chart(id="trip-#{trip.id}-time-line-chart", height='114')
 												.card-reveal
 													span.card-title.grey-text.text-darken-4
-														| Revenue by country 
+														| Trip Duration History (with traffic) 
 														i.mdi-navigation-close.right
 													table.responsive-table
 														thead
@@ -85,9 +85,10 @@ block content
 																td UK
 																td 76
 																td $452.55
+															//- end time chart
 
 										when '300'
-											.card-header.light-green
+											.card-header.cyan
 												.card-title
 													h4.flight-card-title= trip.trip_name
 													p.flight-card-date= trip.created_at
@@ -123,12 +124,34 @@ block content
 																p.small
 																	span.grey-text.text-lighten-4= trip.origin_formatted_address
 
-														.col.s6.m6.l6.center-align.flight-state-two
-															.flight-info
-																p.small
-																	span.grey-text.text-lighten-4 Destination:
-																p.small
-																	span.grey-text.text-lighten-4= trip.destination_formatted_address
+												// begin time chart
+												.card-content.cyan
+													a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right
+														i.mdi-content-add.activator
+													.line-chart-wrapper
+														p.margin.white-text Trip Duration History (with traffic)
+														canvas.maps_time_estimate_line_chart(id="trip-#{trip.id}-time-line-chart", height='114')
+												.card-reveal
+													span.card-title.grey-text.text-darken-4
+														| Trip Duration History (with traffic) 
+														i.mdi-navigation-close.right
+													table.responsive-table
+														thead
+															tr
+																th(data-field='country-name') Country Name
+																th(data-field='item-sold') Item Sold
+																th(data-field='total-profit') Total Profit
+														tbody
+															tr
+																td USA
+																td 65
+																td $452.55
+															tr
+																td UK
+																td 76
+																td $452.55
+															//- end time chart
+
 										//-  walking
 										when '301'
 											.card-header.light-green
@@ -175,7 +198,7 @@ block content
 																	span.grey-text.text-lighten-4= trip.destination_formatted_address
 										//- Bicycling
 										when '302'
-											.card-header.red
+											.card-header.deep-purple
 												.card-title
 													h4.flight-card-title= trip.trip_name
 													p.flight-card-date= trip.created_at
@@ -219,8 +242,36 @@ block content
 																	span.grey-text.text-lighten-4 Destination:
 																p.small
 																	span.grey-text.text-lighten-4= trip.destination_formatted_address
+												// begin time chart
+												.card-content.deep-purple
+													a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right
+														i.mdi-content-add.activator
+													.line-chart-wrapper
+														p.margin.white-text Trip Duration History (with traffic)
+														canvas.maps_time_estimate_line_chart(id="trip-#{trip.id}-time-line-chart", height='114')
+												.card-reveal
+													span.card-title.grey-text.text-darken-4
+														| Trip Duration History (with traffic) 
+														i.mdi-navigation-close.right
+													table.responsive-table
+														thead
+															tr
+																th(data-field='country-name') Country Name
+																th(data-field='item-sold') Item Sold
+																th(data-field='total-profit') Total Profit
+														tbody
+															tr
+																td USA
+																td 65
+																td $452.55
+															tr
+																td UK
+																td 76
+																td $452.55
+															//- end time chart
 
 			// FOOTER
 			include ../../public/includes/footer.jade
 			// JS Scripts
 			include ../../public/includes/scripts.jade
+			script(src="/js/chartingControllers/tripsUberChartController.js")
