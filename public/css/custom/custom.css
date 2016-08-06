@@ -34,8 +34,8 @@ body {
 }
 
 #jon_map{
-	height: 50vh;
-	width: 38vw;
+	height: 62vh;
+	width: 83vw;
 }
 
 @media only screen and (max-width: 600px) {

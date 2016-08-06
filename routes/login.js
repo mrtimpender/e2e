@@ -5,9 +5,7 @@ var db = require('../config/db')
 var modelBase = require('bookshelf-modelbase')(db.bookshelf)
 var bcrypt = require('bcrypt')
 var passport = require('passport')
-var userTable = modelBase.extend({
-    tableName: 'e2e_users'
-})
+var userTable = modelBase.extend({ tableName: 'e2e_users' })
 // login route
 router.route('/')
   .get((req, res, next) => {
@@ -30,9 +28,11 @@ router.route('/register')
     res.render('login/register')
   })
   .post((req, res, next) => {
+    console.log(req.body);
+    
     userTable.findOrCreateByProperty({
       e2e_username: req.body.e2e_username,
-      e2e_password: req.body.e2e_passowrd,
+      e2e_password: req.body.e2e_password,
       e2e_email: req.body.e2e_email
     }, {
       e2e_username: req.body.e2e_username
@@ -40,6 +40,7 @@ router.route('/register')
       res.render('login/index', {message:"Account created. Please login."})
     }).catch((e) => console.log(e))
   })
+
 // after oauth register
 router.route('/completeRegistration')
   .get((req, res, next) => {

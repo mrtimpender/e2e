@@ -4,7 +4,7 @@ var passport = require('passport')
 /* GET home page. */
 router.get('/', function(req, res, next) {
     console.log('*********');
-    console.log(req.session);
+    console.log(req.sessin);
     console.log('*********');
   res.render('dash/index', {
     title: 'e2e | Dashboard',

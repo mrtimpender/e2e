@@ -9,9 +9,11 @@ block content
       form.login-form(action="/login/register/", method="POST")
         .row
           .input-field.col.s12.center
+            img.responsive-img.valign.profile-image-login(src='/images/logo/Purple - Aligned.svg', alt='e2e travel logo')
+            h3.center.login-form-text end2end.travel
             h4 Register
             p.center Join to our community now !
-        .row.margin
+        .row
           .input-field.col.s12
             i.mdi-social-person-outline.prefix
             input#username(name="e2e_username", type='text')
@@ -33,7 +35,7 @@ block content
             label(for='password-again') Password again
         .row
           .input-field.col.s12
-            button.btn.waves-effect.waves-light.col.s12(type="submit") Login Now
+            button.btn.waves-effect.waves-light.col.s12(type="submit") Register Now
           .input-field.col.s12
             p.margin.center.medium-small.sign-up
               | Already have an account? 
