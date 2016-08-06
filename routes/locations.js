@@ -4,6 +4,7 @@ var passport = require('passport');
 var userQueries = require('../controllers/database/users/userQueries');
 var geocode = require('../controllers/google_maps_api/GoogleMaps');
 var db = require('../config/db');
+var locationModel = require('../controllers/database/locations/locationModel')
 
 // TODO set up session constructor
 
@@ -25,6 +26,7 @@ router.get('/', function(req, res, next) {
       });
     })
 })
+
 // new location
 router.route('/new')
   .get((req, res, next) => {
@@ -33,14 +35,19 @@ router.route('/new')
   .post((req, res, next) => {
     res.json(req.body)
   })
+
 // edit location
 router.route('/edit/:id')
   .get((req, res, next) => {
-    res.render('locations/editLocation', { location_id: req.params.id })
+    locationModel.getLocationById(req.params.id).then((location) => {
+      res.render('locations/editLocation', { location: location[0] })
+    })
   })
   .post((req, res, next) => {
-    // create new location
+    // edit our existing location
   })
+
+
 router.post('/userlocations', function(req, res, next) {
   geocode.geocodeDirtyAddress(req.body.address).then(function(latLong){
     console.log(latLong.results[0].geometry.location);
