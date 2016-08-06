@@ -1,9 +1,5 @@
 extends ../login_layout
 block content 
-  #loader-wrapper
-    #loader
-    .loader-section.section-left
-    .loader-section.section-right
   #login-page.row
     .col.s12.z-depth-4.card-panel
       form.login-form(method="post", action="/login/completeRegistration")
@@ -11,7 +7,7 @@ block content
         .row
           .input-field.col.s12.center
             h4 You're almost done!
-            p.center enter a username and password for e2e to complete registration.
+            p.center Enter a username and password for e2e to complete registration.
         .row.margin
           .input-field.col.s12
             i.mdi-social-person-outline.prefix
