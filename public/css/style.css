@@ -2256,6 +2256,11 @@ tr.group:hover {
   width: 100%;
   height: 250px;
 }
+/* ---- Map card ----*/
+.map-card .map-canvas {
+  width: 100%;
+  height: 250px;
+}
 
 .map-card .btn-move-up {
   top: -38px;
