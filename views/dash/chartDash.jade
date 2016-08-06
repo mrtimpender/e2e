@@ -1,0 +1,364 @@
+extends ../layout
+block content
+	#main
+		// START WRAPPER
+		.wrapper
+			include ../../public/includes/left_sidebar.jade
+		section#content
+			// start container
+			.container
+			// card stats start
+			#card-stats
+				.row
+					.col.s12.m6.l3
+						.card
+							.card-content.green.white-text
+								p.card-stats-title
+									i.mdi-social-group-add
+									|  Your Locations
+								h4.card-stats-number 566
+								p.card-stats-compare
+									i.mdi-hardware-keyboard-arrow-up
+									|  15% 
+									span.green-text.text-lighten-5 from yesterday
+							.card-action.green.darken-2
+								#clients-bar.center-align
+					.col.s12.m6.l3
+						.card
+							.card-content.pink.lighten-1.white-text
+								p.card-stats-title
+									i.mdi-editor-insert-drive-file
+									|  Your Trips
+								h4.card-stats-number 1806
+								p.card-stats-compare
+									i.mdi-hardware-keyboard-arrow-down
+									|  3% 
+									span.deep-purple-text.text-lighten-5 from last month
+							.card-action.pink.darken-2
+								#invoice-line.center-align
+					.col.s12.m6.l3
+						.card
+							.card-content.blue-grey.white-text
+								p.card-stats-title
+									i.mdi-action-trending-up
+									|  Google Maps API calls
+								h4.card-stats-number $806.52
+								p.card-stats-compare
+									i.mdi-hardware-keyboard-arrow-up
+									|  80% 
+									span.blue-grey-text.text-lighten-5 from yesterday
+							.card-action.blue-grey.darken-2
+								#profit-tristate.center-align
+					.col.s12.m6.l3
+						.card
+							.card-content.purple.white-text
+								p.card-stats-title
+									i.mdi-editor-attach-money
+									| Uber API calls
+								h4.card-stats-number $8990.63
+								p.card-stats-compare
+									i.mdi-hardware-keyboard-arrow-up
+									|  70% 
+									span.purple-text.text-lighten-5 last month
+							.card-action.purple.darken-2
+								#sales-compositebar.center-align
+			// card stats end
+			// chart dashboard start
+			#chart-dashboard
+				.row
+					.col.s12.m6.l6
+						.card
+							.card-move-up.waves-effect.waves-block.waves-light
+								.move-up.cyan.darken-1
+									div
+										span.chart-title.white-text My Primary Commute
+									
+									.trending-line-chart-wrapper
+										canvas#trending-line-chart(height='70')
+							.card-content
+								a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right
+									i.mdi-content-add.activator
+								.col.s12.m3.l3
+									h3 trip title here
+							.card-reveal
+								span.card-title.grey-text.text-darken-4
+									| Revenue by Month 
+									i.mdi-navigation-close.right
+								table.responsive-table
+									thead
+										tr
+											th(data-field='id') ID
+											th(data-field='month') Month
+											th(data-field='item-sold') Item Sold
+											th(data-field='item-price') Item Price
+											th(data-field='total-profit') Total Profit
+									tbody
+										tr
+											td 1
+											td January
+											td 122
+											td 100
+											td $122,00.00
+										tr
+											td 2
+											td February
+											td 122
+											td 100
+											td $122,00.00
+										tr
+											td 3
+											td March
+											td 122
+											td 100
+											td $122,00.00
+										tr
+											td 4
+											td April
+											td 122
+											td 100
+											td $122,00.00
+										tr
+											td 5
+											td May
+											td 122
+											td 100
+											td $122,00.00
+										tr
+											td 6
+											td June
+											td 122
+											td 100
+											td $122,00.00
+										tr
+											td 7
+											td July
+											td 122
+											td 100
+											td $122,00.00
+										tr
+											td 8
+											td August
+											td 122
+											td 100
+											td $122,00.00
+										tr
+											td 9
+											td Septmber
+											td 122
+											td 100
+											td $122,00.00
+										tr
+											td 10
+											td Octomber
+											td 122
+											td 100
+											td $122,00.00
+										tr
+											td 11
+											td November
+											td 122
+											td 100
+											td $122,00.00
+										tr
+											td 12
+											td December
+											td 122
+											td 100
+											td $122,00.00
+
+					#work-collections
+						.row
+							.col.s12.m12.l6
+								ul#projects-collection.collection
+									li.collection-item.avatar
+										i.mdi-file-folder.circle.light-blue.darken-2
+										span.collection-header My Favorite Locations
+										p Add to your favorites list on the locations page!
+										a.secondary-content(href='#')
+											i.mdi-action-grade
+									li.collection-item
+										.row
+											.col.s6
+												p.collections-title Web App
+												p.collections-content AEC Company
+											.col.s3
+												span.task-cat.cyan Development
+											.col.s3
+												#project-line-1
+									li.collection-item
+										.row
+											.col.s6
+												p.collections-title Mobile App for Social
+												p.collections-content iSocial App
+											.col.s3
+												span.task-cat.grey.darken-3 UI/UX
+											.col.s3
+												#project-line-2
+									li.collection-item
+										.row
+											.col.s6
+												p.collections-title Website
+												p.collections-content MediTab
+											.col.s3
+												span.task-cat.teal Marketing
+											.col.s3
+												#project-line-3
+									li.collection-item
+										.row
+											.col.s6
+												p.collections-title AdWord campaign
+												p.collections-content True Line
+											.col.s3
+												span.task-cat.green SEO
+											.col.s3
+												#project-line-4
+						
+					// work collections end
+					// Floating Action Button
+					#profile-page.section
+						.fixed-action-btn(style='bottom: 50px; right: 19px;')
+							a.btn-floating.btn-large
+								i.mdi-action-stars
+							ul
+								li
+									a#modal-fire.btn-floating.blue.modal-trigger(href='#modal1')
+										i.large.mdi-communication-location-on
+								li
+									a.btn-floating.green(href='/trips')
+										i.large.mdi-av-timer
+										// add trip modal
+
+						#modal1.modal
+							.modal-content
+								.col.s12.m12.l6
+									.card-panel
+										h4.header2 Add a Location
+									.row
+										form.col(class='s12', method='post' action="/user_locations")
+											.input-field.col.s12
+												input#location_name(type='text', name="location_name", placeholder="Name your location")
+												| Location Name
+											.input-field.col.s12
+												input#searchBoxField(type='text', name="address")
+												| Address
+										.row
+											.input-field.col.s12
+												button.btn.cyan.waves-effect.waves-light.right(type='submit', name='submit') Save Location!
+
+					// Floating Action Button
+					// end container
+					// END CONTENT
+					// ////////////////////////////////////////////////////////////////////////////
+					// START RIGHT SIDEBAR NAV
+					aside#right-sidebar-nav
+						ul#chat-out.side-nav.rightside-navigation
+							li.li-hover
+								a.chat-close-collapse.right(href='#', data-activates='chat-out')
+									i.mdi-navigation-close
+								#right-search.row
+									form.col.s12
+										.input-field
+											i.mdi-action-search.prefix
+											input#icon_prefix.validate(type='text')
+											label(for='icon_prefix') Search
+							li.li-hover
+								ul.chat-collapsible(data-collapsible='expandable')
+									li
+										.collapsible-header.teal.white-text.active
+											i.mdi-social-whatshot
+											| Recent Activity
+										.collapsible-body.recent-activity
+											.recent-activity-list.chat-out-list.row
+												.col.s3.recent-activity-list-icon
+													i.mdi-action-add-shopping-cart
+												.col.s9.recent-activity-list-text
+													a(href='#') just now
+													p Jim Doe Purchased new equipments for zonal office.
+											.recent-activity-list.chat-out-list.row
+												.col.s3.recent-activity-list-icon
+													i.mdi-device-airplanemode-on
+												.col.s9.recent-activity-list-text
+													a(href='#') Yesterday
+													p Your Next flight for USA will be on 15th August 2015.
+											.recent-activity-list.chat-out-list.row
+												.col.s3.recent-activity-list-icon
+													i.mdi-action-settings-voice
+												.col.s9.recent-activity-list-text
+													a(href='#') 5 Days Ago
+													p Natalya Parker Send you a voice mail for next conference.
+											.recent-activity-list.chat-out-list.row
+												.col.s3.recent-activity-list-icon
+													i.mdi-action-store
+												.col.s9.recent-activity-list-text
+													a(href='#') Last Week
+													p Jessy Jay open a new store at S.G Road.
+											.recent-activity-list.chat-out-list.row
+												.col.s3.recent-activity-list-icon
+													i.mdi-action-settings-voice
+												.col.s9.recent-activity-list-text
+													a(href='#') 5 Days Ago
+													p Natalya Parker Send you a voice mail for next conference.
+									li
+										.collapsible-header.light-blue.white-text.active
+											i.mdi-editor-attach-money
+											| Sales Repoart
+										.collapsible-body.sales-repoart
+											.sales-repoart-list.chat-out-list.row
+												.col.s8 Target Salse
+												.col.s4
+													span#sales-line-1
+											.sales-repoart-list.chat-out-list.row
+												.col.s8 Payment Due
+												.col.s4
+													span#sales-bar-1
+											.sales-repoart-list.chat-out-list.row
+												.col.s8 Total Delivery
+												.col.s4
+													span#sales-line-2
+											.sales-repoart-list.chat-out-list.row
+												.col.s8 Total Progress
+												.col.s4
+													span#sales-bar-2
+									li
+										.collapsible-header.red.white-text
+											i.mdi-action-stars
+											| Favorite Associates
+										.collapsible-body.favorite-associates
+											.favorite-associate-list.chat-out-list.row
+												.col.s4
+													img.circle.responsive-img.online-user.valign.profile-image(src='images/avatar.jpg', alt='')
+												.col.s8
+													p Eileen Sideways
+													p.place Los Angeles, CA
+											.favorite-associate-list.chat-out-list.row
+												.col.s4
+													img.circle.responsive-img.online-user.valign.profile-image(src='images/avatar.jpg', alt='')
+												.col.s8
+													p Zaham Sindil
+													p.place San Francisco, CA
+											.favorite-associate-list.chat-out-list.row
+												.col.s4
+													img.circle.responsive-img.offline-user.valign.profile-image(src='images/avatar.jpg', alt='')
+												.col.s8
+													p Renov Leongal
+													p.place Cebu City, Philippines
+											.favorite-associate-list.chat-out-list.row
+												.col.s4
+													img.circle.responsive-img.online-user.valign.profile-image(src='images/avatar.jpg', alt='')
+												.col.s8
+													p Weno Carasbong
+													p Tokyo, Japan
+											.favorite-associate-list.chat-out-list.row
+												.col.s4
+													img.circle.responsive-img.offline-user.valign.profile-image(src='images/avatar.jpg', alt='')
+												.col.s8
+													p Nusja Nawancali
+													p.place , Thailand
+						// LEFT RIGHT SIDEBAR NAV
+						// END WRAPPER
+						// END MAIN
+						// FOOTER
+						include ../../public/includes/footer.jade
+						// JS Scripts
+						include ../../public/includes/scripts.jade
+						script(src="/js/chartingController.js")
