@@ -25,12 +25,21 @@ router.get('/', function(req, res, next) {
       });
     })
 })
+// new location
 router.route('/new')
   .get((req, res, next) => {
-
+    res.render('locations/newLocation')
   })
-  .post((req, res, nexr) => {
-    
+  .post((req, res, next) => {
+    res.json(req.body)
+  })
+// edit location
+router.route('/edit/:id')
+  .get((req, res, next) => {
+    res.render('locations/editLocation', { location_id: req.params.id })
+  })
+  .post((req, res, next) => {
+    // create new location
   })
 router.post('/userlocations', function(req, res, next) {
   geocode.geocodeDirtyAddress(req.body.address).then(function(latLong){
