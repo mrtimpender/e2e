@@ -8,9 +8,9 @@ var tripsController = require('../controllers/trips/tripsController')
 
 router.route('/')
   .get((req, res, next) => {
-  tripsController.returnTripsAndLocaitons().then((trips) => res.render('trips/my_trips', {
+  tripsController.returnTripsAndLocations().then((trips) => res.render('trips/my_trips', {
     trips:trips.rows,
-    title: 'e2e | New Trip',
+    title: 'e2e | My Trips',
     id: req.session.passport.user.id,
     username: req.session.passport.user.username,
     firstname: req.session.passport.user.firstname,
@@ -37,23 +37,47 @@ router.route('/new')
     // create new trip route
   })
 
-  router.route('/edit/:id')
-    .get((req, res, next) => {
-      // load new trip tempate
-      res.render('trips/new_trip', {
-        title: 'e2e | New Trip',
-        id: req.session.passport.user.id,
-        username: req.session.passport.user.username,
-        firstname: req.session.passport.user.firstname,
-        lastname: req.session.passport.user.lastname,
-        fullname: req.session.passport.user.firstname + " " + req.session.passport.user.lastname,
-        email: req.session.passport.user.email
-        });
+router.route('/:id/edit')
+  .get((req, res, next) => {
+    tripsController.returnSingleTrip(req.params.id).then((trip) => {
+      tripsController.returnTransitMethod(trip[0].transit_method_id).then((trans_method) => {
+        console.log(trans_method);
+        // console.log(trip[0].transit_method_id);
+        res.render('trips/edit_trip', {
+          trip: trip[0],
+          trans_method: trans_method[0].transit_type,
+          title: 'e2e | Edit This Trip',
+          id: req.session.passport.user.id,
+          username: req.session.passport.user.username,
+          firstname: req.session.passport.user.firstname,
+          lastname: req.session.passport.user.lastname,
+          fullname: req.session.passport.user.firstname + " " + req.session.passport.user.lastname,
+          email: req.session.passport.user.email
+        })
+      })
     })
+  })
     .post((req, res, next) => {
       // create new trip route
-    })
+  })
 
+
+router.route('/delete/:id')
+  .get((req, res, next) => {
+    // load new trip tempate
+    res.render('trips/new_trip', {
+      title: 'e2e | New Trip',
+      id: req.session.passport.user.id,
+      username: req.session.passport.user.username,
+      firstname: req.session.passport.user.firstname,
+      lastname: req.session.passport.user.lastname,
+      fullname: req.session.passport.user.firstname + " " + req.session.passport.user.lastname,
+      email: req.session.passport.user.email
+      });
+  })
+  .post((req, res, next) => {
+    // create new trip route
+  })
   // router.route('/edit/:id')
   //   .get((req, res, next) => {
   //
