@@ -32,14 +32,14 @@ block content
 													.row.flight-state-wrapper
 														.col.s5.m5.l5.center-align
 															.flight-state.center-align
-																h5.margin= trip.origin_name
+																h5.margin.origin_name_trip_card= trip.origin_name
 																p.small
 														.col.s2.m2.l2.center-align
 															case trip.transit_method_id
 																when '300'
-																	i.mdi-maps-directions-car.large
+																	i.mdi-maps-directions-car.medium
 																when '303'
-																	i.mdi-maps-local-taxi.large
+																	i.mdi-maps-local-taxi.medium
 
 														.col.s5.m5.l5.center-align
 															.flight-state
@@ -106,14 +106,14 @@ block content
 													.row.flight-state-wrapper
 														.col.s5.m5.l5.center-align
 															.flight-state.center-align
-																h5.margin= trip.origin_name
+																h5.margin.origin_name_trip_card= trip.origin_name
 																p.small
 														.col.s2.m2.l2.center-align
 															case trip.transit_method_id
 																when '300'
-																	i.mdi-maps-directions-car.large
+																	i.mdi-maps-directions-car.medium
 																when '303'
-																	i.mdi-maps-local-taxi.large
+																	i.mdi-maps-local-taxi.medium
 
 														.col.s5.m5.l5.center-align
 															.flight-state
@@ -172,14 +172,14 @@ block content
 													.row.flight-state-wrapper
 														.col.s5.m5.l5.center-align
 															.flight-state.center-align
-																h5.margin= trip.origin_name
+																h5.margin.origin_name_trip_card= trip.origin_name
 																p.small
 														.col.s2.m2.l2.center-align
 															case trip.transit_method_id
 																when '300'
-																	i.mdi-maps-directions-car.large
+																	i.mdi-maps-directions-car.medium
 																when '303'
-																	i.mdi-maps-local-taxi.large
+																	i.mdi-maps-local-taxi.medium
 
 														.col.s5.m5.l5.center-align
 															.flight-state
@@ -216,17 +216,10 @@ block content
 													.row.flight-state-wrapper
 														.col.s5.m5.l5.center-align
 															.flight-state.center-align
-																h5.margin= trip.origin_name
+																h5.margin.origin_name_trip_card= trip.origin_name
 																p.small
 														.col.s2.m2.l2.center-align
-															case trip.transit_method_id
-																when '300'
-																	i.mdi-maps-directions-car.large
-																when '303'
-																	i.mdi-maps-local-taxi.large
-																when '302'
-																	i.mdi-maps-local-bike.large
-
+															i.mdi-maps-directions-bike.medium
 														.col.s5.m5.l5.center-align
 															.flight-state
 																h5.margin= trip.destination_name

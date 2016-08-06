@@ -19,6 +19,12 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .secondary-text-color  { color: #757575; }
 .divider-color         { border-color: #BDBDBD; }
 
+
+/* trip card */
+.origin_name_trip_card {
+  margin-top: 39px !important;
+}
+
 body {
   top: 0 !important;
 }
