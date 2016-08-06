@@ -30,7 +30,15 @@ router.get('/', function(req, res, next) {
 // new location
 router.route('/new')
   .get((req, res, next) => {
-    res.render('locations/newLocation')
+    res.render('locations/newLocation', {
+      title: 'e2e | Locations',
+      id: req.session.passport.user.id,
+      username: req.session.passport.user.username,
+      firstname: req.session.passport.user.firstname,
+      lastname: req.session.passport.user.lastname,
+      fullname: req.session.passport.user.firstname + " " + req.session.passport.user.lastname,
+      email: req.session.passport.user.email
+      })
   })
   .post((req, res, next) => {
     geocode.geocodeDirtyAddress(req.body.address).then(function(latLong){
