@@ -1,4 +1,4 @@
-// trips route. Create CRUD routes for our trips. Look at datbase structure for format
+  // trips route. Create CRUD routes for our trips. Look at datbase structure for format
 
 var express = require('express');
 var router = express.Router();

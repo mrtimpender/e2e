@@ -37,6 +37,7 @@ router.route('/new')
   })
 
 // edit location
+router.get('/edit', (req, res, next) => res.redirect('/locations'))
 router.route('/edit/:id')
   .get((req, res, next) => {
     locationModel.getLocationById(req.params.id).then((location) => {
