@@ -1017,7 +1017,11 @@ h5.breadcrumbs-header {
 }
 
 #flight-card .card-content-bg {
-  background: url("../images/sample-1.jpg") no-repeat center center;
+  /*background: url("../images/sample-1.jpg") no-repeat center center;*/
+  background: #673AB7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #673AB7 , #00BCD4); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #673AB7 , #00BCD4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
