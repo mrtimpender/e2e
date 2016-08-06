@@ -13,18 +13,18 @@ block content
 							.card-move-up.teal.waves-effect.waves-block.waves-light
 								.move-up
 									h5.margin.white-text Start Location
-									input#origin-input.controls(type='text', name='trip_name', placeholder='starting location for your trip')
+									input#origin-input.controls(type='text', name='trip_name', placeholder='#{trip.origin_formatted_address}')
 					.col.s12.m6.l6
 						.card
 							.card-move-up.teal.waves-effect.waves-block.waves-light
 								.move-up
 									h5.margin.white-text Destination Location
-									input#destination-input.controls(type='text', name='trip_name', placeholder='starting location for your trip')
+									input#destination-input.controls(type='text', name='trip_name', placeholder='#{trip.destination_formatted_address}')
 									.input-field.col.s12
 				.row
 					.input-field.col.s5.m3.l4
 						select#mode
-							option(value='', disabled='', selected='') Select Your Mode
+							option(value='', disabled='', selected='') #{trans_method}
 							option(value='TRANSIT', id='changemode-transit') Transit
 							option(value='DRIVING', id='changemode-driving') Driving
 							option(value='BICYCLING', id='changemode-bicycling') Bicycling
@@ -37,11 +37,7 @@ block content
 						//- button#showTransit transit
 						//- button#showBike bike
 					.col.s12.m6.l6
-						#map(style="display:none")
 						#jon_map.mobile-map
-						#floating-panel
-					
-					
 			// FOOTER
 			include ../../public/includes/footer.jade
 				//

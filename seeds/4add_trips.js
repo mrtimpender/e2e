@@ -4,7 +4,7 @@ exports.seed = function(knex, Promise) {
       return Promise.all([
         knex('user_trips').insert({
           id: 200,
-          user_id: 99,
+          user_id: 1,
           trip_name: 'Home to Work',
           transit_method_id: 300,
           origin_formatted_address: '1327 Steele St, Denver, CO 80206, United States',
@@ -18,7 +18,7 @@ exports.seed = function(knex, Promise) {
         }),
         knex('user_trips').insert({
           id: 201,
-          user_id: 99,
+          user_id: 1,
           trip_name: 'Cab to Work',
           transit_method_id: 303,
           origin_formatted_address: '1327 Steele St, Denver, CO 80206, United States',
@@ -32,7 +32,7 @@ exports.seed = function(knex, Promise) {
         }),
         knex('user_trips').insert({
           id: 202,
-          user_id: 99,
+          user_id: 1,
           trip_name: 'Cab Home from Work',
           transit_method_id: 303,
           origin_formatted_address: '1644 Platte Street, Denver, CO, United States',
@@ -46,7 +46,7 @@ exports.seed = function(knex, Promise) {
         }),
         knex('user_trips').insert({
           id: 203,
-          user_id: 99,
+          user_id: 1,
           trip_name: 'Bike to Doggie Daycare',
           transit_method_id: 302,
           origin_formatted_address: '1327 Steele St, Denver, CO 80206, United States',
@@ -60,7 +60,7 @@ exports.seed = function(knex, Promise) {
         }),
         knex('user_trips').insert({
           id: 204,
-          user_id: 99,
+          user_id: 1,
           trip_name: 'Cab to Doggie Daycare',
           transit_method_id: 303,
           origin_formatted_address: '1327 Steele St, Denver, CO 80206, United States',
@@ -74,7 +74,7 @@ exports.seed = function(knex, Promise) {
         }),
         knex('user_trips').insert({
           id: 205,
-          user_id: 99,
+          user_id: 1,
           trip_name: 'CSU',
           transit_method_id: 300,
           origin_formatted_address: '1327 Steele St, Denver, CO 80206, United States',
@@ -88,7 +88,7 @@ exports.seed = function(knex, Promise) {
         }),
         knex('user_trips').insert({
           id: 206,
-          user_id: 99,
+          user_id: 1,
           trip_name: 'To Mom & Dads',
           transit_method_id: 300,
           origin_formatted_address: '1327 Steele St, Denver, CO 80206, United States',
