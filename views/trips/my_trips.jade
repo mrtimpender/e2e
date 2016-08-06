@@ -22,8 +22,12 @@ block content
 													p.flight-card-date= trip.created_at
 											.card-content-bg.white-text
 												.card-content
-													a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right(href='/trips/#{trip.id}/edit')
-														i.mdi-content-add.activator
+													a.btn-floating.activator.btn-move-up.waves-effect.waves-light.light-green.right
+														i.mdi-action-info
+													a.btn-floating.btn-move-up.waves-effect.waves-light.cyan.right(href="/trips/edit/#{trip.id}")
+														i.mdi-image-edit
+													a.btn-floating.btn-move-up.waves-effect.waves-light.red.accent-2.right
+														i.mdi-action-favorite
 
 													.row.flight-state-wrapper
 														.col.s5.m5.l5.center-align
@@ -33,9 +37,9 @@ block content
 														.col.s2.m2.l2.center-align
 															case trip.transit_method_id
 																when '300'
-																	i.mdi-maps-directions-car.medium
+																	i.mdi-maps-directions-car.large
 																when '303'
-																	i.mdi-maps-local-taxi.medium
+																	i.mdi-maps-local-taxi.large
 
 														.col.s5.m5.l5.center-align
 															.flight-state
@@ -65,8 +69,12 @@ block content
 													p.flight-card-date= trip.created_at
 											.card-content-bg.white-text
 												.card-content
-													a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right(href='/trips/#{trip.id}/edit')
-														i.mdi-content-add.activator
+													a.btn-floating.activator.btn-move-up.waves-effect.waves-light.light-green.right
+														i.mdi-action-info
+													a.btn-floating.btn-move-up.waves-effect.waves-light.cyan.right(href="/trips/edit/#{trip.id}")
+														i.mdi-image-edit
+													a.btn-floating.btn-move-up.waves-effect.waves-light.red.accent-2.right
+														i.mdi-action-favorite
 													.row.flight-state-wrapper
 														.col.s5.m5.l5.center-align
 															.flight-state.center-align
@@ -75,9 +83,9 @@ block content
 														.col.s2.m2.l2.center-align
 															case trip.transit_method_id
 																when '300'
-																	i.mdi-maps-directions-car.medium
+																	i.mdi-maps-directions-car.large
 																when '303'
-																	i.mdi-maps-local-taxi.medium
+																	i.mdi-maps-local-taxi.large
 
 														.col.s5.m5.l5.center-align
 															.flight-state
@@ -105,8 +113,12 @@ block content
 													p.flight-card-date= trip.created_at
 											.card-content-bg.white-text
 												.card-content
-													a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right(href='/trips/#{trip.id}/edit')
-														i.mdi-content-add.activator
+													a.btn-floating.activator.btn-move-up.waves-effect.waves-light.light-green.right
+														i.mdi-action-info
+													a.btn-floating.btn-move-up.waves-effect.waves-light.cyan.right(href="/trips/edit/#{trip.id}")
+														i.mdi-image-edit
+													a.btn-floating.btn-move-up.waves-effect.waves-light.red.accent-2.right
+														i.mdi-action-favorite
 													.row.flight-state-wrapper
 														.col.s5.m5.l5.center-align
 															.flight-state.center-align
@@ -115,9 +127,9 @@ block content
 														.col.s2.m2.l2.center-align
 															case trip.transit_method_id
 																when '300'
-																	i.mdi-maps-directions-car.medium
+																	i.mdi-maps-directions-car.large
 																when '303'
-																	i.mdi-maps-local-taxi.medium
+																	i.mdi-maps-local-taxi.large
 
 														.col.s5.m5.l5.center-align
 															.flight-state
@@ -145,8 +157,12 @@ block content
 													p.flight-card-date= trip.created_at
 											.card-content-bg.white-text
 												.card-content
-													a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right(href='/trips/#{trip.id}/edit')
-														i.mdi-content-add.activator
+													a.btn-floating.activator.btn-move-up.waves-effect.waves-light.light-green.right
+														i.mdi-action-info
+													a.btn-floating.btn-move-up.waves-effect.waves-light.cyan.right(href="/trips/edit/#{trip.id}")
+														i.mdi-image-edit
+													a.btn-floating.btn-move-up.waves-effect.waves-light.red.accent-2.right
+														i.mdi-action-favorite
 													.row.flight-state-wrapper
 														.col.s5.m5.l5.center-align
 															.flight-state.center-align
@@ -155,11 +171,11 @@ block content
 														.col.s2.m2.l2.center-align
 															case trip.transit_method_id
 																when '300'
-																	i.mdi-maps-directions-car.medium
+																	i.mdi-maps-directions-car.large
 																when '303'
-																	i.mdi-maps-local-taxi.medium
+																	i.mdi-maps-local-taxi.large
 																when '302'
-																	i.mdi-maps-directions-bike.medium
+																	i.mdi-maps-local-bike.large
 
 														.col.s5.m5.l5.center-align
 															.flight-state
