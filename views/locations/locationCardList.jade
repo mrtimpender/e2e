@@ -31,20 +31,11 @@ block content
 										span.card-title.grey-text.text-darken-4= location.name 
 											i.mdi-navigation-close.right
 										p
-											| Here is some more information about this company. As a creative studio we believe no client is too big nor too small to work with us to obtain good advantage.By combining the creativity of artists with the precision of engineers we develop custom solutions that achieve results.Some more information about this company.
-										p
-											i.mdi-action-perm-identity.cyan-text.text-darken-2
-											|  Manager Name
+											| Here is where a location description goes....IF I HAD ONE
 										p
 											i.mdi-communication-business.cyan-text.text-darken-2
-											|  125, ABC Street, New Yourk, USA
-										p
-											i.mdi-action-perm-phone-msg.cyan-text.text-darken-2
-											|  +1 (612) 222 8989
-										p
-											i.mdi-communication-email.cyan-text.text-darken-2
-											|  support@geekslabs.com
-
+											|  #{location.formatted_address}
+										
 
 
 			include ../../public/includes/footer.jade
