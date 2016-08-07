@@ -91,8 +91,8 @@ block content
 														canvas.uber_price_estimate_bar_chart(id="trip-#{trip.id}-uber-price-bar-chart", height='90')
 
 										when '300'
-											.card-header.cyan
-												.card-title
+											.card-header
+												.card-title.deep-purple
 													h4.flight-card-title= trip.trip_name
 													p.flight-card-date= trip.created_at
 											.card-content-bg.white-text
@@ -134,9 +134,7 @@ block content
 																p.small
 																	span.grey-text.text-lighten-4= trip.destination_formatted_address
 												// begin time chart
-												.card-content.cyan
-													a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right
-														i.mdi-content-add.activator
+												.card-content
 													.line-chart-wrapper
 														p.margin.white-text Trip Duration History (with traffic)
 														canvas.maps_time_estimate_line_chart(id="trip-#{trip.id}-time-line-chart", height='114')
@@ -207,7 +205,7 @@ block content
 																	span.grey-text.text-lighten-4= trip.destination_formatted_address
 										//- Bicycling
 										when '302'
-											.card-header.deep-purple
+											.card-header.cyan
 												.card-title
 													h4.flight-card-title= trip.trip_name
 													p.flight-card-date= trip.created_at
@@ -245,7 +243,7 @@ block content
 																p.small
 																	span.grey-text.text-lighten-4= trip.destination_formatted_address
 												// begin time chart
-												.card-content.deep-purple
+												.card-content.cyan
 													a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right
 														i.mdi-content-add.activator
 													.line-chart-wrapper
