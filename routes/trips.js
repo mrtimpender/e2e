@@ -5,6 +5,7 @@ var router = express.Router();
 var passport = require('passport')
 var googleMaps = require('../controllers/google_maps_api/GoogleMaps')
 var tripsController = require('../controllers/trips/tripsController')
+var userQueries = require('../controllers/database/users/userQueries');
 
 router.route('/')
   .get((req, res, next) => {
@@ -22,17 +23,19 @@ router.route('/')
 
 router.route('/new')
   .get((req, res, next) => {
-    // load new trip tempate
-    res.render('trips/new_trip', {
-      title: 'e2e | New Trip',
-      id: req.session.passport.user.id,
-      username: req.session.passport.user.username,
-      firstname: req.session.passport.user.firstname,
-      lastname: req.session.passport.user.lastname,
-      fullname: req.session.passport.user.firstname + " " + req.session.passport.user.lastname,
-      email: req.session.passport.user.email
-      });
-  })
+    userQueries.allLocations(req.session.passport.user).then(function(locations) {
+      res.render('trips/new_trip', {
+        locations: locations.rows,
+        title: 'e2e | New Trip',
+        id: req.session.passport.user.id,
+        username: req.session.passport.user.username,
+        firstname: req.session.passport.user.firstname,
+        lastname: req.session.passport.user.lastname,
+        fullname: req.session.passport.user.firstname + " " + req.session.passport.user.lastname,
+        email: req.session.passport.user.email
+        });
+      })
+    })
   .post((req, res, next) => {
     // create new trip route
   })
