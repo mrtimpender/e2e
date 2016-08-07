@@ -38,6 +38,7 @@ router.route('/new')
     })
   .post((req, res, next) => {
     // create new trip route
+    res.json(req.body)
   })
 
 router.route('/edit/:id')
