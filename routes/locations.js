@@ -68,4 +68,13 @@ router.route('/edit/:id')
     });
   })
 
+  // delete location
+  // router.get('/delete:/id', (req, res, next) => res.redirect('/locations'))
+  router.route('/delete/:id')
+    .get((req, res, next) => {
+      locationModel.deleteLocation(req.params.id).then((location) => {
+        res.redirect('/locations')  
+      })
+    });
+
 module.exports = router;

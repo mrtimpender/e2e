@@ -6,5 +6,8 @@ module.exports = {
   },
   getLocationById: (id) => {
     return db.knex('user_locations').where('id', id)
+  },
+  deleteLocation: (id) => {
+    return db.knex('user_locations').where('id', id).del()
   }
 }
