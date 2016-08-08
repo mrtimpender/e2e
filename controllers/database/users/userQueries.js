@@ -64,18 +64,20 @@ module.exports = {
       destination_loc_id: locationIds.endId
     })
   },
-  editUserTrip: (sesh, mode, tripDetails, startAddress, endAddress, latLongStart, latLongEnd) => {
+  editUserTrip: (id, transit, tripDetails, startAddress, endAddress, latLongStart, latLongEnd) => {
     return db.knex('user_trips')
     .where('id', id)
-    .insert({
+    .update({
       trip_name: tripDetails.trip_name,
-      transit_method_id: mode,
+      transit_method_id: transit,
       origin_formatted_address: startAddress,
       origin_lat: latLongStart.lat,
       origin_lng: latLongStart.lng,
+      origin_loc_id: 3345,
       destination_formatted_address: endAddress,
       destination_lat: latLongEnd.lat,
       destination_lng: latLongEnd.lng,
+      destination_loc_id: 3267
     })
   }
 };
