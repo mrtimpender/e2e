@@ -12,5 +12,8 @@ module.exports = {
   },
   getLocationByAddress: (address) => {
     return db.knex('user_locations').where('formatted_address', address)
+  },
+  getLocationIdByAddress: (address) => {
+    return db.knex('user_locations').where('formatted_address', address).select('id')
   }
 }

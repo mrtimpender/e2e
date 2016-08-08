@@ -55,17 +55,19 @@ router.route('/new')
 
     tripsController.tripAddressPicker(req.body.new_origin_address, req.body.existing_origin_address, req.body.new_destination_address, req.body.existing_destination_address).then(function(tripAddressObj){
       tripQueries.getTripTransitMethod(req.body.transit_mode).then(function(transitId) {
-      geocode.geocodeDirtyAddress(startAdd).then(function(start) {
-        geocode.geocodeDirtyAddress(endAdd).then(function(end) {
+      geocode.geocodeDirtyAddress(tripAddressObj.startAddress).then(function(start) {
+        geocode.geocodeDirtyAddress(tripAddressObj.endAddress).then(function(end) {
           console.log(tripAddressObj);
-          // console.log('*******');
-          // console.log(start);
-          // console.log(end);
+          console.log(transitId);
+          console.log('*******');
+          console.log(start);
+          console.log(end);
           var sesh = req.session.passport.user
           var mode = Number(transitId[0].id)
           var tripDetails = req.body
-          var startAddress = start.results[0].formatted_address
-          var endAddress = end.results[0].formatted_address
+          var locationIds = tripAddressObj
+          var startAddress = tripAddressObj.startAddress
+          var endAddress = tripAddressObj.endAddress
           var latLongStart = start.results[0].geometry.location
           var latLongEnd = end.results[0].geometry.location
 

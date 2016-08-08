@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
           }),
           knex('transit_methods').insert({
             id: 302,
-            transit_type: 'BICYLING',
+            transit_type: 'BICYCLING',
             preferred_method: false,
             user_id: 1
           }),
