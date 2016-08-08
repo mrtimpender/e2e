@@ -158,8 +158,6 @@ var compileChartDataById = (id, rawChartData) => {
 
 $(document).ready(function() {
 	var lineCharts = $('.maps_time_estimate_line_chart')
-
-
 	// get our chart data from database
 	$.ajax({
 		method: 'get',
@@ -182,7 +180,7 @@ $(document).ready(function() {
 					})
 				}
 			}
-			//loop through our charts, create charts.		
+			//loop through our charts, create charts.
 			lineCharts.each((i, chart) => createLineChart(chart, lineChartDataConstructor(Number(chart.id.split('-')[1]))))
 		})
 	})
