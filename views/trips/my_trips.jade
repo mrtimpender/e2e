@@ -11,8 +11,9 @@ block content
 				#card-widgets
 					.row
 						each trip in trips
-							.col.s12.m6.l4
+							.col.s12.m6.l4.card-row
 								#flight-card.card
+									// add Jquery Masonry eventually
 
 									case trip.transit_method_id
 										when '303'
