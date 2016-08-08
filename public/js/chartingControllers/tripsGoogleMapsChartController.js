@@ -1,8 +1,11 @@
 console.log("woot")
 /*
-* Trending line chart
+* Trending line chart for google maps travel time with traffic
 */
-//var randomScalingFactor = function(){ return Math.round(Math.random()*10)};
+
+var masterChartData = {}
+
+
 var trendingLineChart;
 var data = {
 	labels : ["Apple","Samsung","SONY","Motorola","Nokia","Microsoft","Xiaomi"],
@@ -69,9 +72,28 @@ var lineChartData = {
 	]
 
 }
-var createLineChart = (chart) => {
+
+var lineChartDataConstructor = (trip_id) => {
+	return {
+		labels : masterChartData[trip_id].map((data) => data.created_at_formatted.day),
+		datasets : [
+			{
+				label: "My dataset",
+				fillColor : "rgba(255,255,255,0)",
+				strokeColor : "#fff",
+				pointColor : "#00796b ",
+				pointStrokeColor : "#fff",
+				pointHighlightFill : "#fff",
+				pointHighlightStroke : "rgba(220,220,220,1)",
+				data: masterChartData[trip_id].map((data) => data.directions_duration_in_traffic_val)
+			}
+		]
+	}
+}
+
+var createLineChart = (chart, chartData) => {
   var lineChart = document.getElementById(chart.id).getContext("2d")
-  window.lineChart = new Chart(lineChart).Line(lineChartData, {
+  window.lineChart = new Chart(lineChart).Line(chartData, {
     scaleShowGridLines : false,
     bezierCurve : false,
     scaleFontSize: 12,
@@ -80,10 +102,86 @@ var createLineChart = (chart) => {
     responsive: true,
   })
 }
+// parse unix timestamp to date
+var parseTimestamp = (timestamp) => {	
+	var d = new Date(Number(timestamp))
+	var dateObject = {
+		date: d,
+		month: ('0' + (d.getMonth() + 1)).slice(-2),
+		day: ('0' + d.getDate()).slice(-2),
+		hours: d.getHours(),
+		minutes: ('0' + d.getMinutes()).slice(-2)
+	}
+
+	return dateObject
+}
+
+// parse google map directions data
+var parseGMChartData = (chartData) => {
+	var d = new Date()
+	var  fiveDaysAgoTS = d.setDate(d.getDate() - 5);
+
+	var filteredChartData = chartData.rows.filter((row) => {
+		if(Number(row.created_at) > fiveDaysAgoTS){return row}
+	})
+	
+
+	var mappedChartData = filteredChartData.map((row) => {
+			return {
+				created_at_formatted: parseTimestamp(row.created_at),
+				directions_duration_in_traffic_text: row.directions_duration_in_traffic_text,
+				directions_duration_in_traffic_val: row.directions_duration_in_traffic_val,
+				trip_id: row.trip_id
+			}
+	})
+	return mappedChartData
+}
+
+// compile chart data for specific trip_id
+var compileChartDataById = (id, rawChartData) => {
+	var chartDataById = rawChartData.filter((data) => data.trip_id === id)
+	masterChartData[id] = chartDataById
+
+	console.log(masterChartData);
+	
+}
 
 $(document).ready(function(){
-    //loop through our charts
     var lineCharts = $('.maps_time_estimate_line_chart')
-    lineCharts.each((i, chart) => createLineChart(chart))
+
+
+		// get our chart data from database
+		$.ajax({
+			method: 'get',
+			url: '/trips/googleMapsChartData'
+		}).then((res) => {
+			
+			var rawChartData = parseGMChartData(res)
+			
+			// construct our line chart data for all trips
+			lineCharts.each((i, chart) => {
+				var chartId = Number(chart.id.split('-')[1])				
+				compileChartDataById(chartId, rawChartData)
+			}).promise().then(() => {
+				// sort chart data
+				console.log('master chart data', masterChartData);
+				for (var property in masterChartData) {
+						if (masterChartData.hasOwnProperty(property)) {
+								console.log(property);
+								
+						}
+				}
+							
+				// charting data processed. construct.
+				var constructedChartData = lineChartDataConstructor(206)
+				
+
+				//loop through our charts, create charts.		
+    		lineCharts.each((i, chart) => createLineChart(chart, constructedChartData))
+			})
+		})
+
+
+   
 
 });

@@ -8,6 +8,7 @@ var tripsController = require('../controllers/trips/tripsController')
 var tripQueries = require('../controllers/database/trips/tripQueries');
 var userQueries = require('../controllers/database/users/userQueries');
 var geocode = require('../controllers/google_maps_api/GoogleMaps');
+var googleTrafficChartModel = require('../controllers/database/chartingModels/googleTrafficChartModel')
 
 router.route('/')
   .get((req, res, next) => {
@@ -119,4 +120,8 @@ router.route('/delete/:id')
   //     // create edit trip route
   //   })
 
+// chart data for google maps
+router.get('/googleMapsChartData', (req, res, next) => {
+  googleTrafficChartModel.getAllTripTimeEstimates().then((estimates) => res.json(estimates))
+})
 module.exports = router;
