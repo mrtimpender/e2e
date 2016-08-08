@@ -5,14 +5,15 @@ $('#origin-location-dropdown').change(function() {
 })
 
 // show and hide button to toggle show origin input field
-$('#origin-location-dropdown').change(function() {
-  var watchedVal = $(this).val();
-  watchedVal != 'saved-location' ? $('#input-custom-origin').show() : $('#input-custom-origin').hide();
-})
+// $('#origin-location-dropdown').change(function() {
+//   var watchedVal = $(this).val();
+//   watchedVal != 'saved-location' ? $('#input-custom-origin').show() : $('#input-custom-origin').hide();
+// })
 
 // show origin input field when button is clicked
 $('#input-custom-origin').click(function() {
-  $('#origin-input').show();
+  $('#origin-input').show().val('');
+  $('#origin-side').find('.select-dropdown').show().val('');
 })
 
 
@@ -24,22 +25,22 @@ $('#origin-input').keyup(function(){
 // hide destination input field when destination dropdown option is selected
 $('#destination-location-dropdown').change(function() {
   var watchedVal = $(this).val();
-  watchedVal != 'saved-location' ? $('#destination-input').hide() : $('#destination-input').show();
+  watchedVal != 'saved-location' ? $('#destination-input').hide().val('') : $('#destination-input').show();
 })
 
 // show and hide button to toggle show destination input field
-$('#destination-location-dropdown').change(function() {
-  var watchedVal = $(this).val();
-  watchedVal != 'saved-location' ? $('#input-custom-destination').show() : $('#input-custom-destination').hide();
-})
+// $('#destination-location-dropdown').change(function() {
+//   var watchedVal = $(this).val();
+//   watchedVal != 'saved-location' ? $('#input-custom-destination').show() : $('#input-custom-destination').hide();
+// })
 
 // show destination input field when button is clicked
 $('#input-custom-destination').click(function() {
-  $('#destination-input').show();
-  $('#destination-location-dropdown').val();
+  $('#destination-input').show().val('');
+  $('#destination-side').find('.select-dropdown').show().val('');
 })
 
 // hide destination dropdown if input field has value, show if not
 $('#destination-input').keyup(function(){
-  $(this).val().length ? $('#destination-side').find('.select-dropdown').hide() :   $('#destination-side').find('.select-dropdown').show();
+  $(this).val().length ? $('#destination-side').find('.select-dropdown').hide().val('') :   $('#destination-side').find('.select-dropdown').show();
 })

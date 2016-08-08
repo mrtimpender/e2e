@@ -5,7 +5,9 @@ var router = express.Router();
 var passport = require('passport')
 var googleMaps = require('../controllers/google_maps_api/GoogleMaps')
 var tripsController = require('../controllers/trips/tripsController')
+var tripQueries = require('../controllers/database/trips/tripQueries');
 var userQueries = require('../controllers/database/users/userQueries');
+var geocode = require('../controllers/google_maps_api/GoogleMaps');
 var googleTrafficChartModel = require('../controllers/database/chartingModels/googleTrafficChartModel')
 
 router.route('/')
@@ -38,9 +40,25 @@ router.route('/new')
       })
     })
   .post((req, res, next) => {
-    // create new trip route
-    res.json(req.body)
-    console.log(  res.json(req.body));
+    tripQueries.getTripTransitMethod(req.body.transit_mode).then(function(transitId) {
+      console.log(req.body);
+      req.body.new_origin_address = '' ? startAdd = req.body.existing_origin_address : startAdd = req.body.new_origin_address;
+      geocode.geocodeDirtyAddress(startAdd).then(function(start) {
+        req.body.new_destination_address = '' ? endAdd = req.body.existing_destination_address : endAdd = req.body.new_destination_address;
+        geocode.geocodeDirtyAddress(endAdd).then(function(end) {
+          var sesh = req.session.passport.user
+          var mode = transitId[0].id
+          var tripDetails = req.body
+          var startAddress = start.results[0].formatted_address
+          var endAddress = end.results[0].formatted_address
+          var latLongStart = start.results[0].geometry.location
+          var latLongEnd = end.results[0].geometry.location
+          userQueries.addUserTrip(sesh, mode, tripDetails, startAddress, endAddress, latLongStart, latLongEnd).then(function() {
+            res.redirect('/trips');
+          })
+        })
+      })
+    })
   })
 
 router.route('/edit/:id')
