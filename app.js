@@ -20,7 +20,7 @@ var logout = require('./routes/logout')
 var directionsScheduleController = require('./controllers/schedule/directionsScheduleController')
 // reload all trips and get directions
 // directionsScheduleController.runAllWithSchedule('*/1 * * * *')
-directionsScheduleController.runAll()
+// directionsScheduleController.runAll()
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

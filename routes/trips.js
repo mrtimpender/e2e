@@ -15,7 +15,9 @@ var locationModel = require('../controllers/database/locations/locationModel');
 
 router.route('/')
   .get((req, res, next) => {
-  tripsController.returnTripsAndLocations().then((trips) => res.render('trips/my_trips', {
+  tripsController.returnTripsAndLocations().then((trips) => {
+    console.log(trips.rows);
+    res.render('trips/my_trips', {
     trips:trips.rows,
     title: 'e2e | My Trips',
     id: req.session.passport.user.id,
@@ -24,7 +26,8 @@ router.route('/')
     lastname: req.session.passport.user.lastname,
     fullname: req.session.passport.user.firstname + " " + req.session.passport.user.lastname,
     email: req.session.passport.user.email
-  }))
+    })
+  })
 })
 
 router.route('/new')
