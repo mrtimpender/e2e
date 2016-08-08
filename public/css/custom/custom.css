@@ -47,11 +47,11 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
   color:white;
 }
 /* trip card */
-.origin_name_trip_card {
+/*.origin_name_trip_card {
   background: #673AB7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #673AB7 , #00BCD4); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #673AB7 , #00BCD4);
-}
+  /*background: -webkit-linear-gradient(to left, #673AB7 , #00BCD4); /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to left, #673AB7 , #00BCD4);*/*/
+/*}*/
 
 body {
   top: 0 !important;
@@ -205,4 +205,13 @@ width: auto;
 .profile-image-login  {
   width: 150px;
   height: 150px !important;
+}
+
+#flight-card {
+  display: block;
+}
+
+.card-row:nth-child(3n+1) {
+  clear: both;
+  display: inline-block;
 }

@@ -58,7 +58,16 @@ router.get('/edit', (req, res, next) => res.redirect('/locations'))
 router.route('/edit/:id')
   .get((req, res, next) => {
     locationModel.getLocationById(req.params.id).then((location) => {
-      res.render('locations/editLocation', { location: location[0] })
+      res.render('locations/editLocation', {
+        location: location[0],
+        title: 'e2e | Locations',
+        id: req.session.passport.user.id,
+        username: req.session.passport.user.username,
+        firstname: req.session.passport.user.firstname,
+        lastname: req.session.passport.user.lastname,
+        fullname: req.session.passport.user.firstname + " " + req.session.passport.user.lastname,
+        email: req.session.passport.user.email
+       })
     })
   })
   .post((req, res, next) => {
