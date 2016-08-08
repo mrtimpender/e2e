@@ -48,7 +48,7 @@ module.exports = {
   allLocations: (sesh) => {
     return db.knex.raw(`SELECT * from user_locations WHERE user_id=${sesh.id}`);
   },
-  addUserTrip: (sesh, mode, tripDetails, startAddress, endAddress, latLongStart, latLongEnd) => {
+  addUserTrip: (sesh, mode, tripDetails, locationIds, startAddress, endAddress, latLongStart, latLongEnd) => {
     return db.knex('user_trips')
     .insert({
       user_id: sesh.id,
@@ -57,11 +57,11 @@ module.exports = {
       origin_formatted_address: startAddress,
       origin_lat: latLongStart.lat,
       origin_lng: latLongStart.lng,
-      origin_loc_id: tripDetails.data-originId, //this needs to change
+      origin_loc_id: locationIds.originId, 
       destination_formatted_address: endAddress,
       destination_lat: latLongEnd.lat,
       destination_lng: latLongEnd.lng,
-      destination_loc_id: tripDetails.data-destinationId //this needs to change
+      destination_loc_id: locationIds.destinationId
     })
   }
 };

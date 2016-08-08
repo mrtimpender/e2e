@@ -29,7 +29,7 @@ block content
 										h5.margin.white-text Destination Location
 										input#destination-input.controls(type='text', name='new_destination_address', placeholder='starting location for your trip')
 										if locations
-											select#destination-location-dropdown(name="existing_destination_address")
+											select#destination-location-dropdown(name="existing_destination_address" required)
 												option(value='destination-saved-location', disabled='', selected='') Select A Saved Location
 												for location in locations
 													option(value='#{location.formatted_address}', data-destinationId='#{location.id}') #{location.formatted_address}
