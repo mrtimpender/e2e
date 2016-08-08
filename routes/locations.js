@@ -14,8 +14,6 @@ var locationModel = require('../controllers/database/locations/locationModel')
 // }
 router.get('/', function(req, res, next) {
   userQueries.allLocations(req.session.passport.user).then(function(locations) {
-    console.log(locations.rows[0].lat);
-    console.log(locations.rows[0].lng);
     res.render('locations/locationCardList', {
       locations: locations.rows,
       title: 'e2e | Locations',

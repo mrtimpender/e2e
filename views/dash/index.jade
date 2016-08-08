@@ -601,29 +601,29 @@ block content
 								i.mdi-action-stars
 							ul
 								li
-									a#modal-fire.btn-floating.blue.modal-trigger(href='#modal1')
+									a#modal-fire.btn-floating.blue.modal-trigger(href='/locations/new')
 										i.large.mdi-communication-location-on
 								li
-									a.btn-floating.green(href='/trips')
+									a.btn-floating.green(href='/trips/new')
 										i.large.mdi-av-timer
 										// add trip modal
-
-						#modal1.modal
-							.modal-content
-								.col.s12.m12.l6
-									.card-panel
-										h4.header2 Add a Location
-									.row
-										form.col(class='s12', method='post' action="/user_locations")
-											.input-field.col.s12
-												input#location_name(type='text', name="location_name", placeholder="Name your location")
-												| Location Name
-											.input-field.col.s12
-												input#searchBoxField(type='text', name="address")
-												| Address
-										.row
-											.input-field.col.s12
-												button.btn.cyan.waves-effect.waves-light.right(type='submit', name='submit') Save Location!
+					
+						//- #modal1.modal
+						//- 	.modal-content
+						//- 		.col.s12.m12.l6
+						//- 			.card-panel
+						//- 				h4.header2 Add a Location
+						//- 			.row
+						//- 				form.col(class='s12', method='post' action="/user_locations")
+						//- 					.input-field.col.s12
+						//- 						input#location_name(type='text', name="location_name", placeholder="Name your location")
+						//- 						| Location Name
+						//- 					.input-field.col.s12
+						//- 						input#searchBoxField(type='text', name="address")
+						//- 						| Address
+						//- 				.row
+						//- 					.input-field.col.s12
+						//- 						button.btn.cyan.waves-effect.waves-light.right(type='submit', name='submit') Save Location!
 
 					// Floating Action Button
 					// end container
