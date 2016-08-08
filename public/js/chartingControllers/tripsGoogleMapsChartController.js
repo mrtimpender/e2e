@@ -72,9 +72,28 @@ var lineChartData = {
 	]
 
 }
-var createLineChart = (chart) => {
+
+var lineChartDataConstructor = (trip_id) => {
+	return {
+		labels : masterChartData[trip_id].map((data) => data.created_at_formatted.day),
+		datasets : [
+			{
+				label: "My dataset",
+				fillColor : "rgba(255,255,255,0)",
+				strokeColor : "#fff",
+				pointColor : "#00796b ",
+				pointStrokeColor : "#fff",
+				pointHighlightFill : "#fff",
+				pointHighlightStroke : "rgba(220,220,220,1)",
+				data: masterChartData[trip_id].map((data) => data.directions_duration_in_traffic_val)
+			}
+		]
+	}
+}
+
+var createLineChart = (chart, chartData) => {
   var lineChart = document.getElementById(chart.id).getContext("2d")
-  window.lineChart = new Chart(lineChart).Line(lineChartData, {
+  window.lineChart = new Chart(lineChart).Line(chartData, {
     scaleShowGridLines : false,
     bezierCurve : false,
     scaleFontSize: 12,
@@ -144,11 +163,12 @@ $(document).ready(function(){
 				var chartId = Number(chart.id.split('-')[1])				
 				compileChartDataById(chartId, rawChartData)
 			}).promise().then(() => {
-				// charting data processed. render charts with data.
+				// charting data processed. construct.
+				var constructedChartData = lineChartDataConstructor(201)
 				
 				
 				//loop through our charts, create charts.		
-    		lineCharts.each((i, chart) => createLineChart(chart))
+    		lineCharts.each((i, chart) => createLineChart(chart, constructedChartData))
 			})
 		})
 
