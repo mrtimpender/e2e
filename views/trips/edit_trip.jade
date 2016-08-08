@@ -7,23 +7,23 @@ block content
 		section#content
 			// start container
 			.container
-				.row
-					form(action="/trips/edit/#{trip.id}", method="POST")
+				form(action="/trips/edit/#{trip.id}", method="POST")
+					.row
 						.col.s12.m6.l6
 							.card
 								.card-move-up.teal.waves-effect.waves-block.waves-light
 									.move-up
 										h5.margin.white-text Start Location
-										input#origin-input.controls(type='text', name='trip_name', value='#{trip.origin_formatted_address}')
+										input#origin-input.controls(type='text', name='origin-address', value='#{trip.origin_formatted_address}')
 						.col.s12.m6.l6
 							.card
 								.card-move-up.teal.waves-effect.waves-block.waves-light
 									.move-up
 										h5.margin.white-text Destination Location
-										input#destination-input.controls(type='text', name='trip_name', value='#{trip.destination_formatted_address}')
+										input#destination-input.controls(type='text', name='destination-address', value='#{trip.destination_formatted_address}')
 										.input-field.col.s12
 						.col.s12.m4.l4
-							input#destination-input.controls(type='text', name='trip_name', placeholder='#{trip.trip_name}')
+							input#destination-input.controls(type='text', name='trip-name', placeholder='#{trip.trip_name}')
 						.row
 							.input-field.col.s5.m3.l4
 								select#mode

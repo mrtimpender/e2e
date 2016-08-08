@@ -77,7 +77,7 @@ var lineChartDataConstructor = (trip_id) => {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(220,220,220,1)",
-			data: masterChartData[trip_id].map((data) => data.directions_duration_in_traffic_val / 60)
+			data: masterChartData[trip_id].map((data) => (data.directions_duration_in_traffic_val / 60).toFixed(2))
 		}]
 	}
 }
