@@ -6,6 +6,7 @@ var passport = require('passport')
 var googleMaps = require('../controllers/google_maps_api/GoogleMaps')
 var tripsController = require('../controllers/trips/tripsController')
 var userQueries = require('../controllers/database/users/userQueries');
+var googleTrafficChartModel = require('../controllers/database/chartingModels/googleTrafficChartModel')
 
 router.route('/')
   .get((req, res, next) => {
@@ -100,4 +101,8 @@ router.route('/delete/:id')
   //     // create edit trip route
   //   })
 
+// chart data for google maps
+router.get('/googleMapsChartData', (req, res, next) => {
+  googleTrafficChartModel.getAllTripTimeEstimates().then((estimates) => res.json(estimates))
+})
 module.exports = router;

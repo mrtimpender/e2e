@@ -77,7 +77,6 @@ var createBarChart = (chart) => {
   window.trendingBarChart = new Chart(trendingBarChart).Bar(dataBarChart,{
     scaleShowGridLines : false,///Boolean - Whether grid lines are shown across the chart
     showScale: true,
-    animationSteps:15,
     tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
     responsive : true
   });
