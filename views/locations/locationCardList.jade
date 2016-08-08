@@ -18,23 +18,24 @@ block content
 										.card-image.waves-effect.waves-block.waves-light
 											.map-canvas(data-lat='#{location.lat}', data-lng='#{location.lng}', id='map-canvas-#{location.id}')
 										.card-content
-											a.btn-floating.activator.btn-move-up.waves-effect.waves-light.light-green.right
-												i.mdi-action-info
+											a.btn-floating.activator.btn-move-up.waves-effect.waves-light.red.right.accent-2(href="/locations/delete/#{location.id}")
+												i.mdi-action-delete
 											a.btn-floating.btn-move-up.waves-effect.waves-light.cyan.right(href="/locations/edit/#{location.id}")
 												i.mdi-image-edit
-											a.btn-floating.btn-move-up.waves-effect.waves-light.red.accent-2.right
-												i.mdi-action-favorite
+											// Add instant start to trip functionality. On lick.  Id is set as origin in new trip page
+											a.btn-floating.btn-move-up.waves-effect.waves-light.light-primary-color.right
+												i.mdi-hardware-keyboard-tab
 											h4.card-title.grey-text.text-darken-4
 												a.grey-text.text-darken-4(href='#')= location.name
 											p.blog-post-content= location.formatted_address
-										.card-reveal
-											span.card-title.grey-text.text-darken-4= location.name 
-												i.mdi-navigation-close.right
-											p
-												| Here is where a location description goes....IF I HAD ONE
-											p
-												i.mdi-communication-business.cyan-text.text-darken-2
-												|  #{location.formatted_address}
+										//- .card-reveal
+										//- 	span.card-title.grey-text.text-darken-4= location.name 
+										//- 		i.mdi-navigation-close.right
+										//- 	p
+										//- 		| Here is where a location description goes....IF I HAD ONE
+										//- 	p
+										//- 		i.mdi-communication-business.cyan-text.text-darken-2
+										//- 		|  #{location.formatted_address}
 												
 																				
 									.fixed-action-btn(style='bottom: 50px; right: 19px;')

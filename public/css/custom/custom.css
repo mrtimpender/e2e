@@ -165,3 +165,7 @@ width: auto;
 .select-dropdown {
   color: #D1D1D1;
 }
+
+.prefix.active {
+  color: #512DA8;
+}

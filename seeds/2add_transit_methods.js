@@ -25,6 +25,12 @@ exports.seed = function(knex, Promise) {
             transit_type: 'UBER',
             preferred_method: false,
             user_id: 1
+          }),
+          knex('transit_methods').insert({
+            id: 304,
+            transit_type: 'TRANSIT',
+            preferred_method: false,
+            user_id: 1
           })
       ]);
     });

@@ -6,6 +6,8 @@ function reInitMap() {
   var trafficLayer = new google.maps.TrafficLayer();
   var transitLayer = new google.maps.TransitLayer();
   var bikeLayer = new google.maps.BicyclingLayer();
+  var travel_mode = 'DRIVING';
+
   var map = new google.maps.Map(document.getElementById('jon_map'), {
     zoom: 14,
   });
@@ -46,13 +48,26 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
   $('#destination-input').is(':visible') ? endPoint = document.getElementById('destination-input').value : endPoint = destinationFromDropdown.options[destinationFromDropdown.selectedIndex].value
 
+  function setupClickListener(id, mode) {
+     var select = document.getElementById(id);
+     select.addEventListener('click', function() {
+       console.log(mode);
+       travel_mode = mode;
+     });
+   }
+   setupClickListener('changemode-walking', 'WALKING');
+   setupClickListener('changemode-transit', 'TRANSIT');
+   setupClickListener('changemode-driving', 'DRIVING');
+   setupClickListener('changemode-bicycling', 'BICYCLING');
+   setupClickListener('changemode-uber', 'DRIVING');
 
-
-  console.log('start: ', startPoint, 'end: ',  endPoint);
 
   var select = document.getElementById('mode')
   var selectedMode = select.options[select.selectedIndex].value;
   console.log(selectedMode);
+  console.log('*******');
+  console.log(travel_mode);
+
   directionsService.route({
     origin: startPoint,
     destination: endPoint,
