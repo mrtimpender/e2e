@@ -11,16 +11,16 @@ block content
 					.row
 						.col.s12.m6.l6
 							.card
-								.card-move-up.teal.waves-effect.waves-block.waves-light
+								.card-move-up.teal.waves-block.waves-light
 									.move-up
 										h5.margin.white-text Start Location
-										input#origin-input.controls(type='text', name='origin-address', value='#{trip.origin_formatted_address}')
+										input#origin-input.controls(type='text', name='origin_address', value='#{trip.origin_formatted_address}')
 						.col.s12.m6.l6
 							.card
-								.card-move-up.teal.waves-effect.waves-block.waves-light
+								.card-move-up.teal.waves-block.waves-light
 									.move-up
 										h5.margin.white-text Destination Location
-										input#destination-input.controls(type='text', name='destination-address', value='#{trip.destination_formatted_address}')
+										input#destination-input.controls(type='text', name='destination_address', value='#{trip.destination_formatted_address}')
 										.input-field.col.s12
 						.row
 							.container
@@ -40,7 +40,6 @@ block content
 								.col.s2.m1.l1
 									button#saveTrip.btn-floating.valign.btn-large.waves-effect.waves-light.light-green(type="submit")
 										i.mdi-content-save
-
 						//- button#showTraffic traffic
 						//- button#showTransit transit
 						//- button#showBike bike	
