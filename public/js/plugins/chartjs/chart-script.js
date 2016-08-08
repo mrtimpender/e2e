@@ -29,22 +29,22 @@ var data = {
 	]
 };
 
-// setInterval(function(){
-//   // Get a random index point
-//   var indexToUpdate = Math.round(Math.random() * (data.labels.length-1));
-//   if (typeof trendingLineChart != "undefined"){
-// 	  // Update one of the points in the second dataset
-// 	  if(trendingLineChart.datasets[0].points[indexToUpdate].value){
-// 	  		trendingLineChart.datasets[0].points[indexToUpdate].value = Math.round(Math.random() * 100);
-// 	  }
-// 	  if(trendingLineChart.datasets[1].points[indexToUpdate].value){
-// 	  		trendingLineChart.datasets[1].points[indexToUpdate].value = Math.round(Math.random() * 100);
-// 	  }
-// 	  trendingLineChart.update();
-//   }
-//
-//
-// }, 2000);
+setInterval(function(){
+  // Get a random index point
+  var indexToUpdate = Math.round(Math.random() * (data.labels.length-1));
+  if (typeof trendingLineChart != "undefined"){
+	  // Update one of the points in the second dataset
+	  if(trendingLineChart.datasets[0].points[indexToUpdate].value){
+	  		trendingLineChart.datasets[0].points[indexToUpdate].value = Math.round(Math.random() * 100);
+	  }
+	  if(trendingLineChart.datasets[1].points[indexToUpdate].value){
+	  		trendingLineChart.datasets[1].points[indexToUpdate].value = Math.round(Math.random() * 100);
+	  }
+	  trendingLineChart.update();
+  }
+
+
+}, 2000);
 
 
 /*
@@ -259,7 +259,7 @@ var polarData = [
 
 
 window.onload = function(){
-	var trendingLineChart = document.getElementById("trending-line-chart").getContext("2d");
+	var trendingLineChart = document.getElementById("chart-dash-trending-line-chart").getContext("2d");
 	window.trendingLineChart = new Chart(trendingLineChart).Line(data, {
 		scaleShowGridLines : true,///Boolean - Whether grid lines are shown across the chart
 		scaleGridLineColor : "rgba(255,255,255,0.4)",//String - Colour of the grid lines
