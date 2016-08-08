@@ -1,29 +1,43 @@
 var Promise = require('bluebird')
 var GoogleMapsAPI = require('googlemaps')
 Promise.promisifyAll(GoogleMapsAPI)
-var publicConfig = {
-  key: process.env.google_maps_api_directions_key,
-  stagger_time:       1000, // for elevationPath
-  encode_polylines:   false,
-  secure:             true, // use https
+
+var directionsConfig = {
+ key: process.env.google_maps_api_directions_key,
+ stagger_time:       1000, // for elevationPath
+ encode_polylines:   false,
+ secure:             true, // use https
 }
-var gmAPI = new GoogleMapsAPI(publicConfig);
-Promise.promisifyAll(gmAPI)
+
+var geocoderConfig = {
+ key: process.env.google_maps_api_key,
+ stagger_time:       1000, // for elevationPath
+ encode_polylines:   false,
+ secure:             true, // use https
+}
+
+
+var geocoderGmAPI = new GoogleMapsAPI(geocoderConfig)
+var directionsGmAPI = new GoogleMapsAPI(directionsConfig)
+
+Promise.promisifyAll(geocoderGmAPI)
+Promise.promisifyAll(directionsGmAPI)
+
 var exportMethods = {
-  geocodeDirtyAddress: (address) => {
-    var geocodeParams = {
-      "address":    address,
-      "components": "components=country:US",
-      "language":   "en",
-      "region":     "us"
-    }
-     return gmAPI.geocodeAsync(geocodeParams)
-  },
-  // get directions from address
-  getDirectionsFromAddresses: (params) => {
-    // var params = { origin, destination, mode }
-    return gmAPI.directionsAsync(params)
-  }
+ geocodeDirtyAddress: (address) => {
+   var geocodeParams = {
+     "address":    address,
+     "components": "components=country:US",
+     "language":   "en",
+     "region":     "us"
+   }
+    return geocoderGmAPI.geocodeAsync(geocodeParams)
+ },
+ // get directions from address
+ getDirectionsFromAddresses: (params) => {
+   // var params = { origin, destination, mode }
+   return directionsGmAPI.directionsAsync(params)
+ }
 }
 
 module.exports = exportMethods

@@ -26,4 +26,5 @@ module.exports = {
     return db.knex('user_trips').where('id', id).del()
   }
 
+
 }
