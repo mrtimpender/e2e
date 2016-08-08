@@ -149,19 +149,11 @@ var parseGMChartData = (chartData) => {
 	return mappedChartData
 }
 
-
 // compile chart data for specific trip_id
 var compileChartDataById = (id, rawChartData) => {
 	var chartDataById = rawChartData.filter((data) => data.trip_id === id)
 	masterChartData[id] = chartDataById
-
-	console.log(masterChartData);
-
 }
-
-
-
-
 
 $(document).ready(() => {
 	var primaryCommuteChart = $('#chart-dash-trending-line-chart')
@@ -172,7 +164,7 @@ $(document).ready(() => {
 		console.log(primaryCommuteData)
 		var parsedMapData = parseGMChartData(primaryCommuteData).sort(function(a, b) {
 						return (a.created_at_formatted.date - b.created_at_formatted.date)
-					})
+					}).slice(0, 30)
 		var constructedChartData =  {
 			labels : parsedMapData.map((data) => data.created_at_formatted.ampm),
 			datasets : [
@@ -189,8 +181,6 @@ $(document).ready(() => {
 			]
 		}
 
-
-// attempt
 	var trendingLineChart = document.getElementById("chart-dash-trending-line-chart").getContext("2d");
 	window.trendingLineChart = new Chart(trendingLineChart).Line(constructedChartData, {
 		scaleShowGridLines : true,///Boolean - Whether grid lines are shown across the chart

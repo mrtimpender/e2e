@@ -64,7 +64,7 @@ block content
 				.row
 					.col.s12.m12.l8
 						.card
-							.card-move-up.waves-effect.waves-block.waves-light
+							.card-move-up
 								.move-up.primary-secondary-grad.darken-1
 									div
 										span.chart-title.white-text My Primary Commute
@@ -72,7 +72,7 @@ block content
 									.trending-line-chart-wrapper
 										canvas#chart-dash-trending-line-chart(height='70')
 							.card-content
-								a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right
+								a.btn-floating.btn-move-up.darken-2.right
 									i.mdi-content-add.activator
 								.col.s12.m3.l3
 									#doughnut-chart-wrapper
@@ -256,7 +256,7 @@ block content
 												| Address
 										.row
 											.input-field.col.s12
-												button.btn.cyan.waves-effect.waves-light.right(type='submit', name='submit') Save Location!
+												button.btn.cyan.right(type='submit', name='submit') Save Location!
 
 					// Floating Action Button
 					// end container
