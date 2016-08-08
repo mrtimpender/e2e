@@ -119,7 +119,7 @@ var parseTimestamp = (timestamp) => {
 // parse google map directions data
 var parseGMChartData = (chartData) => {
 	var d = new Date()
-	var  fiveDaysAgoTS = d.setDate(d.getDate() - 1);
+	var  fiveDaysAgoTS = d.setDate(d.getDate() - 5);
 
 	var filteredChartData = chartData.rows.filter((row) => {
 		if(Number(row.created_at) > fiveDaysAgoTS){return row}
@@ -163,10 +163,19 @@ $(document).ready(function(){
 				var chartId = Number(chart.id.split('-')[1])				
 				compileChartDataById(chartId, rawChartData)
 			}).promise().then(() => {
+				// sort chart data
+				console.log('master chart data', masterChartData);
+				for (var property in masterChartData) {
+						if (masterChartData.hasOwnProperty(property)) {
+								console.log(property);
+								
+						}
+				}
+							
 				// charting data processed. construct.
-				var constructedChartData = lineChartDataConstructor(201)
+				var constructedChartData = lineChartDataConstructor(206)
 				
-				
+
 				//loop through our charts, create charts.		
     		lineCharts.each((i, chart) => createLineChart(chart, constructedChartData))
 			})
