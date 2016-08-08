@@ -19,9 +19,9 @@ block content
 											select#origin-location-dropdown(name="existing_origin_address")
 												option(value='origin-saved-location', disabled='', selected='') Select A Saved Location
 												for location in locations
-													option(value='#{location.formatted_address}') #{location.formatted_address}
+													option(value='#{location.formatted_address}', data-originId='#{location.id}') #{location.formatted_address}
 											label
-										a#input-custom-origin.btn-flat(style='display:none') Custom Origin
+										a#input-custom-origin.btn-flat Reset Origin
 						#destination-side.col.s12.m6.l6.dropdown-container
 							.card.dropdown-container
 								.card-move-up.teal.waves-block.waves-light.dropdown-container
@@ -32,9 +32,9 @@ block content
 											select#destination-location-dropdown(name="existing_destination_address")
 												option(value='destination-saved-location', disabled='', selected='') Select A Saved Location
 												for location in locations
-													option(value='#{location.formatted_address}') #{location.formatted_address}
+													option(value='#{location.formatted_address}', data-destinationId='#{location.id}') #{location.formatted_address}
 											label
-										a#input-custom-destination.btn-flat(style='display:none') Custom Destination
+										a#input-custom-destination.btn-flat Reset Destination
 
 					.row
 						.input-field.col.s5.m3.l4
