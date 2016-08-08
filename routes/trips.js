@@ -58,7 +58,6 @@ router.route('/new')
       geocode.geocodeDirtyAddress(startAdd).then(function(start) {
         geocode.geocodeDirtyAddress(endAdd).then(function(end) {
           console.log(tripAddressObj);
-          console.log(transitId);
           // console.log('*******');
           // console.log(start);
           // console.log(end);
