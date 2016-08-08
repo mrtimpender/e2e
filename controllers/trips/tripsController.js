@@ -21,10 +21,19 @@ var exportMethods = {
          tripAddressObj.startAdd = new_origin
          tripAddressObj.endAdd = new_destination
          resolve(tripAddressObj)
+      } else if (new_origin.length > 0 && existing_destination.length > 0){
+        tripAddressObj.startAdd = new_origin
+        tripAddressObj.endAdd = existing_destination
+        resolve(tripAddressObj)
+      } else if (existing_origin.length > 0 && new_destination.length > 0){
+        tripAddressObj.startAdd = existing_origin
+        tripAddressObj.endAdd = new_destination
+        resolve(tripAddressObj)
       } else {
+        tripAddressObj.startAdd = existing_origin
+        tripAddressObj.endAdd = existing_destination
         resolve(tripAddressObj)
       }
-      console.log('not working');
     })
   }
 }
