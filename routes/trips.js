@@ -88,19 +88,9 @@ router.route('/edit/:id')
 
 router.route('/delete/:id')
   .get((req, res, next) => {
-    // load new trip tempate
-    res.render('trips/new_trip', {
-      title: 'e2e | New Trip',
-      id: req.session.passport.user.id,
-      username: req.session.passport.user.username,
-      firstname: req.session.passport.user.firstname,
-      lastname: req.session.passport.user.lastname,
-      fullname: req.session.passport.user.firstname + " " + req.session.passport.user.lastname,
-      email: req.session.passport.user.email
-      });
-  })
-  .post((req, res, next) => {
-    // create new trip route
+    tripQueries.deleteTrip(req.params.id).then(() => {
+        res.redirect('/trips')
+    })
   })
   // router.route('/edit/:id')
   //   .get((req, res, next) => {
