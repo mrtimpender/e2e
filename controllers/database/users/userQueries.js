@@ -73,11 +73,11 @@ module.exports = {
       origin_formatted_address: startAddress,
       origin_lat: latLongStart.lat,
       origin_lng: latLongStart.lng,
-      origin_loc_id: 3345,
+      origin_loc_id: null,
       destination_formatted_address: endAddress,
       destination_lat: latLongEnd.lat,
       destination_lng: latLongEnd.lng,
-      destination_loc_id: 3267
+      destination_loc_id: null
     })
   }
 };
