@@ -170,14 +170,29 @@ $(document).ready(() => {
 		url: '/trips/primaryCommute'
 	}).then((primaryCommuteData) => {
 		console.log(primaryCommuteData)
-	})
-})
+		var parsedMapData = parseGMChartData(primaryCommuteData).sort(function(a, b) {
+						return (a.created_at_formatted.date - b.created_at_formatted.date)
+					})
+		var constructedChartData =  {
+			labels : parsedMapData.map((data) => data.created_at_formatted.ampm),
+			datasets : [
+				{
+					label: "First dataset",
+					fillColor : "rgba(128, 222, 234, 0.6)",
+					strokeColor : "#ffffff",
+					pointColor : "#00bcd4",
+					pointStrokeColor : "#ffffff",
+					pointHighlightFill : "#ffffff",
+					pointHighlightStroke : "#ffffff",
+					data: parsedMapData.map((data) => data.directions_duration_in_traffic_val / 60)
+				}
+			]
+		}
 
-// works below
 
-window.onload = function(){
+// attempt
 	var trendingLineChart = document.getElementById("chart-dash-trending-line-chart").getContext("2d");
-	window.trendingLineChart = new Chart(trendingLineChart).Line(data, {
+	window.trendingLineChart = new Chart(trendingLineChart).Line(constructedChartData, {
 		scaleShowGridLines : true,///Boolean - Whether grid lines are shown across the chart
 		scaleGridLineColor : "rgba(255,255,255,0.4)",//String - Colour of the grid lines
 		scaleGridLineWidth : 1,//Number - Width of the grid lines
@@ -209,16 +224,6 @@ window.onload = function(){
 		tooltipCornerRadius: 6,// Number - Pixel radius of the tooltip border
 		tooltipXOffset: 10,// Number - Pixel offset from point x to tooltip edge
 		responsive: true
-		});
-
-		var doughnutChart = document.getElementById("doughnut-chart").getContext("2d");
-		window.myDoughnut = new Chart(doughnutChart).Doughnut(doughnutData, {
-			segmentStrokeColor : "#fff",
-			tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
-			animationSteps : 15,
-			segmentStrokeWidth : 4,
-			animateScale: true,
-			percentageInnerCutout : 60,
-			responsive : true
-		});
-};
+		})
+	})
+})

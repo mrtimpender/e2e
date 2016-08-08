@@ -11,7 +11,7 @@ var exportMethods = {
   },
   getPrimaryCommuteEstimates: () => {
     return db.knex.raw(`select ut.trip_name, 
-	    ut.*
+	    td.*
     from user_trips ut 
     join trip_directions td on td.trip_id = ut.id
     where ut.is_primary = true
