@@ -53,6 +53,10 @@ body {
 	width: 83vw;
 }
 
+.edit-trips-map {
+  max-width: 75vw;
+}
+
 @media only screen and (max-width: 600px) {
   #jon_map {
     height: 40vh;
@@ -101,7 +105,7 @@ header {
 }
 
 #map {
-        height: 100%;
+  height: 100%;
 }
 
 /*#floating-panel {

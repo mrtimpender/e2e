@@ -14,8 +14,7 @@ module.exports = {
     return db.knex('transit_methods').select('id').where('transit_type', mode)
   },
   getTripTransitDetails: (id) => {
-    return
-    db.knex('transit_methods').select('tranist_type').where('id', id)
+    return db.knex('transit_methods').select('transit_type').where('id', id)
   },
   getTripsAndLocations: () => {
     return db.knex.raw(`select t.*, l.name as origin_name, l2.name as destination_name from user_trips t

@@ -81,12 +81,12 @@ router.route('/new')
 router.route('/edit/:id')
   .get((req, res, next) => {
     tripsController.returnSingleTrip(req.params.id).then((trip) => {
-      tripsController.returnTransitMethod(trip[0].transit_method_id).then((trans_method) => {
-        console.log(trans_method);
-        // console.log(trip[0].transit_method_id);
+      console.log(trip[0].transit_method_id);
+      tripsController.returnTransitMethod(trip[0].transit_method_id).then((transit) => {
+        console.log(transit);
         res.render('trips/edit_trip', {
           trip: trip[0],
-          trans_method: trans_method[0].transit_type,
+          trans_method: transit[0].transit_type,
           title: 'e2e | Edit This Trip',
           id: req.session.passport.user.id,
           username: req.session.passport.user.username,
@@ -98,9 +98,14 @@ router.route('/edit/:id')
       })
     })
   })
+
     .post((req, res, next) => {
-      // create new trip route
-  })
+      tripQueries.getTripTransitMethod(req.body.transit_mode).then(function(transitId) {
+        console.log(transitId);
+        res.json(req.body);
+      })
+    })
+
 
 
 router.route('/delete/:id')
