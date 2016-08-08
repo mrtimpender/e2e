@@ -41,6 +41,7 @@ exports.up = function(knex, Promise) {
         table.string('destination_lat')
         table.string('destination_lng')
         table.integer('destination_loc_id')
+        table.boolean('is_primary')
         table.string('created_at')
         table.string('updated_at')
       }),
@@ -51,6 +52,7 @@ exports.up = function(knex, Promise) {
         table.string('formatted_address')
         table.string('lat')
         table.string('lng')
+        table.boolean("is_favorite")
         table.string('created_at')
         table.string('updated_at')
       }),

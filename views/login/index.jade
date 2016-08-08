@@ -1,41 +1,41 @@
 extends ../login_layout
 block content
-  #login-page.row
-    .col.s12.z-depth-4.card-panel
-      if message
-        div #{message}
+  if message
+    div #{message}
+  #login-container
+    .col.s6.m6.l6.center-align  
       form.login-form(action="/login", method="POST")
         .row
-          .input-field.col.s12.center
+          .input-field.input-white.col.s12.center
             img.responsive-img.valign.profile-image-login(src='/images/logo/Purple - Aligned.svg', alt='e2e travel logo')
             h3.center.login-form-text end2end.travel
         .row.margin
-          .input-field.col.s12
+          .input-field.input-white.col.s12
             i.mdi-social-person-outline.prefix
             input#username(type='text', name="username")
             label.center-align(for='username') Username
         .row.margin
-          .input-field.col.s12
+          .input-field.input-white.col.s12
             i.mdi-action-lock-outline.prefix
-            input#password(type='password', name="password")
-            label(for='password') Password
+            input.input-white#password(type='password', name="password")
+            label.input-white(for='password') Password
         .row
-          .input-field.col.s12.m12.l12.login-text
+          .input-field.input-white.col.s12.m12.l12.login-text
             input#remember-me(type='checkbox', name="remember_me")
-            label(for='remember-me') Remember me
+            label.input-white(for='remember-me') Remember me
         .row
-          .input-field.col.s12
+          .input-field.input-white.col.s12
             button.btn.waves-effect.waves-light.col.s12.cyan(type="submit") Login
         .row
-          .input-field.col.s12
+          .input-field.input-white.col.s12
             a.btn.waves-effect.waves-light.col.s12(href='/auth/lyft') Login with Lyft
         .row
-          .input-field.col.s12
+          .input-field.input-white.col.s12
             a.btn.waves-effect.waves-light.col.s12.black(href='/auth/uber') Login with Uber
         .row
-          .input-field.col.s6.m6.l6
+          .input-field.input-white.col.s6.m6.l6
             p.margin.medium-small
               a(href='/login/register') Register Now!
-          .input-field.col.s6.m6.l6
+          .input-field.input-white.col.s6.m6.l6
             p.margin.right-align.medium-small
               a(href='/login/forgot_pass') Forgot password ?
