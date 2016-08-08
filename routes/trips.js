@@ -43,31 +43,35 @@ router.route('/new')
       })
     })
   .post((req, res, next) => {
-    tripQueries.getTripTransitMethod(req.body.transit_mode).then(function(transitId) {
-      console.log(req.body);
+    console.log(req.body);
 
-        req.body.new_origin_address = '' ?
-        startAdd = locationModel.getLocationByAddress(req.body.existing_origin_address) :
-        startAdd = req.body.new_origin_address;
-        console.log(startAdd);
+    locationIds = {
+      originId: null,
+      destinationId: null
+    }
+
+    var startAdd = req.body.new_origin_address
+    var endAdd = req.body.new_destination_address
+
+    tripsController.tripAddressPicker(req.body.new_origin_address, req.body.existing_origin_address, req.body.new_destination_address, req.body.existing_destination_address).then(function(tripAddressObj){
+      tripQueries.getTripTransitMethod(req.body.transit_mode).then(function(transitId) {
       geocode.geocodeDirtyAddress(startAdd).then(function(start) {
-        req.body.new_destination_address = '' ?
-        endAdd = locationModel.getLocationByAddress(req.body.existing_destination_address) :
-        endAdd = req.body.new_destination_address;
-        console.log(endAdd);
-      geocode.geocodeDirtyAddress(endAdd).then(function(end) {
-          console.log('*******');
-          console.log(start);
-          console.log(end);
+        geocode.geocodeDirtyAddress(endAdd).then(function(end) {
+          console.log(tripAddressObj);
+          // console.log('*******');
+          // console.log(start);
+          // console.log(end);
           var sesh = req.session.passport.user
-          var mode = transitId[0].id
+          var mode = Number(transitId[0].id)
           var tripDetails = req.body
           var startAddress = start.results[0].formatted_address
           var endAddress = end.results[0].formatted_address
           var latLongStart = start.results[0].geometry.location
           var latLongEnd = end.results[0].geometry.location
-          userQueries.addUserTrip(sesh, mode, tripDetails, startAddress, endAddress, latLongStart, latLongEnd).then(function() {
+
+          userQueries.addUserTrip(sesh, mode, tripDetails, locationIds, startAddress, endAddress, latLongStart, latLongEnd).then(function() {
             res.redirect('/trips');
+          })
           })
         })
       })
@@ -77,12 +81,12 @@ router.route('/new')
 router.route('/edit/:id')
   .get((req, res, next) => {
     tripsController.returnSingleTrip(req.params.id).then((trip) => {
-      tripsController.returnTransitMethod(trip[0].transit_method_id).then((trans_method) => {
-        console.log(trans_method);
-        // console.log(trip[0].transit_method_id);
+      console.log(trip[0].transit_method_id);
+      tripsController.returnTransitMethod(trip[0].transit_method_id).then((transit) => {
+        console.log(transit);
         res.render('trips/edit_trip', {
           trip: trip[0],
-          trans_method: trans_method[0].transit_type,
+          trans_method: transit[0].transit_type,
           title: 'e2e | Edit This Trip',
           id: req.session.passport.user.id,
           username: req.session.passport.user.username,
@@ -94,9 +98,14 @@ router.route('/edit/:id')
       })
     })
   })
+
     .post((req, res, next) => {
-      // create new trip route
-  })
+      tripQueries.getTripTransitMethod(req.body.transit_mode).then(function(transitId) {
+        console.log(transitId);
+        res.json(req.body);
+      })
+    })
+
 
 
 router.route('/delete/:id')
