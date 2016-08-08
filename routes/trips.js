@@ -101,8 +101,9 @@ router.route('/edit/:id')
 
     .post((req, res, next) => {
       tripQueries.getTripTransitMethod(req.body.transit_mode).then(function(transitId) {
+        console.log("#*#*#*#*#*#*#*#*#*#*#*#*");
         console.log(transitId);
-        res.json(req.body);
+        console.log(req.body);
       })
     })
 
