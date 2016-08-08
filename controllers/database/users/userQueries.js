@@ -57,11 +57,11 @@ module.exports = {
       origin_formatted_address: startAddress,
       origin_lat: latLongStart.lat,
       origin_lng: latLongStart.lng,
-      origin_loc_id: locationIds.originId, 
+      origin_loc_id: locationIds.startId,
       destination_formatted_address: endAddress,
       destination_lat: latLongEnd.lat,
       destination_lng: latLongEnd.lng,
-      destination_loc_id: locationIds.destinationId
+      destination_loc_id: locationIds.endId
     })
   },
   editUserTrip: (sesh, mode, tripDetails, startAddress, endAddress, latLongStart, latLongEnd) => {
