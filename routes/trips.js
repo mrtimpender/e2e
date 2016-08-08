@@ -27,6 +27,48 @@ router.route('/')
   }))
 })
 
+router.route('/edit/:id')
+  .get((req, res, next) => {
+    tripsController.returnSingleTrip(req.params.id).then((trip) => {
+      console.log(trip[0].transit_method_id);
+      tripsController.returnTransitMethod(trip[0].transit_method_id).then((transit) => {
+        console.log(transit);
+        res.render('trips/edit_trip', {
+          trip: trip[0],
+          trans_method: transit[0].transit_type,
+          title: 'e2e | Edit This Trip',
+          id: req.session.passport.user.id,
+          username: req.session.passport.user.username,
+          firstname: req.session.passport.user.firstname,
+          lastname: req.session.passport.user.lastname,
+          fullname: req.session.passport.user.firstname + " " + req.session.passport.user.lastname,
+          email: req.session.passport.user.email
+        })
+      })
+    })
+  })
+
+    .post((req, res, next) => {
+      tripQueries.getTripTransitMethod(req.body.transit_mode).then(function(transitId) {
+        geocode.geocodeDirtyAddress(req.body.origin_address).then(function(start) {
+          geocode.geocodeDirtyAddress(req.body.destination_address).then(function(end) {
+
+            var id = req.params.id
+            var transit = Number(transitId[0].id)
+            var tripDetails = req.body
+            var startAddress = req.body.origin_address
+            var endAddress = req.body.destination_address
+            var latLongStart = start.results[0].geometry.location
+            var latLongEnd = end.results[0].geometry.location
+
+            userQueries.editUserTrip(id, transit, tripDetails, startAddress, endAddress, latLongStart, latLongEnd).then(function() {
+              res.redirect('/trips')
+            })
+          })
+        })
+      })
+    })
+
 router.route('/new')
   .get((req, res, next) => {
     userQueries.allLocations(req.session.passport.user).then(function(locations) {
@@ -79,35 +121,6 @@ router.route('/new')
       })
     })
   })
-
-router.route('/edit/:id')
-  .get((req, res, next) => {
-    tripsController.returnSingleTrip(req.params.id).then((trip) => {
-      console.log(trip[0].transit_method_id);
-      tripsController.returnTransitMethod(trip[0].transit_method_id).then((transit) => {
-        console.log(transit);
-        res.render('trips/edit_trip', {
-          trip: trip[0],
-          trans_method: transit[0].transit_type,
-          title: 'e2e | Edit This Trip',
-          id: req.session.passport.user.id,
-          username: req.session.passport.user.username,
-          firstname: req.session.passport.user.firstname,
-          lastname: req.session.passport.user.lastname,
-          fullname: req.session.passport.user.firstname + " " + req.session.passport.user.lastname,
-          email: req.session.passport.user.email
-        })
-      })
-    })
-  })
-
-    .post((req, res, next) => {
-      tripQueries.getTripTransitMethod(req.body.transit_mode).then(function(transitId) {
-
-      })
-      res.json(req.body);
-    })
-
 
 
 router.route('/delete/:id')
