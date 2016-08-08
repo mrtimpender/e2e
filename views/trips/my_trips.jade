@@ -63,7 +63,7 @@ block content
 												.card-content.black
 													.line-chart-wrapper
 														p.margin.white-text Trip Duration History (with traffic)
-														canvas.maps_time_estimate_line_chart(id="trip-#{trip.id}-time-line-chart", height='114')
+														canvas.maps_time_estimate_line_chart(tripid="#{trip.id}", id="trip-#{trip.id}-time-line-chart", height='114')
 												.card-reveal
 													span.card-title.grey-text.text-darken-4
 														| Trip Duration History (with traffic) 
@@ -137,7 +137,7 @@ block content
 												.card-content
 													.line-chart-wrapper
 														p.margin.white-text Trip Duration History (with traffic)
-														canvas.maps_time_estimate_line_chart(id="trip-#{trip.id}-time-line-chart", height='114')
+														canvas.maps_time_estimate_line_chart(tripid="#{trip.id}", id="trip-#{trip.id}-time-line-chart", height='114')
 												.card-reveal
 													span.card-title.grey-text.text-darken-4
 														| Trip Duration History (with traffic) 
@@ -248,7 +248,7 @@ block content
 														i.mdi-content-add.activator
 													.line-chart-wrapper
 														p.margin.white-text Trip Duration History (with traffic)
-														canvas.maps_time_estimate_line_chart(id="trip-#{trip.id}-time-line-chart", height='114')
+														canvas.maps_time_estimate_line_chart(tripid="#{trip.id}", id="trip-#{trip.id}-time-line-chart", height='114')
 												.card-reveal
 													span.card-title.grey-text.text-darken-4
 														| Trip Duration History (with traffic) 

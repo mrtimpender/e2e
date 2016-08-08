@@ -2,6 +2,10 @@ console.log("woot")
 /*
 * Trending line chart for google maps travel time with traffic
 */
+
+var masterChartData = {}
+
+
 var trendingLineChart;
 var data = {
 	labels : ["Apple","Samsung","SONY","Motorola","Nokia","Microsoft","Xiaomi"],
@@ -116,24 +120,39 @@ var parseGMChartData = (chartData) => {
 
 // compile chart data for specific trip_id
 var compileChartDataById = (id, rawChartData) => {
-	var chartData = rawChartData.filter((data) => data.trip_id === id)
-	console.log(chartData);
+	var chartDataById = rawChartData.filter((data) => data.trip_id === id)
+	masterChartData[id] = chartDataById
+
+	console.log(masterChartData);
 	
 }
 
 $(document).ready(function(){
+    var lineCharts = $('.maps_time_estimate_line_chart')
+
+
 		// get our chart data from database
 		$.ajax({
 			method: 'get',
 			url: '/trips/googleMapsChartData'
 		}).then((res) => {
+			
 			var rawChartData = parseGMChartData(res)
-			compileChartDataById(201, rawChartData)
+			
+			// construct our line chart data for all trips
+			lineCharts.each((i, chart) => {
+				var chartId = Number(chart.id.split('-')[1])				
+				compileChartDataById(chartId, rawChartData)
+			}).promise().then(() => {
+				// charting data processed. render charts with data.
+				
+				
+				//loop through our charts, create charts.		
+    		lineCharts.each((i, chart) => createLineChart(chart))
+			})
 		})
 
 
-    //loop through our charts, create charts.
-    var lineCharts = $('.maps_time_estimate_line_chart')
-    lineCharts.each((i, chart) => createLineChart(chart))
+   
 
 });
