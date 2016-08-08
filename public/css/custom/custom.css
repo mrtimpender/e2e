@@ -198,8 +198,8 @@ width: auto;
   color: #D1D1D1;
 }
 
-.prefix.active {
-  color: #512DA8;
+.input-field .prefix.active{
+  color: #FFF;
 }
 
 .profile-image-login  {
