@@ -64,10 +64,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
   var select = document.getElementById('mode')
   var selectedMode = select.options[select.selectedIndex].value;
-  console.log(selectedMode);
-  console.log('*******');
-  console.log(travel_mode);
-
   directionsService.route({
     origin: startPoint,
     destination: endPoint,
