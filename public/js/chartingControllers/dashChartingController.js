@@ -161,7 +161,6 @@ $(document).ready(() => {
 		method: 'get',
 		url: '/trips/primaryCommute'
 	}).then((primaryCommuteData) => {
-		console.log(primaryCommuteData)
 		var parsedMapData = parseGMChartData(primaryCommuteData).sort(function(a, b) {
 						return (a.created_at_formatted.date - b.created_at_formatted.date)
 					}).slice(0, 30)

@@ -172,12 +172,17 @@ $(document).ready(function() {
 			compileChartDataById(chartId, rawChartData)
 		}).promise().then(() => {
 			// sort chart data
-			console.log('master chart data', masterChartData);
+			console.log('master chart data IN THIS FILE', masterChartData);
 			for (var property in masterChartData) {
 				if (masterChartData.hasOwnProperty(property)) {
 					masterChartData[property].sort(function(a, b) {
 						return (a.created_at_formatted.date - b.created_at_formatted.date)
-					})
+					}).slice(0, 15)
+				}
+			}
+			for(var property in masterChartData){
+				if(masterChartData.hasOwnProperty(property)){
+					masterChartData[property] = masterChartData[property].slice(0,15)
 				}
 			}
 			//loop through our charts, create charts.
