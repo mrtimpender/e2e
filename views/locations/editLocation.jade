@@ -9,20 +9,20 @@ block content
 			// start container
 			.container
 				.row
-					h4 Edit your #{location.name} location
-				.col.s12.m12.l6
-					.card-panel
-						.row
-							form.col(class='s12', method='post' action="/locations/edit/#{location.id}")
-								.input-field.col.s12
-									input#location_name(type='text', name="location_name", value=location.name)
-									| Location Name
-								.input-field.col.s12
-									input#searchBoxField(type='text', name="address" value=location.formatted_address)
-									| Address
-								.row
+					.col.s12.m12.l6
+						.card-panel.card-move-up.teal.waves-effect.waves-block.waves-light
+							h4.margin.white-text Edit Your #{location.name} Location
+							.row
+								form.col(class='s12', method='post' action="/locations/edit/#{location.id}")
 									.input-field.col.s12
-										button.btn.cyan.waves-effect.waves-light.right(type='submit') Edit Location!
+										input#location_name(type='text', name="location_name", value=location.name)
+										| Location Name
+									.input-field.col.s12
+										input#searchBoxField(type='text', name="address" value=location.formatted_address)
+										| Address
+									.row
+										.input-field.col.s12
+											button.btn.cyan.waves-effect.waves-light.right(type='submit') Edit Location!
 					
 
 
