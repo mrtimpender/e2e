@@ -14,6 +14,8 @@ var locationModel = require('../controllers/database/locations/locationModel')
 // }
 router.get('/', function(req, res, next) {
   userQueries.allLocations(req.session.passport.user).then(function(locations) {
+    console.log(locations.rows[0].lat);
+    console.log(locations.rows[0].lng);
     res.render('locations/locationCardList', {
       locations: locations.rows,
       title: 'e2e | Locations',
@@ -42,8 +44,9 @@ router.route('/new')
   })
   .post((req, res, next) => {
     geocode.geocodeDirtyAddress(req.body.address).then(function(latLong){
-      console.log(latLong.results[0].geometry.location);
-      console.log(req.session.passport.user.id);
+      // console.log(req.body.address);
+      // console.log('******');
+      // console.log(latLong);
       userQueries.addUserLocation(req.session.passport.user, req.body, latLong.results[0].geometry.location).then(function(){
         res.redirect('/locations');
       })
@@ -73,7 +76,7 @@ router.route('/edit/:id')
   router.route('/delete/:id')
     .get((req, res, next) => {
       locationModel.deleteLocation(req.params.id).then((location) => {
-        res.redirect('/locations')  
+        res.redirect('/locations')
       })
     });
 
