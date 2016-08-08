@@ -201,3 +201,8 @@ width: auto;
 .prefix.active {
   color: #512DA8;
 }
+
+.profile-image-login  {
+  width: 150px;
+  height: 150px !important;
+}
