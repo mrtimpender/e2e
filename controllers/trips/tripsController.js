@@ -11,7 +11,7 @@ var exportMethods = {
     return tripQueries.getTripById(id)
   },
   returnTransitMethod: (id) => {
-    return tripQueries.getTripTransitMethod(id)
+    return tripQueries.getTripTransitDetails(id)
   }
 }
 module.exports = exportMethods
