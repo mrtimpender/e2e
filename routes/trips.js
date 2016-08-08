@@ -123,8 +123,14 @@ router.route('/delete/:id')
   //     // create edit trip route
   //   })
 
+
+// BEGIN JSON API CALLS
 // chart data for google maps
 router.get('/googleMapsChartData', (req, res, next) => {
   googleTrafficChartModel.getAllTripTimeEstimates().then((estimates) => res.json(estimates))
+})
+// primary commute
+router.get('/primaryCommute', (req, res, next) => {
+  googleTrafficChartModel.getPrimaryCommuteEstimates().then((estimates) => res.json(estimates))
 })
 module.exports = router;

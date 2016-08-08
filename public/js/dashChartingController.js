@@ -68,6 +68,113 @@ var pieData = [
 
 
 
+var lineChartDataConstructor = (trip_id) => {
+	return {
+		labels: masterChartData[trip_id].map((data) => data.created_at_formatted.ampm),
+		datasets: [{
+			label: "My dataset",
+			fillColor: "rgba(255,255,255,0)",
+			strokeColor: "#fff",
+			pointColor: "#00796b ",
+			pointStrokeColor: "#fff",
+			pointHighlightFill: "#fff",
+			pointHighlightStroke: "rgba(220,220,220,1)",
+			data: masterChartData[trip_id].map((data) => data.directions_duration_in_traffic_val / 60)
+		}]
+	}
+}
+
+var createLineChart = (chart, chartData) => {
+		var lineChart = document.getElementById(chart.id).getContext("2d")
+		window.lineChart = new Chart(lineChart).Line(chartData, {
+			scaleShowGridLines: false,
+			bezierCurve: false,
+			scaleFontSize: 12,
+			scaleFontStyle: "normal",
+			scaleFontColor: "#fff",
+			responsive: true,
+		})
+	}
+
+	var format_time = (date_obj) => {
+	// formats a javascript Date object into a 12h AM/PM time string
+	var hour = date_obj.getHours();
+	var minute = date_obj.getMinutes();
+	var amPM = (hour > 11) ? "pm" : "am";
+	if (hour > 12) {
+		hour -= 12;
+	} else if (hour == 0) {
+		hour = "12";
+	}
+	if (minute < 10) {
+		minute = "0" + minute;
+	}
+	return hour + ":" + minute + amPM;
+}
+
+	// parse unix timestamp to date
+var parseTimestamp = (timestamp) => {
+	var d = new Date(Number(timestamp))
+	var dateObject = {
+		date: d,
+		month: ('0' + (d.getMonth() + 1)).slice(-2),
+		day: ('0' + d.getDate()).slice(-2),
+		hours: d.getHours(),
+		minutes: ('0' + d.getMinutes()).slice(-2),
+		ampm: format_time(d)
+	}
+	return dateObject
+}
+
+// parse google map directions data
+var parseGMChartData = (chartData) => {
+	var d = new Date()
+	var fiveDaysAgoTS = d.setDate(d.getDate() - 1);
+
+	var filteredChartData = chartData.rows.filter((row) => {
+		if (Number(row.created_at) > fiveDaysAgoTS) {
+			return row
+		}
+	})
+
+
+	var mappedChartData = filteredChartData.map((row) => {
+		return {
+			created_at_formatted: parseTimestamp(row.created_at),
+			directions_duration_in_traffic_text: row.directions_duration_in_traffic_text,
+			directions_duration_in_traffic_val: row.directions_duration_in_traffic_val,
+			trip_id: row.trip_id
+		}
+	})
+	return mappedChartData
+}
+
+
+// compile chart data for specific trip_id
+var compileChartDataById = (id, rawChartData) => {
+	var chartDataById = rawChartData.filter((data) => data.trip_id === id)
+	masterChartData[id] = chartDataById
+
+	console.log(masterChartData);
+
+}
+
+
+
+
+
+$(document).ready(() => {
+	var primaryCommuteChart = $('#chart-dash-trending-line-chart')
+	$.ajax({
+		method: 'get',
+		url: '/trips/primaryCommute'
+	}).then((primaryCommuteData) => {
+		console.log(primaryCommuteData)
+	})
+})
+
+// works below
+
 window.onload = function(){
 	var trendingLineChart = document.getElementById("chart-dash-trending-line-chart").getContext("2d");
 	window.trendingLineChart = new Chart(trendingLineChart).Line(data, {
@@ -85,8 +192,6 @@ window.onload = function(){
 		datasetStroke : true,//Boolean - Whether to show a stroke for datasets
 		datasetStrokeWidth : 3,//Number - Pixel width of dataset stroke
 		datasetFill : true,//Boolean - Whether to fill the dataset with a colour
-		animationSteps: 15,// Number - Number of animation steps
-		animationEasing: "easeOutQuart",// String - Animation easing effect
 		tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
 		scaleFontSize: 12,// Number - Scale label font size in pixels
 		scaleFontStyle: "normal",// String - Scale label font weight style
