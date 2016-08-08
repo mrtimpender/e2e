@@ -55,7 +55,8 @@ router.route('/edit/:id')
       tripQueries.getTripTransitMethod(req.body.transit_mode).then(function(transitId) {
         geocode.geocodeDirtyAddress(req.body.origin_address).then(function(start) {
           geocode.geocodeDirtyAddress(req.body.destination_address).then(function(end) {
-
+            console.log(transitId);
+            
             var id = req.params.id
             var transit = Number(transitId[0].id)
             var tripDetails = req.body

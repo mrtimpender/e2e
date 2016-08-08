@@ -25,14 +25,15 @@ block content
 						.row
 							.container
 								.input-field.col.s12.m6.l6.no-margin-no-padding
-									input#destination-input.controls(type='text', name='trip-name', placeholder='#{trip.trip_name}')
+									input#destination-input.controls(type='text', name='trip_name', placeholder='#{trip.trip_name}')
 								.input-field.col.s5.m4.l4
-									select#mode
+									select#mode(name='transit_mode')
 										option(value='', disabled='', selected='') #{trans_method}
-										option(value='TRANSIT', id='changemode-transit') Transit
 										option(value='DRIVING', id='changemode-driving') Driving
-										option(value='BICYCLING', id='changemode-bicycling') Bicycling
 										option(value='WALKING', id='changemode-walking') Walking
+										option(value='BICYCLING', id='changemode-bicycling') Bicycling
+										option(value='DRIVING', id='changemode-uber') Uber
+										option(value='TRANSIT', id='changemode-transit') Transit
 									label 
 								.col.s2.m1.l1
 									a#getDirections.btn-floating.valign.btn-large.waves-effect.waves-light.cyan
@@ -43,7 +44,7 @@ block content
 						//- button#showTraffic traffic
 						//- button#showTransit transit
 						//- button#showBike bike	
-						
+
 				.col.s12.m6.l6
 					#jon_map.edit-trips-map.mobile-map
 			// FOOTER

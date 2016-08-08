@@ -16,13 +16,13 @@ block content
 								form.col(class='s12', method='post' action="/locations/edit/#{location.id}")
 									.input-field.col.s12
 										input#location_name(type='text', name="location_name", value=location.name)
-										| Location Name
+										h6.margin.white-text Location Name
 									.input-field.col.s12
 										input#searchBoxField(type='text', name="address" value=location.formatted_address)
-										| Address
+										h6.margin.white-text Address
 									.row
 										.input-field.col.s12
-											button.btn.cyan.waves-effect.waves-light.right(type='submit') Edit Location!
+											button.btn.cyan.waves-effect.waves-light.right(type='submit') Edit Location
 					
 
 
