@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///Users/TimPender/workspace/q3/controllers/madlib.html -->
+<html ng-app="app" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    
+    <title>Controller Intro</title>
+    <link rel="stylesheet" href="./Controller Intro_files/style.css" media="screen" charset="utf-8">
+</head>
+
+<body>
+
+<div ng-controller="MadlibsController" class="ng-scope">
+    <h1>MadLib</h1>
+    <h3>Boy's Name</h3>
+    <input type="text" ng-model="boy" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+    <h3>Adjective</h3>
+    <input type="text" ng-model="adj" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+    <h3>Plural Noun</h3>
+    <input type="text" ng-model="plural1" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+    <h3>Plural Noun</h3>
+    <input type="text" ng-model="plural2" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+    <h3>Plural Insect</h3>
+    <input type="text" ng-model="insects" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+    <h3>Plural Noun</h3>
+    <input type="text" ng-model="plural3" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+    <h3>Verb, Ends in s</h3>
+    <input type="text" ng-model="verb" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+
+
+  <button type="button" ng-click="populateMadlib()">Submit</button>
+  <button type="button" ng-click="clearMadlib()">Reset</button>
+
+  <p ng-show="true" class="ng-binding">I'm in love with asd. He's so asd! He has big flat asd, and when our asd meet, I get asdin my stomach. I've fallen for him like a ton of asd, and he asd for me, too. But I think he's got another girlfriend. What should I do?</p>
+</div>
+
+
+<script type="text/javascript" src="./Controller Intro_files/angular.min.js"></script>
+<script type="text/javascript" src="./Controller Intro_files/app.js"></script>
+
+
+</body></html>
